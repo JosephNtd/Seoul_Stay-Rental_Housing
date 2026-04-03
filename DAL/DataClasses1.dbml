@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Seoul_Stay" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-F8TMCM4;Initial Catalog=Seoul_Stay;Integrated Security=True;Trust Server Certificate=True" SettingsObjectName="DAL.Properties.Settings" SettingsPropertyName="Seoul_StayConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Amenities" Member="Amenities">
+    <Type Name="Amenity">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GUID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IconName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Amenity_ItemAmenity" Member="ItemAmenities" ThisKey="ID" OtherKey="AmenityID" Type="ItemAmenity" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserTypes" Member="UserTypes">
+    <Type Name="UserType">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GUID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="UserType_User" Member="Users" ThisKey="ID" OtherKey="UserTypeID" Type="User" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Areas" Member="Areas">
+    <Type Name="Area">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GUID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Area_Attraction" Member="Attractions" ThisKey="ID" OtherKey="AreaID" Type="Attraction" />
+      <Association Name="Area_Item" Member="Items" ThisKey="ID" OtherKey="AreaID" Type="Item" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Attractions" Member="Attractions">
+    <Type Name="Attraction">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GUID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="AreaID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Association Name="Attraction_ItemAttraction" Member="ItemAttractions" ThisKey="ID" OtherKey="AttractionID" Type="ItemAttraction" />
+      <Association Name="Area_Attraction" Member="Area" ThisKey="AreaID" OtherKey="ID" Type="Area" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CancellationPolicies" Member="CancellationPolicies">
+    <Type Name="CancellationPolicy">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GUID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Commission" Type="System.Decimal" DbType="Decimal(5,2) NOT NULL" CanBeNull="false" />
+      <Association Name="CancellationPolicy_CancellationRefundFee" Member="CancellationRefundFees" ThisKey="ID" OtherKey="CancellationPolicyID" Type="CancellationRefundFee" />
+      <Association Name="CancellationPolicy_ItemPrice" Member="ItemPrices" ThisKey="ID" OtherKey="CancellationPolicyID" Type="ItemPrice" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CancellationRefundFees" Member="CancellationRefundFees">
+    <Type Name="CancellationRefundFee">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GUID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="CancellationPolicyID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="DaysLeft" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PenaltyPercentage" Type="System.Decimal" DbType="Decimal(5,2) NOT NULL" CanBeNull="false" />
+      <Association Name="CancellationPolicy_CancellationRefundFee" Member="CancellationPolicy" ThisKey="CancellationPolicyID" OtherKey="ID" Type="CancellationPolicy" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Coupons" Member="Coupons">
+    <Type Name="Coupon">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GUID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="CouponCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DiscountPercent" Type="System.Decimal" DbType="Decimal(4,1) NOT NULL" CanBeNull="false" />
+      <Column Name="MaximimDiscountAmount" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DimDates" Member="DimDates">
+    <Type Name="DimDate">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Year" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Quarter" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Month" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MonthName" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="DayOfMonth" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DayOfWeek" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DayName" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="isHoliday" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ItemAmenities" Member="ItemAmenities">
+    <Type Name="ItemAmenity">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GUID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="ItemID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="AmenityID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Association Name="Amenity_ItemAmenity" Member="Amenity" ThisKey="AmenityID" OtherKey="ID" Type="Amenity" IsForeignKey="true" />
+      <Association Name="Item_ItemAmenity" Member="Item" ThisKey="ItemID" OtherKey="ID" Type="Item" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ItemAttractions" Member="ItemAttractions">
+    <Type Name="ItemAttraction">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GUID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="ItemID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="AttractionID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Distance" Type="System.Decimal" DbType="Decimal(5,1)" CanBeNull="true" />
+      <Column Name="DurationOnFoot" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DurationByCar" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Association Name="Attraction_ItemAttraction" Member="Attraction" ThisKey="AttractionID" OtherKey="ID" Type="Attraction" IsForeignKey="true" />
+      <Association Name="Item_ItemAttraction" Member="Item" ThisKey="ItemID" OtherKey="ID" Type="Item" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ItemPictures" Member="ItemPictures">
+    <Type Name="ItemPicture">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GUID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="ItemID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="PictureFileName" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Association Name="Item_ItemPicture" Member="Item" ThisKey="ItemID" OtherKey="ID" Type="Item" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ItemPrices" Member="ItemPrices">
+    <Type Name="ItemPrice">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GUID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="ItemID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="CancellationPolicyID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Association Name="CancellationPolicy_ItemPrice" Member="CancellationPolicy" ThisKey="CancellationPolicyID" OtherKey="ID" Type="CancellationPolicy" IsForeignKey="true" />
+      <Association Name="Item_ItemPrice" Member="Item" ThisKey="ItemID" OtherKey="ID" Type="Item" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Items" Member="Items">
+    <Type Name="Item">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GUID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="ItemTypeID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="AreaID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Capacity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NumberOfBeds" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NumberOfBedrooms" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NumberOfBathrooms" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ExactAddress" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="ApproximateAddress" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(2000) NOT NULL" CanBeNull="false" />
+      <Column Name="HostRules" Type="System.String" DbType="NVarChar(2000) NOT NULL" CanBeNull="false" />
+      <Column Name="MinimumNights" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MaximumNights" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Item_ItemAmenity" Member="ItemAmenities" ThisKey="ID" OtherKey="ItemID" Type="ItemAmenity" />
+      <Association Name="Item_ItemAttraction" Member="ItemAttractions" ThisKey="ID" OtherKey="ItemID" Type="ItemAttraction" />
+      <Association Name="Item_ItemPicture" Member="ItemPictures" ThisKey="ID" OtherKey="ItemID" Type="ItemPicture" />
+      <Association Name="Item_ItemPrice" Member="ItemPrices" ThisKey="ID" OtherKey="ItemID" Type="ItemPrice" />
+      <Association Name="Area_Item" Member="Area" ThisKey="AreaID" OtherKey="ID" Type="Area" IsForeignKey="true" />
+      <Association Name="ItemType_Item" Member="ItemType" ThisKey="ItemTypeID" OtherKey="ID" Type="ItemType" IsForeignKey="true" />
+      <Association Name="User_Item" Member="User" ThisKey="UserID" OtherKey="ID" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ItemTypes" Member="ItemTypes">
+    <Type Name="ItemType">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GUID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="ItemType_Item" Member="Items" ThisKey="ID" OtherKey="ItemTypeID" Type="Item" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Transactions" Member="Transactions">
+    <Type Name="Transaction">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GUID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="TransactionTypeID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Amount" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="TransactionDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="GatewayReturnID" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="TransactionType_Transaction" Member="TransactionType" ThisKey="TransactionTypeID" OtherKey="ID" Type="TransactionType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TransactionTypes" Member="TransactionTypes">
+    <Type Name="TransactionType">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GUID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="TransactionType_Transaction" Member="Transactions" ThisKey="ID" OtherKey="TransactionTypeID" Type="Transaction" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Users" Member="Users">
+    <Type Name="User">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GUID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="UserTypeID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FullName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Gender" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="BirthDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="FamilyCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="User_Item" Member="Items" ThisKey="ID" OtherKey="UserID" Type="Item" />
+      <Association Name="UserType_User" Member="UserType" ThisKey="UserTypeID" OtherKey="ID" Type="UserType" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
