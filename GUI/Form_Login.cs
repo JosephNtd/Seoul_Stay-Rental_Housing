@@ -14,25 +14,18 @@ namespace DangNhap_Form
     public partial class Form_Login : Form
     {
         private readonly BUS_User _bus = new BUS_User();
-        private bool _keepSignedIn = false;
         public Form_Login()
         {
             InitializeComponent();
         }
         private void Form_Login_Load(object sender, EventArgs e)
         {
-            if (cbKeep.Checked)
+            if (Properties.Settings.Default.IsRemember)
             {
-                Properties.Settings.Default.Username = txtUsername.Text;
-                Properties.Settings.Default.Password = txtPassword.Text;
-                Properties.Settings.Default.IsRemember = true;
+                txtUsername.Text = Properties.Settings.Default.Username;
+                txtPassword.Text = Properties.Settings.Default.Password;
+                cbKeep.Checked = true;
             }
-            else
-            {
-                Properties.Settings.Default.IsRemember = false;
-            }
-
-            Properties.Settings.Default.Save();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -49,10 +42,7 @@ namespace DangNhap_Form
         {
             txtPassword.UseSystemPasswordChar = !cbShow.Checked;
         }
-        private void cbKeep_CheckedChanged(object sender, EventArgs e)
-        {
-            _keepSignedIn = cbKeep.Checked;
-        }
+        
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -92,13 +82,16 @@ namespace DangNhap_Form
 
                 Properties.Settings.Default.Save();
 
-                Form_Management f = new Form_Management();
+                Form_Management f = new Form_Management(user);
                 this.Hide();
                 f.ShowDialog();
                 this.Show();
             }
         }
 
-        
+        private void Form_Login_Enter(object sender, EventArgs e)
+        {
+            btnLogin.PerformClick();
+        }
     }
 }

@@ -37,11 +37,9 @@
             this.numBed = new System.Windows.Forms.NumericUpDown();
             this.numCapacity = new System.Windows.Forms.NumericUpDown();
             this.txtHostRule = new DevExpress.XtraEditors.TextEdit();
-            this.txtDescription = new DevExpress.XtraEditors.TextEdit();
             this.txtExactAddress = new DevExpress.XtraEditors.TextEdit();
             this.txtApproxAdress = new DevExpress.XtraEditors.TextEdit();
             this.txtTitle = new DevExpress.XtraEditors.TextEdit();
-            this.txtType = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
@@ -56,17 +54,23 @@
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.tabAmenity = new DevExpress.XtraTab.XtraTabPage();
+            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
             this.gcAmenity = new DevExpress.XtraGrid.GridControl();
             this.gvAmenity = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colIsSelected = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.tabDistance = new DevExpress.XtraTab.XtraTabPage();
+            this.gcAttraction = new DevExpress.XtraGrid.GridControl();
+            this.gvAttraction = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
             this.panelBtnControl = new DevExpress.XtraEditors.PanelControl();
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
             this.btnNext = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btnFinish = new DevExpress.XtraEditors.SimpleButton();
+            this.cbType = new DevExpress.XtraEditors.LookUpEdit();
+            this.txtDescription = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.tabControl)).BeginInit();
             this.tabControl.SuspendLayout();
             this.tabItenDetail.SuspendLayout();
@@ -77,17 +81,23 @@
             ((System.ComponentModel.ISupportInitialize)(this.numBed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCapacity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHostRule.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDescription.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtExactAddress.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtApproxAdress.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTitle.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtType.Properties)).BeginInit();
             this.tabAmenity.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
+            this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcAmenity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvAmenity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
+            this.tabDistance.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcAttraction)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvAttraction)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelBtnControl)).BeginInit();
             this.panelBtnControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbType.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
@@ -105,6 +115,8 @@
             // 
             // tabItenDetail
             // 
+            this.tabItenDetail.Controls.Add(this.txtDescription);
+            this.tabItenDetail.Controls.Add(this.cbType);
             this.tabItenDetail.Controls.Add(this.numTimeMaximum);
             this.tabItenDetail.Controls.Add(this.numTimeMinimum);
             this.tabItenDetail.Controls.Add(this.numBathroom);
@@ -112,11 +124,9 @@
             this.tabItenDetail.Controls.Add(this.numBed);
             this.tabItenDetail.Controls.Add(this.numCapacity);
             this.tabItenDetail.Controls.Add(this.txtHostRule);
-            this.tabItenDetail.Controls.Add(this.txtDescription);
             this.tabItenDetail.Controls.Add(this.txtExactAddress);
             this.tabItenDetail.Controls.Add(this.txtApproxAdress);
             this.tabItenDetail.Controls.Add(this.txtTitle);
-            this.tabItenDetail.Controls.Add(this.txtType);
             this.tabItenDetail.Controls.Add(this.labelControl7);
             this.tabItenDetail.Controls.Add(this.labelControl6);
             this.tabItenDetail.Controls.Add(this.labelControl5);
@@ -136,14 +146,14 @@
             // 
             // numTimeMaximum
             // 
-            this.numTimeMaximum.Location = new System.Drawing.Point(490, 261);
+            this.numTimeMaximum.Location = new System.Drawing.Point(492, 297);
             this.numTimeMaximum.Name = "numTimeMaximum";
             this.numTimeMaximum.Size = new System.Drawing.Size(39, 21);
             this.numTimeMaximum.TabIndex = 3;
             // 
             // numTimeMinimum
             // 
-            this.numTimeMinimum.Location = new System.Drawing.Point(338, 261);
+            this.numTimeMinimum.Location = new System.Drawing.Point(340, 297);
             this.numTimeMinimum.Name = "numTimeMinimum";
             this.numTimeMinimum.Size = new System.Drawing.Size(39, 21);
             this.numTimeMinimum.TabIndex = 3;
@@ -178,17 +188,10 @@
             // 
             // txtHostRule
             // 
-            this.txtHostRule.Location = new System.Drawing.Point(217, 224);
+            this.txtHostRule.Location = new System.Drawing.Point(219, 260);
             this.txtHostRule.Name = "txtHostRule";
             this.txtHostRule.Size = new System.Drawing.Size(553, 20);
             this.txtHostRule.TabIndex = 2;
-            // 
-            // txtDescription
-            // 
-            this.txtDescription.Location = new System.Drawing.Point(217, 184);
-            this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(553, 20);
-            this.txtDescription.TabIndex = 2;
             // 
             // txtExactAddress
             // 
@@ -212,20 +215,11 @@
             this.txtTitle.Size = new System.Drawing.Size(295, 20);
             this.txtTitle.TabIndex = 2;
             // 
-            // txtType
-            // 
-            this.txtType.Location = new System.Drawing.Point(102, 24);
-            this.txtType.Name = "txtType";
-            this.txtType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtType.Size = new System.Drawing.Size(295, 20);
-            this.txtType.TabIndex = 1;
-            // 
             // labelControl7
             // 
             this.labelControl7.Appearance.Font = new System.Drawing.Font("IcoMoon-Free", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl7.Appearance.Options.UseFont = true;
-            this.labelControl7.Location = new System.Drawing.Point(37, 264);
+            this.labelControl7.Location = new System.Drawing.Point(39, 300);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(185, 15);
             this.labelControl7.TabIndex = 0;
@@ -235,7 +229,7 @@
             // 
             this.labelControl6.Appearance.Font = new System.Drawing.Font("IcoMoon-Free", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl6.Appearance.Options.UseFont = true;
-            this.labelControl6.Location = new System.Drawing.Point(37, 224);
+            this.labelControl6.Location = new System.Drawing.Point(39, 260);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(80, 15);
             this.labelControl6.TabIndex = 0;
@@ -275,7 +269,7 @@
             // 
             this.labelControl13.Appearance.Font = new System.Drawing.Font("IcoMoon-Free", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl13.Appearance.Options.UseFont = true;
-            this.labelControl13.Location = new System.Drawing.Point(414, 264);
+            this.labelControl13.Location = new System.Drawing.Point(416, 300);
             this.labelControl13.Name = "labelControl13";
             this.labelControl13.Size = new System.Drawing.Size(72, 15);
             this.labelControl13.TabIndex = 0;
@@ -285,7 +279,7 @@
             // 
             this.labelControl12.Appearance.Font = new System.Drawing.Font("IcoMoon-Free", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl12.Appearance.Options.UseFont = true;
-            this.labelControl12.Location = new System.Drawing.Point(262, 264);
+            this.labelControl12.Location = new System.Drawing.Point(264, 300);
             this.labelControl12.Name = "labelControl12";
             this.labelControl12.Size = new System.Drawing.Size(67, 15);
             this.labelControl12.TabIndex = 0;
@@ -353,20 +347,44 @@
             // 
             // tabAmenity
             // 
+            this.tabAmenity.Controls.Add(this.panelControl2);
             this.tabAmenity.Controls.Add(this.gcAmenity);
             this.tabAmenity.Name = "tabAmenity";
-            this.tabAmenity.Size = new System.Drawing.Size(798, 369);
+            this.tabAmenity.Size = new System.Drawing.Size(798, 425);
             this.tabAmenity.Text = "Amenities";
+            // 
+            // panelControl2
+            // 
+            this.panelControl2.Controls.Add(this.labelControl15);
+            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl2.Location = new System.Drawing.Point(0, 0);
+            this.panelControl2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelControl2.Name = "panelControl2";
+            this.panelControl2.Size = new System.Drawing.Size(798, 32);
+            this.panelControl2.TabIndex = 1;
+            // 
+            // labelControl15
+            // 
+            this.labelControl15.Appearance.Font = new System.Drawing.Font("IcoMoon-Free", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl15.Appearance.Options.UseFont = true;
+            this.labelControl15.Location = new System.Drawing.Point(23, 9);
+            this.labelControl15.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.labelControl15.Name = "labelControl15";
+            this.labelControl15.Size = new System.Drawing.Size(230, 15);
+            this.labelControl15.TabIndex = 0;
+            this.labelControl15.Text = "Choose Available Amenities:";
             // 
             // gcAmenity
             // 
-            this.gcAmenity.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcAmenity.Location = new System.Drawing.Point(0, 0);
+            this.gcAmenity.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gcAmenity.Location = new System.Drawing.Point(0, 33);
             this.gcAmenity.MainView = this.gvAmenity;
             this.gcAmenity.Name = "gcAmenity";
             this.gcAmenity.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit1});
-            this.gcAmenity.Size = new System.Drawing.Size(798, 369);
+            this.gcAmenity.Size = new System.Drawing.Size(799, 319);
             this.gcAmenity.TabIndex = 0;
             this.gcAmenity.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvAmenity});
@@ -380,9 +398,6 @@
             this.gvAmenity.Appearance.HeaderPanel.Options.UseFont = true;
             this.gvAmenity.Appearance.Row.Font = new System.Drawing.Font("IcoMoon-Free", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gvAmenity.Appearance.Row.Options.UseFont = true;
-            this.gvAmenity.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn1,
-            this.colIsSelected});
             this.gvAmenity.GridControl = this.gcAmenity;
             this.gvAmenity.Name = "gvAmenity";
             this.gvAmenity.OptionsFind.AlwaysVisible = true;
@@ -391,24 +406,6 @@
             this.gvAmenity.OptionsView.ShowFooter = true;
             this.gvAmenity.RowHeight = 44;
             // 
-            // gridColumn1
-            // 
-            this.gridColumn1.Caption = "Amenity";
-            this.gridColumn1.FieldName = "Name";
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 0;
-            // 
-            // colIsSelected
-            // 
-            this.colIsSelected.Caption = "Select";
-            this.colIsSelected.ColumnEdit = this.repositoryItemCheckEdit1;
-            this.colIsSelected.FieldName = "IsSelected";
-            this.colIsSelected.Name = "colIsSelected";
-            this.colIsSelected.UnboundDataType = typeof(bool);
-            this.colIsSelected.Visible = true;
-            this.colIsSelected.VisibleIndex = 1;
-            // 
             // repositoryItemCheckEdit1
             // 
             this.repositoryItemCheckEdit1.AutoHeight = false;
@@ -416,27 +413,87 @@
             // 
             // tabDistance
             // 
+            this.tabDistance.Controls.Add(this.gcAttraction);
+            this.tabDistance.Controls.Add(this.panelControl1);
             this.tabDistance.Name = "tabDistance";
-            this.tabDistance.Size = new System.Drawing.Size(798, 369);
+            this.tabDistance.Size = new System.Drawing.Size(798, 425);
             this.tabDistance.Text = "Distance to Attraction";
+            // 
+            // gcAttraction
+            // 
+            this.gcAttraction.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gcAttraction.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gcAttraction.Location = new System.Drawing.Point(0, 44);
+            this.gcAttraction.MainView = this.gvAttraction;
+            this.gcAttraction.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gcAttraction.Name = "gcAttraction";
+            this.gcAttraction.Size = new System.Drawing.Size(799, 309);
+            this.gcAttraction.TabIndex = 1;
+            this.gcAttraction.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvAttraction});
+            this.gcAttraction.Load += new System.EventHandler(this.gcAttraction_Load);
+            // 
+            // gvAttraction
+            // 
+            this.gvAttraction.Appearance.FooterPanel.Font = new System.Drawing.Font("IcoMoon-Free", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gvAttraction.Appearance.FooterPanel.Options.UseFont = true;
+            this.gvAttraction.Appearance.HeaderPanel.Font = new System.Drawing.Font("IcoMoon-Free", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gvAttraction.Appearance.HeaderPanel.Options.UseFont = true;
+            this.gvAttraction.Appearance.Row.Font = new System.Drawing.Font("IcoMoon-Free", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gvAttraction.Appearance.Row.Options.UseFont = true;
+            this.gvAttraction.DetailHeight = 227;
+            this.gvAttraction.GridControl = this.gcAttraction;
+            this.gvAttraction.Name = "gvAttraction";
+            this.gvAttraction.OptionsBehavior.ReadOnly = true;
+            this.gvAttraction.OptionsEditForm.PopupEditFormWidth = 533;
+            this.gvAttraction.OptionsFind.AlwaysVisible = true;
+            this.gvAttraction.OptionsView.ShowAutoFilterRow = true;
+            this.gvAttraction.OptionsView.ShowFooter = true;
+            this.gvAttraction.RowHeight = 29;
+            // 
+            // panelControl1
+            // 
+            this.panelControl1.Controls.Add(this.labelControl14);
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl1.Location = new System.Drawing.Point(0, 0);
+            this.panelControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(798, 40);
+            this.panelControl1.TabIndex = 0;
+            // 
+            // labelControl14
+            // 
+            this.labelControl14.Appearance.Font = new System.Drawing.Font("IcoMoon-Free", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl14.Appearance.Options.UseFont = true;
+            this.labelControl14.Dock = System.Windows.Forms.DockStyle.Left;
+            this.labelControl14.Location = new System.Drawing.Point(2, 2);
+            this.labelControl14.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.labelControl14.Name = "labelControl14";
+            this.labelControl14.Size = new System.Drawing.Size(772, 15);
+            this.labelControl14.TabIndex = 0;
+            this.labelControl14.Text = "Specify the distance from each close byb attraction and the time it takes to get " +
+    "to them:";
             // 
             // panelBtnControl
             // 
+            this.panelBtnControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelBtnControl.Controls.Add(this.btnClose);
             this.panelBtnControl.Controls.Add(this.btnNext);
             this.panelBtnControl.Controls.Add(this.btnCancel);
             this.panelBtnControl.Controls.Add(this.btnFinish);
-            this.panelBtnControl.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelBtnControl.Location = new System.Drawing.Point(0, 394);
+            this.panelBtnControl.Location = new System.Drawing.Point(0, 381);
             this.panelBtnControl.Name = "panelBtnControl";
-            this.panelBtnControl.Size = new System.Drawing.Size(800, 56);
+            this.panelBtnControl.Size = new System.Drawing.Size(800, 69);
             this.panelBtnControl.TabIndex = 1;
             // 
             // btnClose
             // 
             this.btnClose.Appearance.Font = new System.Drawing.Font("IcoMoon-Free", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.Appearance.Options.UseFont = true;
-            this.btnClose.Location = new System.Drawing.Point(403, 21);
+            this.btnClose.Location = new System.Drawing.Point(452, 21);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(80, 23);
             this.btnClose.TabIndex = 0;
@@ -447,7 +504,7 @@
             // 
             this.btnNext.Appearance.Font = new System.Drawing.Font("IcoMoon-Free", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNext.Appearance.Options.UseFont = true;
-            this.btnNext.Location = new System.Drawing.Point(598, 21);
+            this.btnNext.Location = new System.Drawing.Point(623, 21);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(80, 23);
             this.btnNext.TabIndex = 0;
@@ -458,7 +515,7 @@
             // 
             this.btnCancel.Appearance.Font = new System.Drawing.Font("IcoMoon-Free", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Appearance.Options.UseFont = true;
-            this.btnCancel.Location = new System.Drawing.Point(512, 21);
+            this.btnCancel.Location = new System.Drawing.Point(537, 21);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(80, 23);
             this.btnCancel.TabIndex = 0;
@@ -476,6 +533,23 @@
             this.btnFinish.Text = "Finish";
             this.btnFinish.Click += new System.EventHandler(this.btnFinish_Click);
             // 
+            // cbType
+            // 
+            this.cbType.Location = new System.Drawing.Point(106, 21);
+            this.cbType.Name = "cbType";
+            this.cbType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbType.Size = new System.Drawing.Size(295, 20);
+            this.cbType.TabIndex = 4;
+            // 
+            // txtDescription
+            // 
+            this.txtDescription.Location = new System.Drawing.Point(217, 184);
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(555, 60);
+            this.txtDescription.TabIndex = 5;
+            this.txtDescription.Text = "";
+            // 
             // Form_AddEditListing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -487,6 +561,7 @@
             this.Name = "Form_AddEditListing";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Seoul Stay - Add / Edit Listing";
+            this.Load += new System.EventHandler(this.Form_AddEditListing_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tabControl)).EndInit();
             this.tabControl.ResumeLayout(false);
             this.tabItenDetail.ResumeLayout(false);
@@ -498,17 +573,25 @@
             ((System.ComponentModel.ISupportInitialize)(this.numBed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCapacity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHostRule.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDescription.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtExactAddress.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtApproxAdress.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTitle.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtType.Properties)).EndInit();
             this.tabAmenity.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
+            this.panelControl2.ResumeLayout(false);
+            this.panelControl2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcAmenity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvAmenity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
+            this.tabDistance.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gcAttraction)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvAttraction)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
+            this.panelControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelBtnControl)).EndInit();
             this.panelBtnControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cbType.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -521,11 +604,9 @@
         private DevExpress.XtraTab.XtraTabPage tabDistance;
         private DevExpress.XtraEditors.PanelControl panelBtnControl;
         private DevExpress.XtraEditors.TextEdit txtHostRule;
-        private DevExpress.XtraEditors.TextEdit txtDescription;
         private DevExpress.XtraEditors.TextEdit txtExactAddress;
         private DevExpress.XtraEditors.TextEdit txtApproxAdress;
         private DevExpress.XtraEditors.TextEdit txtTitle;
-        private DevExpress.XtraEditors.ComboBoxEdit txtType;
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.LabelControl labelControl5;
@@ -551,8 +632,14 @@
         private DevExpress.XtraEditors.SimpleButton btnNext;
         private DevExpress.XtraGrid.GridControl gcAmenity;
         private DevExpress.XtraGrid.Views.Grid.GridView gvAmenity;
-        private DevExpress.XtraGrid.Columns.GridColumn colIsSelected;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit1;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.GridControl gcAttraction;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvAttraction;
+        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private DevExpress.XtraEditors.LabelControl labelControl14;
+        private DevExpress.XtraEditors.PanelControl panelControl2;
+        private DevExpress.XtraEditors.LabelControl labelControl15;
+        private DevExpress.XtraEditors.LookUpEdit cbType;
+        private System.Windows.Forms.RichTextBox txtDescription;
     }
 }

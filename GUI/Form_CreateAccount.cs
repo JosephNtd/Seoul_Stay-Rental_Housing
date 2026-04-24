@@ -1,4 +1,5 @@
 ﻿using BUS;
+using DevExpress.XtraEditors.Controls;
 using Helper;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,10 @@ namespace DangNhap_Form
 
         private void Form_CreateAccount_Load(object sender, EventArgs e)
         {
-            rdFemale.Checked = true;
+            radioGroupGender.Properties.Items.Add(new RadioGroupItem((byte)0, "Unknown"));
+            radioGroupGender.Properties.Items.Add(new RadioGroupItem((byte)1, "Male"));
+            radioGroupGender.Properties.Items.Add(new RadioGroupItem((byte)2, "Female"));
+            radioGroupGender.Properties.Items.Add(new RadioGroupItem((byte)3, "Other"));
             dtpBirthDate.Value = DateTime.Today.AddYears(-18);
             dtpBirthDate.MaxDate = DateTime.Today;
             nudFamilyCount.Value = 1;
@@ -36,7 +40,7 @@ namespace DangNhap_Form
             string password = txtPassword.Text;
             string confirmPassword = txtRePassword.Text;
             string fullName = txtFullname.Text.Trim();
-            bool gender = rdFemale.Checked;    // false=Nam, true=Nữ
+            byte gender = (byte)radioGroupGender.EditValue; // 0 = Unknown  1 = Male  2 = Female  3 = Other
             int familyCount = (int)nudFamilyCount.Value;
 
             string error = ValidateRegister(

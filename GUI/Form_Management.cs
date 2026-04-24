@@ -2,6 +2,8 @@
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid;
+using DTO;
+using ET;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,13 +19,22 @@ namespace DangNhap_Form
     public partial class Form_Management : DevExpress.XtraEditors.XtraForm
     {
         private readonly BUS_Items _bus = new BUS_Items();
-        public Form_Management()
+        private readonly ET_Users _currentUser;
+
+        public Form_Management() : this(null)
+        {
+        }
+
+        public Form_Management(ET_Users currentUser)
         {
             InitializeComponent();
+            _currentUser = currentUser;
         }
         private void Form_Management_Load(object sender, EventArgs e)
-        {            
-            
+        {
+            // TODO: This line of code loads data into the 'seoul_StayDataSet.Areas' table. You can move, or remove it, as needed.
+            this.areasTableAdapter.Fill(this.seoul_StayDataSet.Areas);
+
         }
         private void btnLogout_Click(object sender, EventArgs e)
         {
@@ -35,7 +46,7 @@ namespace DangNhap_Form
             gridView.Columns[0].Summary.Add(
                 DevExpress.Data.SummaryItemType.Count,
                 gridView.Columns[0].FieldName,
-                "{0} iztems found."
+                "{0} items found."
             );
         }
         private void gcTraveler_Load(object sender, EventArgs e)
@@ -47,13 +58,21 @@ namespace DangNhap_Form
         
         private void gcManager_Load(object sender, EventArgs e)
         {
-            gcManager.DataSource = _bus.GetData();
-            gvManager.OptionsBehavior.Editable = true;
+            LoadManagerListings();
             gvManager.OptionsView.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.ShowAlways;
 
             var btn = AddActionColumn();     // tạo cột
             HandleActionClick(btn);          // gán event
+            
             SummaryFooter(gvManager);
+            gvManager.OptionsBehavior.Editable = true;
+            foreach (DevExpress.XtraGrid.Columns.GridColumn col in gvManager.Columns)
+            {
+                col.OptionsColumn.AllowEdit = false;
+            }
+            gvManager.Columns["Action"].OptionsColumn.AllowEdit = true;
+            gvManager.Columns["Action"].OptionsColumn.ReadOnly = false;
+            gvManager.OptionsBehavior.Editable = true;
             gvManager.BestFitColumns();
         }
 
@@ -62,7 +81,7 @@ namespace DangNhap_Form
             // Tạo cột
             var col = gvManager.Columns.AddField("Action");
             col.Visible = true;
-            col.Width = 120;
+            col.Width = 180;
             col.OptionsColumn.FixedWidth = true;
 
             // Tạo button
@@ -78,7 +97,6 @@ namespace DangNhap_Form
             {
                 Caption = "Edit Details"
             });
-
             // Add vào grid
             gcManager.RepositoryItems.Add(btn);
             col.ColumnEdit = btn;
@@ -92,16 +110,22 @@ namespace DangNhap_Form
         }
         private void Btn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            var view = gvManager;
 
-            int rowHandle = view.FocusedRowHandle;
+            int rowHandle = gvManager.FocusedRowHandle;
 
             if (rowHandle >= 0)
             {
-                var data = view.GetRow(rowHandle);
+                var data_dto = gvManager.GetRow(rowHandle) as DTO_ItemsView;
 
-                Form_AddEditListing frm = new Form_AddEditListing();
-                frm.ShowDialog();
+                if (e.Button.Index == 0 && data_dto != null)
+                {
+                    var data_et = _bus.GetEditItems(data_dto.ID);
+                    Form_AddEditListing frm = new Form_AddEditListing(data_et, true);
+                    if (frm.ShowDialog() == DialogResult.OK)
+                    {
+                        LoadManagerListings();
+                    }
+                }
             }
         }
         private void btnExit_Click(object sender, EventArgs e)
@@ -111,8 +135,16 @@ namespace DangNhap_Form
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            Form_AddEditListing frm = new Form_AddEditListing();
-            frm.ShowDialog();
+            Form_AddEditListing frm = new Form_AddEditListing(_currentUser?.ID ?? 0, false);
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                LoadManagerListings();
+            }
+        }
+
+        private void LoadManagerListings()
+        {
+            gcManager.DataSource = _bus.GetData(_currentUser?.ID);
         }
     }
 }

@@ -33,5 +33,27 @@ namespace DAL.Properties {
                 return ((string)(this["Seoul_StayConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-F8TMCM4;Initial Catalog=Seoul_Stay_2;Integrated Security=True" +
+            ";TrustServerCertificate=True")]
+        public string Seoul_Stay_2ConnectionString {
+            get {
+                return ((string)(this["Seoul_Stay_2ConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-F8TMCM4;Initial Catalog=Seoul_Stay;Integrated Security=True;E" +
+            "ncrypt=True;TrustServerCertificate=True")]
+        public string Seoul_StayConnectionString1 {
+            get {
+                return ((string)(this["Seoul_StayConnectionString1"]));
+            }
+        }
     }
 }

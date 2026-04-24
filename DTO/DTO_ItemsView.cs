@@ -8,6 +8,7 @@ namespace DTO
 {
     public class DTO_ItemsView
     {
+        public long ID { get; set; }
         public string Title { get; set; }
         public int Capacity { get; set; }
         public string Area { get; set; }

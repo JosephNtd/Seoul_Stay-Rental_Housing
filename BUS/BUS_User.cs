@@ -25,25 +25,31 @@ namespace BUS
             return new ET_Users
             {
                 ID = u.ID,
+                GUID = u.GUID,
                 Username = u.Username,
+                Password = u.Password,
                 FullName = u.FullName,
+                Email = u.Email,
                 Gender = u.Gender,
                 BirthDate = u.BirthDate,
-                FamilyCount = u.FamilyCount
+                IsAdmin = u.IsAdmin
             };
         }
 
         public bool Register(string username, string password, string fullName,
-                             bool gender, DateTime birthDate, int familyCount)
+                             byte gender, DateTime birthDate, int familyCount)
         {
             var user = new User()
             {
                 Username = username.Trim(),
                 Password = password,
                 FullName = fullName.Trim(),
+                Email = $"{username.Trim()}@seoulstay.local",
                 Gender = gender,
                 BirthDate = birthDate,
-                FamilyCount = familyCount,
+                IsAdmin = false,
+                CreatedDate = DateTime.Now,
+                IsActive = true
             };
 
             return _dal.Register(user);

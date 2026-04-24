@@ -12,9 +12,9 @@ namespace BUS
     {
         private readonly DAL_Amenity _dal = new DAL_Amenity();
 
-        public List<DTO_Amenities> GetData()
+        public List<DTO_Amenities> GetData(long? itemId = null)
         {
-            return _dal.GetData();
+            return _dal.GetData(itemId);
         }
         
     }

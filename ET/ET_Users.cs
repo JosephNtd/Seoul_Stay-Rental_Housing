@@ -10,36 +10,32 @@ namespace ET
     {
         public long ID { get; set; }
         public Guid GUID { get; set; }
-        public long UserTypeID { get; set; }   // 1 = employee, 2 = user
         public string Username { get; set; }
         public string Password { get; set; }
         public string FullName { get; set; }
-        public bool Gender { get; set; }   // false = Nam, true = Nữ
-        public DateTime BirthDate { get; set; }
-        public int FamilyCount { get; set; }
+        public string Email { get; set; }
+        public byte Gender { get; set; }   // Gender: 0=Unknown  1=Male  2=Female  3=Other
+        public DateTime? BirthDate { get; set; }
+        public bool IsAdmin { get; set; }
 
-        // Navigation (không map DB, dùng để hiển thị trên UI)
-        public ET_UserTypes ET_UserType { get; set; }
-
-        // Computed helper
-        public bool IsEmployee => UserTypeID == 1;
-        public bool IsUser => UserTypeID == 2;
+        public bool IsEmployee => IsAdmin;
+        public bool IsUser => !IsAdmin;
 
         public ET_Users() { }
 
-        public ET_Users(long id, Guid guid, long userTypeID, string username,
-                    string password, string fullName, bool gender,
-                    DateTime birthDate, int familyCount)
+        public ET_Users(long id, Guid guid, string username,
+                    string password, string fullName, string email, byte gender,
+                    DateTime birthDate, bool isAdmin)
         {
             ID = id;
             GUID = guid;
-            UserTypeID = userTypeID;
             Username = username;
             Password = password;
             FullName = fullName;
+            Email = email;
             Gender = gender;
             BirthDate = birthDate;
-            FamilyCount = familyCount;
+            IsAdmin = isAdmin;
         }
     }
 }

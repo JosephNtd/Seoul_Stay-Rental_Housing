@@ -11,6 +11,7 @@ namespace ET
         public long ID { get; set; }
         public Guid GUID { get; set; }
         public long UserID { get; set; }
+        public long HostUserID { get; set; }
         public long ItemTypeID { get; set; }
         public long AreaID { get; set; }
         public string Title { get; set; }
@@ -24,6 +25,8 @@ namespace ET
         public string HostRules { get; set; }
         public int MinimumNights { get; set; }
         public int MaximumNights { get; set; }
+        public DateTime IsCreated { get; set; }
+        public byte IsActive { get; set; }
 
         public ET_Items() { }
 
@@ -32,6 +35,7 @@ namespace ET
             ID = iD;
             GUID = gUID;
             UserID = userID;
+            HostUserID = userID;
             ItemTypeID = itemTypeID;
             AreaID = areaID;
             Title = title;
@@ -45,6 +49,8 @@ namespace ET
             HostRules = hostRules;
             MinimumNights = minimumNights;
             MaximumNights = maximumNights;
-        }
+            IsCreated = DateTime.Now;
+            IsActive = 1;
+    }
     }
 }
