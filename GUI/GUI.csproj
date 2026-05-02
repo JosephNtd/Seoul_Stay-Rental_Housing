@@ -48,7 +48,11 @@
     <Reference Include="DevExpress.XtraEditors.v24.1, Version=24.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGrid.v24.1, Version=24.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v24.1, Version=24.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraNavBar.v24.1, Version=24.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v24.1, Version=24.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v24.1, Version=24.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v24.1.Core, Version=24.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v24.1.Core.Desktop, Version=24.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -92,13 +96,49 @@
     <Compile Include="Form_Management.Designer.cs">
       <DependentUpon>Form_Management.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI_HomePage_Admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI_HomePage_Admin.Designer.cs">
+      <DependentUpon>GUI_HomePage_Admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI_HomePage_Host.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI_HomePage_Host.Designer.cs">
+      <DependentUpon>GUI_HomePage_Host.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI_HomePage_User.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI_HomePage_User.Designer.cs">
+      <DependentUpon>GUI_HomePage_User.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Seoul_StayDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Seoul_StayDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="UC_Management.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_Management.Designer.cs">
+      <DependentUpon>UC_Management.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_PricingCalendar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_PricingCalendar.Designer.cs">
+      <DependentUpon>UC_PricingCalendar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\PricingCalendarViewModel.cs" />
     <EmbeddedResource Include="Form_AddEditListing.resx">
       <DependentUpon>Form_AddEditListing.cs</DependentUpon>
     </EmbeddedResource>
@@ -111,17 +151,27 @@
     <EmbeddedResource Include="Form_Management.resx">
       <DependentUpon>Form_Management.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI_HomePage_Admin.resx">
+      <DependentUpon>GUI_HomePage_Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI_HomePage_Host.resx">
+      <DependentUpon>GUI_HomePage_Host.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI_HomePage_User.resx">
+      <DependentUpon>GUI_HomePage_User.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
+    <EmbeddedResource Include="UC_Management.resx">
+      <DependentUpon>UC_Management.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_PricingCalendar.resx">
+      <DependentUpon>UC_PricingCalendar.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -165,9 +215,15 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\zz.gif" />
     <None Include="Resources\WSC2022SE_TP09_Logo_actual_en.ico" />
     <None Include="Resources\plus.png" />
     <None Include="Resources\267-plus.png" />
+    <Content Include="Resources\delete.svg" />
+    <Content Include="Resources\edit.svg" />
+    <None Include="Resources\logout.png" />
+    <None Include="Resources\images.png" />
+    <None Include="Resources\f06c91_c1bddc88840f45238181e16f4cd75295~mv2.gif" />
     <Content Include="Resources\WSC2022SE_TP09_Logo_actual_en.png" />
     <None Include="Resources\WSC2022SE_TP09_Logo_actual_en1.png" />
   </ItemGroup>

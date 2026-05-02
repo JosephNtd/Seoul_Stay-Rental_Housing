@@ -29,10 +29,11 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.radioGroupGender = new DevExpress.XtraEditors.RadioGroup();
             this.lblUsernameHint = new System.Windows.Forms.Label();
             this.lblPasswordHint = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.nudFamilyCount = new System.Windows.Forms.NumericUpDown();
             this.dtpBirthDate = new System.Windows.Forms.DateTimePicker();
             this.txtRePassword = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
@@ -40,17 +41,13 @@
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.cbAgree = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAccept = new System.Windows.Forms.Button();
             this.btnReturn = new System.Windows.Forms.Button();
-            this.radioGroupGender = new DevExpress.XtraEditors.RadioGroup();
-            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudFamilyCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroupGender.Properties)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,7 +61,6 @@
             this.groupBox1.Controls.Add(this.lblUsernameHint);
             this.groupBox1.Controls.Add(this.lblPasswordHint);
             this.groupBox1.Controls.Add(this.linkLabel1);
-            this.groupBox1.Controls.Add(this.nudFamilyCount);
             this.groupBox1.Controls.Add(this.dtpBirthDate);
             this.groupBox1.Controls.Add(this.txtRePassword);
             this.groupBox1.Controls.Add(this.txtPassword);
@@ -72,7 +68,6 @@
             this.groupBox1.Controls.Add(this.txtUsername);
             this.groupBox1.Controls.Add(this.cbAgree);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
@@ -84,6 +79,25 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Your Infomation";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("IcoMoon-Free", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(338, 48);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(66, 16);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "Gender:";
+            // 
+            // radioGroupGender
+            // 
+            this.radioGroupGender.Location = new System.Drawing.Point(341, 74);
+            this.radioGroupGender.Name = "radioGroupGender";
+            this.radioGroupGender.Properties.Appearance.Font = new System.Drawing.Font("IcoMoon-Free", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioGroupGender.Properties.Appearance.Options.UseFont = true;
+            this.radioGroupGender.Size = new System.Drawing.Size(333, 26);
+            this.radioGroupGender.TabIndex = 16;
             // 
             // lblUsernameHint
             // 
@@ -113,14 +127,6 @@
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "View Terms and Conditions";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
-            // 
-            // nudFamilyCount
-            // 
-            this.nudFamilyCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudFamilyCount.Location = new System.Drawing.Point(576, 106);
-            this.nudFamilyCount.Name = "nudFamilyCount";
-            this.nudFamilyCount.Size = new System.Drawing.Size(43, 26);
-            this.nudFamilyCount.TabIndex = 8;
             // 
             // dtpBirthDate
             // 
@@ -189,16 +195,6 @@
             this.label6.TabIndex = 5;
             this.label6.Text = "Retype Password:";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("IcoMoon-Free", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(337, 109);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(233, 16);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Number of Family Members:";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -261,25 +257,6 @@
             this.btnReturn.UseVisualStyleBackColor = true;
             this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
-            // radioGroupGender
-            // 
-            this.radioGroupGender.Location = new System.Drawing.Point(341, 74);
-            this.radioGroupGender.Name = "radioGroupGender";
-            this.radioGroupGender.Properties.Appearance.Font = new System.Drawing.Font("IcoMoon-Free", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioGroupGender.Properties.Appearance.Options.UseFont = true;
-            this.radioGroupGender.Size = new System.Drawing.Size(333, 26);
-            this.radioGroupGender.TabIndex = 16;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("IcoMoon-Free", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(338, 48);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(66, 16);
-            this.label7.TabIndex = 17;
-            this.label7.Text = "Gender:";
-            // 
             // Form_CreateAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -295,7 +272,6 @@
             this.Load += new System.EventHandler(this.Form_CreateAccount_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudFamilyCount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroupGender.Properties)).EndInit();
             this.ResumeLayout(false);
 
@@ -307,12 +283,10 @@
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.CheckBox cbAgree;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.NumericUpDown nudFamilyCount;
         private System.Windows.Forms.DateTimePicker dtpBirthDate;
         private System.Windows.Forms.TextBox txtRePassword;
         private System.Windows.Forms.TextBox txtPassword;

@@ -48,13 +48,13 @@
     <Compile Include="ET_Attractions.cs" />
     <Compile Include="ET_Coupons.cs" />
     <Compile Include="ET_DimDates.cs" />
+    <Compile Include="ET_ItemAvailability.cs" />
     <Compile Include="ET_Items.cs" />
     <Compile Include="ET_ItemAmenities.cs" />
     <Compile Include="ET_ItemAttractions.cs" />
     <Compile Include="ET_ItemTypes.cs" />
     <Compile Include="ET_TransactionTypes.cs" />
     <Compile Include="ET_Users.cs" />
-    <Compile Include="ET_UserTypes.cs" />
     <Compile Include="ET_ItemPictures.cs" />
     <Compile Include="ET_ItemPrices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

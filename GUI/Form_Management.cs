@@ -1,5 +1,6 @@
 ﻿using BUS;
 using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid;
 using DTO;
@@ -60,9 +61,6 @@ namespace DangNhap_Form
         {
             LoadManagerListings();
             gvManager.OptionsView.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.ShowAlways;
-
-            var btn = AddActionColumn();     // tạo cột
-            HandleActionClick(btn);          // gán event
             
             SummaryFooter(gvManager);
             gvManager.OptionsBehavior.Editable = true;
@@ -76,7 +74,7 @@ namespace DangNhap_Form
             gvManager.BestFitColumns();
         }
 
-        private RepositoryItemButtonEdit AddActionColumn()
+        private void AddActionColumn()
         {
             // Tạo cột
             var col = gvManager.Columns.AddField("Action");
@@ -85,45 +83,73 @@ namespace DangNhap_Form
             col.OptionsColumn.FixedWidth = true;
 
             // Tạo button
-            RepositoryItemButtonEdit btn = new RepositoryItemButtonEdit();
-            btn.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            RepositoryItemButtonEdit btnAction = new RepositoryItemButtonEdit();
+
+            btnAction.TextEditStyle = TextEditStyles.HideTextEditor;
 
             // Xóa button mặc định
-            btn.Buttons.Clear();
+            btnAction.Buttons.Clear();
 
             // Thêm button mới
-            btn.Buttons.Add(new DevExpress.XtraEditors.Controls.EditorButton(
-                DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph)
-            {
-                Caption = "Edit Details"
-            });
+            var btnEdit = new DevExpress.XtraEditors.Controls.EditorButton(
+            DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph);
+            btnEdit.Caption = "";
+            btnEdit.Tag = "edit";
+            //btnEdit.ImageOptions.SvgImage = DevExpress.Utils.Svg.SvgImage.FromResources("DangNhap_Form.Resources.edit.svg", typeof().Assembly);
+            btnEdit.Appearance.ForeColor = Color.DimGray;
+
+            // 🔹 Nút Delete
+            var btnDelete = new DevExpress.XtraEditors.Controls.EditorButton(
+                DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph);
+            btnDelete.Caption = "";
+            btnDelete.Tag = "delete";
+            //btnDelete.ImageOptions.SvgImage = DevExpress.Utils.Svg.SvgImage.FromResources("DangNhap_Form.Resources.delete.svg", typeof().Assembly);
+            btnDelete.Appearance.ForeColor = Color.Red;
+
+            btnAction.Buttons.Add(btnEdit);
+            btnAction.Buttons.Add(btnDelete);
+
+            btnAction.ButtonClick += Btn_ButtonClick;
+
             // Add vào grid
-            gcManager.RepositoryItems.Add(btn);
-            col.ColumnEdit = btn;
+            gcManager.RepositoryItems.Add(btnAction);
+            col.ColumnEdit = btnAction;
 
-            return btn; // trả về để gán event
         }
 
-        private void HandleActionClick(RepositoryItemButtonEdit btn)
-        {
-            btn.ButtonClick += Btn_ButtonClick;
-        }
-        private void Btn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        private void Btn_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
 
             int rowHandle = gvManager.FocusedRowHandle;
-
+            string action = e.Button.Tag?.ToString();
             if (rowHandle >= 0)
             {
-                var data_dto = gvManager.GetRow(rowHandle) as DTO_ItemsView;
+                var item = gvManager.GetRow(rowHandle) as DTO_ItemsView;
+                if (item == null) return;
 
-                if (e.Button.Index == 0 && data_dto != null)
+                if (action == "edit")
                 {
-                    var data_et = _bus.GetEditItems(data_dto.ID);
-                    Form_AddEditListing frm = new Form_AddEditListing(data_et, true);
-                    if (frm.ShowDialog() == DialogResult.OK)
+                        var data_et = _bus.GetEditItems(item.ID);
+                        Form_AddEditListing frm = new Form_AddEditListing(data_et, true);
+                        if (frm.ShowDialog() == DialogResult.OK)
+                        {
+                            LoadManagerListings();
+                        }
+                }
+                else if (action == "delete")
+                {
+                    var result = MessageBox.Show(
+                                "Are you sure you want to delete this listing?",
+                                "Confirm Delete", 
+                                MessageBoxButtons.YesNo, 
+                                MessageBoxIcon.Warning
+                                );
+                    if (result == DialogResult.Yes)
                     {
-                        LoadManagerListings();
+                        if (_bus.Delete(item.ID))
+                            LoadManagerListings();
+                        else
+                            MessageBox.Show(_bus.LastError, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }

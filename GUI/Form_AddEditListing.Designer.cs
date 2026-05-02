@@ -30,6 +30,8 @@
         {
             this.tabControl = new DevExpress.XtraTab.XtraTabControl();
             this.tabItenDetail = new DevExpress.XtraTab.XtraTabPage();
+            this.txtDescription = new System.Windows.Forms.RichTextBox();
+            this.cbType = new DevExpress.XtraEditors.LookUpEdit();
             this.numTimeMaximum = new System.Windows.Forms.NumericUpDown();
             this.numTimeMinimum = new System.Windows.Forms.NumericUpDown();
             this.numBathroom = new System.Windows.Forms.NumericUpDown();
@@ -69,11 +71,10 @@
             this.btnNext = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btnFinish = new DevExpress.XtraEditors.SimpleButton();
-            this.cbType = new DevExpress.XtraEditors.LookUpEdit();
-            this.txtDescription = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.tabControl)).BeginInit();
             this.tabControl.SuspendLayout();
             this.tabItenDetail.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numTimeMaximum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numTimeMinimum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numBathroom)).BeginInit();
@@ -97,7 +98,6 @@
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelBtnControl)).BeginInit();
             this.panelBtnControl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cbType.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
@@ -143,6 +143,23 @@
             this.tabItenDetail.Name = "tabItenDetail";
             this.tabItenDetail.Size = new System.Drawing.Size(798, 425);
             this.tabItenDetail.Text = "Listing Details";
+            // 
+            // txtDescription
+            // 
+            this.txtDescription.Location = new System.Drawing.Point(217, 184);
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(555, 60);
+            this.txtDescription.TabIndex = 5;
+            this.txtDescription.Text = "";
+            // 
+            // cbType
+            // 
+            this.cbType.Location = new System.Drawing.Point(106, 21);
+            this.cbType.Name = "cbType";
+            this.cbType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbType.Size = new System.Drawing.Size(295, 20);
+            this.cbType.TabIndex = 4;
             // 
             // numTimeMaximum
             // 
@@ -358,7 +375,7 @@
             this.panelControl2.Controls.Add(this.labelControl15);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl2.Location = new System.Drawing.Point(0, 0);
-            this.panelControl2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelControl2.Margin = new System.Windows.Forms.Padding(2);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(798, 32);
             this.panelControl2.TabIndex = 1;
@@ -368,7 +385,7 @@
             this.labelControl15.Appearance.Font = new System.Drawing.Font("IcoMoon-Free", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl15.Appearance.Options.UseFont = true;
             this.labelControl15.Location = new System.Drawing.Point(23, 9);
-            this.labelControl15.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.labelControl15.Margin = new System.Windows.Forms.Padding(2);
             this.labelControl15.Name = "labelControl15";
             this.labelControl15.Size = new System.Drawing.Size(230, 15);
             this.labelControl15.TabIndex = 0;
@@ -424,10 +441,10 @@
             this.gcAttraction.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gcAttraction.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gcAttraction.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2);
             this.gcAttraction.Location = new System.Drawing.Point(0, 44);
             this.gcAttraction.MainView = this.gvAttraction;
-            this.gcAttraction.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gcAttraction.Margin = new System.Windows.Forms.Padding(2);
             this.gcAttraction.Name = "gcAttraction";
             this.gcAttraction.Size = new System.Drawing.Size(799, 309);
             this.gcAttraction.TabIndex = 1;
@@ -458,7 +475,7 @@
             this.panelControl1.Controls.Add(this.labelControl14);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
-            this.panelControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelControl1.Margin = new System.Windows.Forms.Padding(2);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(798, 40);
             this.panelControl1.TabIndex = 0;
@@ -469,7 +486,7 @@
             this.labelControl14.Appearance.Options.UseFont = true;
             this.labelControl14.Dock = System.Windows.Forms.DockStyle.Left;
             this.labelControl14.Location = new System.Drawing.Point(2, 2);
-            this.labelControl14.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.labelControl14.Margin = new System.Windows.Forms.Padding(2);
             this.labelControl14.Name = "labelControl14";
             this.labelControl14.Size = new System.Drawing.Size(772, 15);
             this.labelControl14.TabIndex = 0;
@@ -533,23 +550,6 @@
             this.btnFinish.Text = "Finish";
             this.btnFinish.Click += new System.EventHandler(this.btnFinish_Click);
             // 
-            // cbType
-            // 
-            this.cbType.Location = new System.Drawing.Point(106, 21);
-            this.cbType.Name = "cbType";
-            this.cbType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbType.Size = new System.Drawing.Size(295, 20);
-            this.cbType.TabIndex = 4;
-            // 
-            // txtDescription
-            // 
-            this.txtDescription.Location = new System.Drawing.Point(217, 184);
-            this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(555, 60);
-            this.txtDescription.TabIndex = 5;
-            this.txtDescription.Text = "";
-            // 
             // Form_AddEditListing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -566,6 +566,7 @@
             this.tabControl.ResumeLayout(false);
             this.tabItenDetail.ResumeLayout(false);
             this.tabItenDetail.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numTimeMaximum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numTimeMinimum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numBathroom)).EndInit();
@@ -591,7 +592,6 @@
             this.panelControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelBtnControl)).EndInit();
             this.panelBtnControl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.cbType.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

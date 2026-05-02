@@ -28,7 +28,7 @@ namespace BUS
         {
             var item = new Item()
             {
-                HostUserID = i.HostUserID > 0 ? i.HostUserID : i.UserID,
+                HostUserID = i.HostUserID,
                 ItemTypeID = i.ItemTypeID,
                 AreaID = i.AreaID,
                 Title = i.Title,
@@ -66,6 +66,10 @@ namespace BUS
         public long GetAreaIdByApproximateAddress(string approximateAddress)
         {
             return _dal_items.GetAreaIdByApproximateAddress(approximateAddress);
+        }
+        public bool Delete(long id)
+        {
+            return _dal_items.Delete(id);
         }
     }
 }

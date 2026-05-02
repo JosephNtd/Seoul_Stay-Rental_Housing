@@ -9,17 +9,16 @@ namespace DAL
 {
     public class DAL_Items
     {
-        Seoul_StayDataContext db = new Seoul_StayDataContext();
 
         public string LastError { get; private set; }
 
         public List<DTO_ItemsView> GetItems(long? userId = null)
         {
-            using (var context = new Seoul_StayDataContext())
+            using (var db = new Seoul_StayDataContext())
             {
-                var query = from i in context.Items
-                            join a in context.Areas on i.AreaID equals a.ID
-                            join t in context.ItemTypes on i.ItemTypeID equals t.ID
+                var query = from i in db.Items
+                            join a in db.Areas on i.AreaID equals a.ID
+                            join t in db.ItemTypes on i.ItemTypeID equals t.ID
                             where i.IsActive
                             select new { Item = i, Area = a, Type = t };
 
@@ -43,27 +42,30 @@ namespace DAL
 
         public bool Add(Item i)
         {
-            try
+            using (var db = new Seoul_StayDataContext())
             {
-                if (i.GUID == Guid.Empty)
+                try
                 {
-                    i.GUID = Guid.NewGuid();
-                }
+                    if (i.GUID == Guid.Empty)
+                    {
+                        i.GUID = Guid.NewGuid();
+                    }
 
-                if (i.CreatedDate == DateTime.MinValue)
+                    if (i.CreatedDate == DateTime.MinValue)
+                    {
+                        i.CreatedDate = DateTime.Now;
+                    }
+
+                    i.IsActive = true;
+                    db.Items.InsertOnSubmit(i);
+                    db.SubmitChanges();
+                    return true;
+                }
+                catch (Exception ex)
                 {
-                    i.CreatedDate = DateTime.Now;
+                    LastError = ex.Message;
+                    return false;
                 }
-
-                i.IsActive = true;
-                db.Items.InsertOnSubmit(i);
-                db.SubmitChanges();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                LastError = ex.Message;
-                return false;
             }
         }
 
@@ -73,21 +75,21 @@ namespace DAL
 
             try
             {
-                using (var context = new Seoul_StayDataContext())
+                using (var db = new Seoul_StayDataContext())
                 {
-                    OpenConnection(context);
+                    OpenConnection(db);
 
-                    using (var transaction = context.Connection.BeginTransaction())
+                    using (var transaction = db.Connection.BeginTransaction())
                     {
-                        context.Transaction = transaction;
+                        db.Transaction = transaction;
 
-                        var newItem = CreateItemEntity(context, item);
-                        context.Items.InsertOnSubmit(newItem);
-                        context.SubmitChanges();
+                        var newItem = CreateItemEntity(db, item);
+                        db.Items.InsertOnSubmit(newItem);
+                        db.SubmitChanges();
 
-                        ReplaceItemAmenities(context, newItem.ID, amenityIds);
-                        ReplaceItemAttractions(context, newItem.ID, attractions);
-                        context.SubmitChanges();
+                        ReplaceItemAmenities(db, newItem.ID, amenityIds);
+                        ReplaceItemAttractions(db, newItem.ID, attractions);
+                        db.SubmitChanges();
 
                         transaction.Commit();
                         item.ID = newItem.ID;
@@ -109,15 +111,15 @@ namespace DAL
 
             try
             {
-                using (var context = new Seoul_StayDataContext())
+                using (var db = new Seoul_StayDataContext())
                 {
-                    OpenConnection(context);
+                    OpenConnection(db);
 
-                    using (var transaction = context.Connection.BeginTransaction())
+                    using (var transaction = db.Connection.BeginTransaction())
                     {
-                        context.Transaction = transaction;
+                        db.Transaction = transaction;
 
-                        var current = context.Items.FirstOrDefault(x => x.ID == item.ID);
+                        var current = db.Items.FirstOrDefault(x => x.ID == item.ID);
                         if (current == null)
                         {
                             LastError = "Item not found.";
@@ -125,15 +127,15 @@ namespace DAL
                         }
 
                         // 1. Update main info
-                        UpdateItemEntity(context, current, item);
+                        UpdateItemEntity(db, current, item);
 
                         // 2. Update amenities
-                        ReplaceItemAmenities(context, current.ID, amenityIds);
+                        ReplaceItemAmenities(db, current.ID, amenityIds);
 
                         // 3. Update attractions
-                        ReplaceItemAttractions(context, current.ID, attractions);
+                        ReplaceItemAttractions(db, current.ID, attractions);
 
-                        context.SubmitChanges();
+                        db.SubmitChanges();
 
                         transaction.Commit();
                     }
@@ -150,16 +152,15 @@ namespace DAL
 
         public ET_Items GetEditItem(long id)
         {
-            using (var context = new Seoul_StayDataContext())
+            using (var db = new Seoul_StayDataContext())
             {
-                var i = context.Items.FirstOrDefault(x => x.ID == id);
+                var i = db.Items.FirstOrDefault(x => x.ID == id);
                 if (i == null) return null;
 
                 return new ET_Items
                 {
                     ID = i.ID,
                     GUID = i.GUID,
-                    UserID = i.HostUserID,
                     HostUserID = i.HostUserID,
                     ItemTypeID = i.ItemTypeID,
                     AreaID = i.AreaID,
@@ -180,18 +181,18 @@ namespace DAL
 
         public long GetAreaIdByApproximateAddress(string approximateAddress)
         {
-            using (var context = new Seoul_StayDataContext())
+            using (var db = new Seoul_StayDataContext())
             {
-                return ResolveAreaId(context, approximateAddress, 0);
+                return ResolveAreaId(db, approximateAddress, 0);
             }
         }
 
         public List<ET_Amenities> GetEditItemAmenities(long id)
         {
-            using (var context = new Seoul_StayDataContext())
+            using (var db = new Seoul_StayDataContext())
             {
-                var data = from ia in context.ItemAmenities
-                           join a in context.Amenities on ia.AmenityID equals a.ID
+                var data = from ia in db.ItemAmenities
+                           join a in db.Amenities on ia.AmenityID equals a.ID
                            where ia.ItemID == id
                            select new ET_Amenities
                            {
@@ -202,28 +203,28 @@ namespace DAL
             }
         }
 
-        private static void OpenConnection(Seoul_StayDataContext context)
+        private static void OpenConnection(Seoul_StayDataContext db)
         {
-            if (context.Connection.State != ConnectionState.Open)
+            if (db.Connection.State != ConnectionState.Open)
             {
-                context.Connection.Open();
+                db.Connection.Open();
             }
         }
 
-        private static Item CreateItemEntity(Seoul_StayDataContext context, ET_Items source)
+        private static Item CreateItemEntity(Seoul_StayDataContext db, ET_Items source)
         {
             var item = new Item();
-            UpdateItemEntity(context, item, source);
+            UpdateItemEntity(db, item, source);
             item.GUID = Guid.NewGuid();
-            item.HostUserID = source.HostUserID > 0 ? source.HostUserID : source.UserID;
+            item.HostUserID = source.HostUserID;
             item.CreatedDate = DateTime.Now;
             item.IsActive = true;
             return item;
         }
 
-        private static void UpdateItemEntity(Seoul_StayDataContext context, Item target, ET_Items source)
+        private static void UpdateItemEntity(Seoul_StayDataContext db, Item target, ET_Items source)
         {
-            var areaId = ResolveAreaId(context, source.ApproximateAddress, source.AreaID);
+            var areaId = ResolveAreaId(db, source.ApproximateAddress, source.AreaID);
             if (areaId <= 0)
             {
                 throw new InvalidOperationException("Approximate Address must match an existing area.");
@@ -244,7 +245,7 @@ namespace DAL
             target.MaximumNights = source.MaximumNights;
         }
 
-        private static long ResolveAreaId(Seoul_StayDataContext context, string approximateAddress, long fallbackAreaId)
+        private static long ResolveAreaId(Seoul_StayDataContext db, string approximateAddress, long fallbackAreaId)
         {
             var value = (approximateAddress ?? string.Empty).Trim();
             if (string.IsNullOrWhiteSpace(value))
@@ -252,7 +253,7 @@ namespace DAL
                 return fallbackAreaId;
             }
 
-            var areas = context.Areas.ToList();
+            var areas = db.Areas.ToList();
             var exact = areas.FirstOrDefault(a =>
                 string.Equals(a.Name, value, StringComparison.OrdinalIgnoreCase));
 
@@ -268,11 +269,11 @@ namespace DAL
             return contains != null ? contains.ID : fallbackAreaId;
         }
 
-        private static void ReplaceItemAmenities(Seoul_StayDataContext context, long itemId, IEnumerable<long> amenityIds)
+        private static void ReplaceItemAmenities(Seoul_StayDataContext db, long itemId, IEnumerable<long> amenityIds)
         {
             var newIds = (amenityIds ?? Enumerable.Empty<long>()).Distinct().ToList();
 
-            var current = context.ItemAmenities
+            var current = db.ItemAmenities
                                  .Where(x => x.ItemID == itemId)
                                  .ToList();
 
@@ -280,13 +281,13 @@ namespace DAL
 
             // Xóa những cái không còn
             var toRemove = current.Where(x => !newIds.Contains(x.AmenityID));
-            context.ItemAmenities.DeleteAllOnSubmit(toRemove);
+            db.ItemAmenities.DeleteAllOnSubmit(toRemove);
 
             // Thêm cái mới
             var toAdd = newIds.Where(id => !currentIds.Contains(id));
             foreach (var id in toAdd)
             {
-                context.ItemAmenities.InsertOnSubmit(new ItemAmenity
+                db.ItemAmenities.InsertOnSubmit(new ItemAmenity
                 {
                     GUID = Guid.NewGuid(),
                     ItemID = itemId,
@@ -295,7 +296,7 @@ namespace DAL
             }
         }
 
-        private static void ReplaceItemAttractions(Seoul_StayDataContext context, long itemId, IEnumerable<DTO_Attraction_Distance> attractions)
+        private static void ReplaceItemAttractions(Seoul_StayDataContext db, long itemId, IEnumerable<DTO_Attraction_Distance> attractions)
         {
             var newList = (attractions ?? Enumerable.Empty<DTO_Attraction_Distance>())
         .Where(x => x.AttractionID > 0 && x.Distance.HasValue)
@@ -303,7 +304,7 @@ namespace DAL
         .Select(g => g.First())
         .ToList();
 
-            var current = context.ItemAttractions
+            var current = db.ItemAttractions
                                  .Where(x => x.ItemID == itemId)
                                  .ToList();
 
@@ -312,7 +313,7 @@ namespace DAL
 
             // Xóa cái không còn
             var toRemove = current.Where(x => !newIds.Contains(x.AttractionID));
-            context.ItemAttractions.DeleteAllOnSubmit(toRemove);
+            db.ItemAttractions.DeleteAllOnSubmit(toRemove);
 
             // Update cái có sẵn
             foreach (var exist in current.Where(x => newIds.Contains(x.AttractionID)))
@@ -328,7 +329,7 @@ namespace DAL
             var toAdd = newList.Where(x => !currentIds.Contains(x.AttractionID));
             foreach (var a in toAdd)
             {
-                context.ItemAttractions.InsertOnSubmit(new ItemAttraction
+                db.ItemAttractions.InsertOnSubmit(new ItemAttraction
                 {
                     GUID = Guid.NewGuid(),
                     ItemID = itemId,
@@ -343,6 +344,26 @@ namespace DAL
         private static int? ToNullableInt(long? value)
         {
             return value.HasValue ? (int?)Convert.ToInt32(value.Value) : null;
+        }
+        public bool Delete(long id)
+        {
+            using (var db = new Seoul_StayDataContext())
+            {
+                try
+                {
+                    var item = db.Items.FirstOrDefault(i => i.ID == id);
+                    if (item == null) return false;
+
+                    item.IsActive = false; // soft delete
+                    db.SubmitChanges();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    LastError = ex.Message;
+                    return false;
+                }
+            }
         }
     }
 }

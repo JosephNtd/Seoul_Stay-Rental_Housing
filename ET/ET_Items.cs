@@ -10,7 +10,6 @@ namespace ET
     {
         public long ID { get; set; }
         public Guid GUID { get; set; }
-        public long UserID { get; set; }
         public long HostUserID { get; set; }
         public long ItemTypeID { get; set; }
         public long AreaID { get; set; }
@@ -34,7 +33,6 @@ namespace ET
         {
             ID = iD;
             GUID = gUID;
-            UserID = userID;
             HostUserID = userID;
             ItemTypeID = itemTypeID;
             AreaID = areaID;

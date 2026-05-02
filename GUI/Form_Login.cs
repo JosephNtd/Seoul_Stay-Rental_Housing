@@ -17,6 +17,7 @@ namespace DangNhap_Form
         public Form_Login()
         {
             InitializeComponent();
+            this.AcceptButton = btnLogin;
         }
         private void Form_Login_Load(object sender, EventArgs e)
         {
@@ -82,16 +83,11 @@ namespace DangNhap_Form
 
                 Properties.Settings.Default.Save();
 
-                Form_Management f = new Form_Management(user);
+                GUI_HomePage_Host f = new GUI_HomePage_Host(user);
                 this.Hide();
                 f.ShowDialog();
                 this.Show();
             }
-        }
-
-        private void Form_Login_Enter(object sender, EventArgs e)
-        {
-            btnLogin.PerformClick();
         }
     }
 }

@@ -71,6 +71,56 @@ namespace DangNhap_Form.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] delete {
+            get {
+                object obj = ResourceManager.GetObject("delete", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] edit {
+            get {
+                object obj = ResourceManager.GetObject("edit", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap f06c91_c1bddc88840f45238181e16f4cd75295_mv2 {
+            get {
+                object obj = ResourceManager.GetObject("f06c91_c1bddc88840f45238181e16f4cd75295~mv2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap images {
+            get {
+                object obj = ResourceManager.GetObject("images", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logout {
+            get {
+                object obj = ResourceManager.GetObject("logout", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap plus {
@@ -106,6 +156,16 @@ namespace DangNhap_Form.Properties {
         internal static System.Drawing.Bitmap WSC2022SE_TP09_Logo_actual_en2 {
             get {
                 object obj = ResourceManager.GetObject("WSC2022SE_TP09_Logo_actual_en2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap zz {
+            get {
+                object obj = ResourceManager.GetObject("zz", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

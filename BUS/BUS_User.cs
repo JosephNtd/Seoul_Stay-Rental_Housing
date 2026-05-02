@@ -37,7 +37,7 @@ namespace BUS
         }
 
         public bool Register(string username, string password, string fullName,
-                             byte gender, DateTime birthDate, int familyCount)
+                             byte gender, DateTime birthDate)
         {
             var user = new User()
             {

@@ -30,7 +30,7 @@ namespace DangNhap_Form
             InitializeServices();
             _et = et;
             Mode = mode;
-            _hostUserId = et != null && et.HostUserID > 0 ? et.HostUserID : et?.UserID ?? 0;
+            _hostUserId = et.HostUserID;
         }
 
         public Form_AddEditListing(long hostUserId, bool mode)
@@ -375,13 +375,12 @@ namespace DangNhap_Form
 
         private ET_Items BuildItemFromForm()
         {
-            var hostUserId = _hostUserId > 0 ? _hostUserId : _et?.UserID ?? 0;
+            var hostUserId = _hostUserId;
 
             return new ET_Items
             {
                 ID = _et?.ID ?? 0,
                 GUID = _et?.GUID ?? Guid.Empty,
-                UserID = hostUserId,
                 HostUserID = hostUserId,
                 ItemTypeID = Convert.ToInt64(cbType.EditValue),
                 AreaID = _items.GetAreaIdByApproximateAddress(txtApproxAdress.Text.Trim()),

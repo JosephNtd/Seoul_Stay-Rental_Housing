@@ -30,7 +30,6 @@ namespace DangNhap_Form
             radioGroupGender.Properties.Items.Add(new RadioGroupItem((byte)3, "Other"));
             dtpBirthDate.Value = DateTime.Today.AddYears(-18);
             dtpBirthDate.MaxDate = DateTime.Today;
-            nudFamilyCount.Value = 1;
             txtUsername.Focus();
         }
 
@@ -41,11 +40,10 @@ namespace DangNhap_Form
             string confirmPassword = txtRePassword.Text;
             string fullName = txtFullname.Text.Trim();
             byte gender = (byte)radioGroupGender.EditValue; // 0 = Unknown  1 = Male  2 = Female  3 = Other
-            int familyCount = (int)nudFamilyCount.Value;
 
             string error = ValidateRegister(
                 username, password, confirmPassword,
-                fullName, dtpBirthDate.Value, familyCount);
+                fullName, dtpBirthDate.Value);
 
             if (!string.IsNullOrEmpty(error))
             {
@@ -62,7 +60,7 @@ namespace DangNhap_Form
 
             bool success = _bus.Register(
                 username, password, fullName,
-                gender, dtpBirthDate.Value, familyCount);
+                gender, dtpBirthDate.Value);
             
 
             if (success)
@@ -80,7 +78,7 @@ namespace DangNhap_Form
         }
         public string ValidateRegister(string username, string password,
                                         string confirmPassword, string fullName,
-                                        DateTime? birthDate, int familyCount)
+                                        DateTime? birthDate)
         {
             if (string.IsNullOrWhiteSpace(username))
             {
@@ -109,9 +107,6 @@ namespace DangNhap_Form
 
             if (birthDate.Value > DateTime.Today)
                 return "Ngày sinh không hợp lệ.";
-
-            if (familyCount < 1)
-                return "Số thành viên gia đình phải ít nhất là 1.";
 
             return "";
         }
