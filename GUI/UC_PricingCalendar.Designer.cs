@@ -35,6 +35,8 @@
             this.btnPrev = new DevExpress.XtraEditors.SimpleButton();
             this.pnlCalendar = new DevExpress.XtraEditors.PanelControl();
             this.pnlQuickEdit = new DevExpress.XtraEditors.PanelControl();
+            this.btnAvailable = new DevExpress.XtraEditors.SimpleButton();
+            this.btnBlock = new DevExpress.XtraEditors.SimpleButton();
             this.btnUpdate = new DevExpress.XtraEditors.SimpleButton();
             this.cbCancellationPolicy = new DevExpress.XtraEditors.LookUpEdit();
             this.radioSeason = new DevExpress.XtraEditors.RadioGroup();
@@ -45,8 +47,6 @@
             this.lblSelectedRange = new DevExpress.XtraEditors.LabelControl();
             this.label = new DevExpress.XtraEditors.LabelControl();
             this.lblQuickEdit = new DevExpress.XtraEditors.LabelControl();
-            this.btnBlock = new DevExpress.XtraEditors.SimpleButton();
-            this.btnAvailable = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.pnlMonthNav)).BeginInit();
             this.pnlMonthNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnlCalendar)).BeginInit();
@@ -131,6 +131,22 @@
             this.pnlQuickEdit.Size = new System.Drawing.Size(252, 405);
             this.pnlQuickEdit.TabIndex = 2;
             // 
+            // btnAvailable
+            // 
+            this.btnAvailable.Location = new System.Drawing.Point(135, 371);
+            this.btnAvailable.Name = "btnAvailable";
+            this.btnAvailable.Size = new System.Drawing.Size(97, 31);
+            this.btnAvailable.TabIndex = 5;
+            this.btnAvailable.Text = "Available";
+            // 
+            // btnBlock
+            // 
+            this.btnBlock.Location = new System.Drawing.Point(6, 371);
+            this.btnBlock.Name = "btnBlock";
+            this.btnBlock.Size = new System.Drawing.Size(97, 31);
+            this.btnBlock.TabIndex = 5;
+            this.btnBlock.Text = "Block";
+            // 
             // btnUpdate
             // 
             this.btnUpdate.Location = new System.Drawing.Point(83, 331);
@@ -162,8 +178,11 @@
             // 
             // txtPrice
             // 
+            this.txtPrice.EditValue = "";
             this.txtPrice.Location = new System.Drawing.Point(32, 161);
             this.txtPrice.Name = "txtPrice";
+            this.txtPrice.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            this.txtPrice.Properties.MaxLength = 12;
             this.txtPrice.Size = new System.Drawing.Size(200, 20);
             this.txtPrice.TabIndex = 2;
             // 
@@ -216,22 +235,6 @@
             this.lblQuickEdit.Size = new System.Drawing.Size(47, 13);
             this.lblQuickEdit.TabIndex = 0;
             this.lblQuickEdit.Text = "Quick Edit";
-            // 
-            // btnBlock
-            // 
-            this.btnBlock.Location = new System.Drawing.Point(6, 371);
-            this.btnBlock.Name = "btnBlock";
-            this.btnBlock.Size = new System.Drawing.Size(97, 31);
-            this.btnBlock.TabIndex = 5;
-            this.btnBlock.Text = "Block";
-            // 
-            // btnAvailable
-            // 
-            this.btnAvailable.Location = new System.Drawing.Point(135, 371);
-            this.btnAvailable.Name = "btnAvailable";
-            this.btnAvailable.Size = new System.Drawing.Size(97, 31);
-            this.btnAvailable.TabIndex = 5;
-            this.btnAvailable.Text = "Available";
             // 
             // UC_PricingCalendar
             // 

@@ -64,5 +64,45 @@ namespace DangNhap_Form.ViewModels
             CurrentMonth = CurrentMonth.AddMonths(delta);
             LoadData();
         }
+        public bool UpdateSelectedDates(decimal? price, long policyId, out string errorMsg, out int updatedCount)
+        {
+            errorMsg = null;
+            updatedCount = 0;
+            var dates = SelectedDates.ToList();
+
+            // Validate
+            if (!_busPrices.ValidatePriceUpdate(ItemId, dates, price, policyId, out errorMsg))
+                return false;
+
+            foreach (var date in dates)
+            {
+                if (price.HasValue)
+                {
+                    // Có giá mới → ghi cả giá và policy
+                    _busPrices.SetPrice(ItemId, date, price.Value, policyId);
+                    updatedCount++;
+                }
+                else
+                {
+                    // Chỉ đổi policy: tìm giá hiện có trong tháng
+                    var existing = MonthPrices.FirstOrDefault(p => p.Date == date);
+                    if (existing != null)
+                    {
+                        _busPrices.SetPrice(ItemId, date, existing.Price, policyId);
+                        updatedCount++;
+                    }
+                    // Nếu ngày đó chưa có giá thì bỏ qua (không thể gán policy mà không có giá)
+                }
+            }
+
+            if (updatedCount == 0)
+            {
+                errorMsg = "None of the selected dates have an existing price to update policy.";
+                return false;
+            }
+
+            LoadData(); // reload lại dữ liệu trong tháng, cập nhật MonthPrices
+            return true;
+        }
     }
 }

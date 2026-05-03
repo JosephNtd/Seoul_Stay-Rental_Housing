@@ -232,40 +232,79 @@ namespace DangNhap_Form
             {
                 lblSelectedRange.Text = "None";
                 txtPrice.Text = "";
+                cbCancellationPolicy.EditValue = null;   // không có ngày chọn → để trống
                 return;
             }
 
             var sorted = _vm.SelectedDates.OrderBy(d => d).ToList();
+            lblSelectedRange.Text = $"{sorted.First():MMM dd} - {sorted.Last():MMM dd}";
 
-            lblSelectedRange.Text =
-                $"{sorted.First():MMM dd} - {sorted.Last():MMM dd}";
-
+            // ------------------ GIÁ ------------------
             decimal? firstPrice = null;
-            if (_priceDict.TryGetValue(sorted.First(), out var fp))
-                firstPrice = fp.Price;
+            bool samePrice = true;
+            foreach (var date in sorted)
+            {
+                if (_priceDict.TryGetValue(date, out var p))
+                {
+                    if (firstPrice == null) firstPrice = p.Price;
+                    else if (p.Price != firstPrice) { samePrice = false; break; }
+                }
+                else { samePrice = false; break; }
+            }
+            txtPrice.EditValue = (samePrice && firstPrice.HasValue) ? (object)firstPrice.Value : "";
 
-            bool same = sorted.All(d =>
-                _priceDict.TryGetValue(d, out var p) && p.Price == firstPrice);
-
-            txtPrice.EditValue = same ? (object)firstPrice : "";
+            // ------------------ POLICY ------------------
+            long? firstPolicyId = null;
+            bool samePolicy = true;
+            foreach (var date in sorted)
+            {
+                if (_priceDict.TryGetValue(date, out var p))
+                {
+                    if (firstPolicyId == null) firstPolicyId = p.CancellationPolicyID;
+                    else if (p.CancellationPolicyID != firstPolicyId) { samePolicy = false; break; }
+                }
+                else { samePolicy = false; break; }
+            }
+            cbCancellationPolicy.EditValue = (samePolicy && firstPolicyId.HasValue) ? (object)firstPolicyId.Value : null;
         }
 
         // ================= ACTION =================
 
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
+            if (_vm.SelectedDates.Count == 0) return;
+
             if (cbCancellationPolicy.EditValue == null)
             {
                 XtraMessageBox.Show("Please select a cancellation policy.", "Validation");
                 return;
             }
-            if (_vm.SelectedDates.Count == 0) return;
-
-            if (!decimal.TryParse(txtPrice.Text, out decimal price)) return;
 
             long policyId = Convert.ToInt64(cbCancellationPolicy.EditValue);
+            decimal? price = null;
 
-            _vm.UpdateSelectedDates(price, policyId);
+            string priceText = txtPrice.Text.Trim();
+            if (!string.IsNullOrEmpty(priceText))
+            {
+                if (!decimal.TryParse(priceText, out decimal parsedPrice))
+                {
+                    XtraMessageBox.Show("Please enter a valid numeric price.", "Validation");
+                    return;
+                }
+                price = parsedPrice;
+            }
+
+            if (!_vm.UpdateSelectedDates(price, policyId, out string errorMsg, out int updatedCount))
+            {
+                XtraMessageBox.Show(errorMsg, "Business Rule Violation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string message = price.HasValue
+                ? $"Prices and policy updated for {updatedCount} date(s)."
+                : $"Policy updated for {updatedCount} date(s) (prices unchanged).";
+
+            XtraMessageBox.Show(message, "Success");
         }
 
         private void BtnBlock_Click(object sender, EventArgs e)
@@ -282,6 +321,13 @@ namespace DangNhap_Form
             cbCancellationPolicy.Properties.DataSource = _vm.Policies;
             cbCancellationPolicy.Properties.DisplayMember = "Name";
             cbCancellationPolicy.Properties.ValueMember = "ID";
+
+            cbCancellationPolicy.Properties.Columns.Clear();
+            cbCancellationPolicy.Properties.Columns.Add(
+                new LookUpColumnInfo("Name", "Policy")
+            );
+
+
             if (_vm.Policies.Any())
                 cbCancellationPolicy.EditValue = _vm.Policies.First().ID;
         }

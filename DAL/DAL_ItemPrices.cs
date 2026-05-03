@@ -109,6 +109,38 @@ namespace DAL
                          .ToList();
             }
         }
+        public List<DateTime> GetBlockedDatesInSet(long itemId, List<DateTime> dates)
+        {
+            using (var db = new Seoul_StayDataContext())
+            {
+                return db.ItemAvailabilities
+                         .Where(a => a.ItemID == itemId && dates.Contains(a.Date) && !a.IsAvailable)
+                         .Select(a => a.Date)
+                         .ToList();
+            }
+        }
+
+        // Kiểm tra các ngày có booking chưa hủy hay không
+        public List<DateTime> GetBookedDatesInSet(long itemId, List<DateTime> dates)
+        {
+            using (var db = new Seoul_StayDataContext())
+            {
+                var bookedRanges = db.Bookings
+                    .Where(b => b.ItemID == itemId
+                             && b.BookingStatus != "Cancelled" && b.BookingStatus != "Refunded"
+                             && b.CheckInDate <= dates.Max() && b.CheckOutDate >= dates.Min())
+                    .Select(b => new { b.CheckInDate, b.CheckOutDate })
+                    .ToList();
+
+                var bookedDates = new HashSet<DateTime>();
+                foreach (var range in bookedRanges)
+                {
+                    for (var d = range.CheckInDate; d < range.CheckOutDate; d = d.AddDays(1))
+                        if (dates.Contains(d)) bookedDates.Add(d);
+                }
+                return bookedDates.ToList();
+            }
+        }
 
         public List<DateTime> GetBookedDates(long itemId, DateTime from, DateTime to)
         {
