@@ -47,6 +47,8 @@
             this.lblSelectedRange = new DevExpress.XtraEditors.LabelControl();
             this.label = new DevExpress.XtraEditors.LabelControl();
             this.lblQuickEdit = new DevExpress.XtraEditors.LabelControl();
+            this.radioPolicy = new DevExpress.XtraEditors.RadioGroup();
+            this.spinPrice = new DevExpress.XtraEditors.SpinEdit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlMonthNav)).BeginInit();
             this.pnlMonthNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnlCalendar)).BeginInit();
@@ -55,41 +57,45 @@
             ((System.ComponentModel.ISupportInitialize)(this.cbCancellationPolicy.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radioSeason.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrice.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radioPolicy.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinPrice.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlMonthNav
             // 
             this.pnlMonthNav.Controls.Add(this.btnBack);
-            this.pnlMonthNav.Controls.Add(this.lblMonthYear);
             this.pnlMonthNav.Controls.Add(this.btnNext);
             this.pnlMonthNav.Controls.Add(this.btnPrev);
+            this.pnlMonthNav.Controls.Add(this.lblMonthYear);
+            this.pnlMonthNav.Controls.Add(this.cbCancellationPolicy);
+            this.pnlMonthNav.Controls.Add(this.txtPrice);
             this.pnlMonthNav.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlMonthNav.Location = new System.Drawing.Point(0, 0);
             this.pnlMonthNav.Name = "pnlMonthNav";
-            this.pnlMonthNav.Size = new System.Drawing.Size(833, 165);
+            this.pnlMonthNav.Size = new System.Drawing.Size(833, 73);
             this.pnlMonthNav.TabIndex = 0;
             // 
             // btnBack
             // 
             this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBack.Location = new System.Drawing.Point(705, 15);
+            this.btnBack.Location = new System.Drawing.Point(639, 16);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(108, 32);
+            this.btnBack.Size = new System.Drawing.Size(177, 41);
             this.btnBack.TabIndex = 2;
             this.btnBack.Text = "← Back to Listings";
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // lblMonthYear
             // 
-            this.lblMonthYear.Location = new System.Drawing.Point(108, 89);
+            this.lblMonthYear.Location = new System.Drawing.Point(109, 38);
             this.lblMonthYear.Name = "lblMonthYear";
-            this.lblMonthYear.Size = new System.Drawing.Size(70, 13);
+            this.lblMonthYear.Size = new System.Drawing.Size(102, 19);
             this.lblMonthYear.TabIndex = 1;
             this.lblMonthYear.Text = "October 2024.";
             // 
             // btnNext
             // 
-            this.btnNext.Location = new System.Drawing.Point(197, 84);
+            this.btnNext.Location = new System.Drawing.Point(217, 34);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(75, 23);
             this.btnNext.TabIndex = 0;
@@ -97,7 +103,7 @@
             // 
             // btnPrev
             // 
-            this.btnPrev.Location = new System.Drawing.Point(27, 84);
+            this.btnPrev.Location = new System.Drawing.Point(28, 34);
             this.btnPrev.Name = "btnPrev";
             this.btnPrev.Size = new System.Drawing.Size(75, 23);
             this.btnPrev.TabIndex = 0;
@@ -106,19 +112,19 @@
             // pnlCalendar
             // 
             this.pnlCalendar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlCalendar.Location = new System.Drawing.Point(0, 165);
+            this.pnlCalendar.Location = new System.Drawing.Point(0, 73);
             this.pnlCalendar.Name = "pnlCalendar";
-            this.pnlCalendar.Size = new System.Drawing.Size(581, 405);
+            this.pnlCalendar.Size = new System.Drawing.Size(567, 497);
             this.pnlCalendar.TabIndex = 1;
             // 
             // pnlQuickEdit
             // 
+            this.pnlQuickEdit.Controls.Add(this.spinPrice);
+            this.pnlQuickEdit.Controls.Add(this.radioPolicy);
             this.pnlQuickEdit.Controls.Add(this.btnAvailable);
             this.pnlQuickEdit.Controls.Add(this.btnBlock);
             this.pnlQuickEdit.Controls.Add(this.btnUpdate);
-            this.pnlQuickEdit.Controls.Add(this.cbCancellationPolicy);
             this.pnlQuickEdit.Controls.Add(this.radioSeason);
-            this.pnlQuickEdit.Controls.Add(this.txtPrice);
             this.pnlQuickEdit.Controls.Add(this.lblPolicy);
             this.pnlQuickEdit.Controls.Add(this.lblSeason);
             this.pnlQuickEdit.Controls.Add(this.lblNightlyRate);
@@ -126,14 +132,14 @@
             this.pnlQuickEdit.Controls.Add(this.label);
             this.pnlQuickEdit.Controls.Add(this.lblQuickEdit);
             this.pnlQuickEdit.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlQuickEdit.Location = new System.Drawing.Point(581, 165);
+            this.pnlQuickEdit.Location = new System.Drawing.Point(567, 73);
             this.pnlQuickEdit.Name = "pnlQuickEdit";
-            this.pnlQuickEdit.Size = new System.Drawing.Size(252, 405);
+            this.pnlQuickEdit.Size = new System.Drawing.Size(266, 497);
             this.pnlQuickEdit.TabIndex = 2;
             // 
             // btnAvailable
             // 
-            this.btnAvailable.Location = new System.Drawing.Point(135, 371);
+            this.btnAvailable.Location = new System.Drawing.Point(135, 442);
             this.btnAvailable.Name = "btnAvailable";
             this.btnAvailable.Size = new System.Drawing.Size(97, 31);
             this.btnAvailable.TabIndex = 5;
@@ -141,7 +147,7 @@
             // 
             // btnBlock
             // 
-            this.btnBlock.Location = new System.Drawing.Point(6, 371);
+            this.btnBlock.Location = new System.Drawing.Point(6, 442);
             this.btnBlock.Name = "btnBlock";
             this.btnBlock.Size = new System.Drawing.Size(97, 31);
             this.btnBlock.TabIndex = 5;
@@ -149,25 +155,25 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(83, 331);
+            this.btnUpdate.Location = new System.Drawing.Point(83, 402);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(97, 31);
+            this.btnUpdate.Size = new System.Drawing.Size(123, 34);
             this.btnUpdate.TabIndex = 5;
             this.btnUpdate.Text = "Update Pricing";
             // 
             // cbCancellationPolicy
             // 
-            this.cbCancellationPolicy.Location = new System.Drawing.Point(32, 296);
+            this.cbCancellationPolicy.Location = new System.Drawing.Point(342, 5);
             this.cbCancellationPolicy.Name = "cbCancellationPolicy";
             this.cbCancellationPolicy.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbCancellationPolicy.Size = new System.Drawing.Size(200, 20);
+            this.cbCancellationPolicy.Size = new System.Drawing.Size(200, 26);
             this.cbCancellationPolicy.TabIndex = 4;
             // 
             // radioSeason
             // 
             this.radioSeason.EditValue = true;
-            this.radioSeason.Location = new System.Drawing.Point(32, 206);
+            this.radioSeason.Location = new System.Drawing.Point(32, 221);
             this.radioSeason.Name = "radioSeason";
             this.radioSeason.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
             this.radioSeason.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
@@ -179,34 +185,35 @@
             // txtPrice
             // 
             this.txtPrice.EditValue = "";
-            this.txtPrice.Location = new System.Drawing.Point(32, 161);
+            this.txtPrice.Location = new System.Drawing.Point(342, 37);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             this.txtPrice.Properties.MaxLength = 12;
-            this.txtPrice.Size = new System.Drawing.Size(200, 20);
+            this.txtPrice.Size = new System.Drawing.Size(200, 26);
             this.txtPrice.TabIndex = 2;
             // 
             // lblPolicy
             // 
             this.lblPolicy.Location = new System.Drawing.Point(32, 261);
             this.lblPolicy.Name = "lblPolicy";
-            this.lblPolicy.Size = new System.Drawing.Size(88, 13);
+            this.lblPolicy.Size = new System.Drawing.Size(131, 19);
             this.lblPolicy.TabIndex = 1;
             this.lblPolicy.Text = "Cancellation Policy";
             // 
             // lblSeason
             // 
-            this.lblSeason.Location = new System.Drawing.Point(32, 187);
+            this.lblSeason.Location = new System.Drawing.Point(32, 196);
             this.lblSeason.Name = "lblSeason";
-            this.lblSeason.Size = new System.Drawing.Size(77, 13);
+            this.lblSeason.Size = new System.Drawing.Size(115, 19);
             this.lblSeason.TabIndex = 1;
             this.lblSeason.Text = "Seasonal Pricing";
+            this.lblSeason.Click += new System.EventHandler(this.lblSeason_Click);
             // 
             // lblNightlyRate
             // 
             this.lblNightlyRate.Location = new System.Drawing.Point(32, 142);
             this.lblNightlyRate.Name = "lblNightlyRate";
-            this.lblNightlyRate.Size = new System.Drawing.Size(59, 13);
+            this.lblNightlyRate.Size = new System.Drawing.Size(86, 19);
             this.lblNightlyRate.TabIndex = 1;
             this.lblNightlyRate.Text = "Nightly Rate";
             // 
@@ -215,7 +222,7 @@
             this.lblSelectedRange.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.lblSelectedRange.Location = new System.Drawing.Point(32, 107);
             this.lblSelectedRange.Name = "lblSelectedRange";
-            this.lblSelectedRange.Size = new System.Drawing.Size(97, 15);
+            this.lblSelectedRange.Size = new System.Drawing.Size(143, 21);
             this.lblSelectedRange.TabIndex = 1;
             this.lblSelectedRange.Text = "Oct 4 – Oct 6, 2024";
             // 
@@ -224,7 +231,7 @@
             this.label.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.label.Location = new System.Drawing.Point(32, 75);
             this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(77, 15);
+            this.label.Size = new System.Drawing.Size(109, 21);
             this.label.TabIndex = 1;
             this.label.Text = "Selected Range";
             // 
@@ -232,14 +239,45 @@
             // 
             this.lblQuickEdit.Location = new System.Drawing.Point(32, 23);
             this.lblQuickEdit.Name = "lblQuickEdit";
-            this.lblQuickEdit.Size = new System.Drawing.Size(47, 13);
+            this.lblQuickEdit.Size = new System.Drawing.Size(72, 19);
             this.lblQuickEdit.TabIndex = 0;
             this.lblQuickEdit.Text = "Quick Edit";
             // 
+            // radioPolicy
+            // 
+            this.radioPolicy.Location = new System.Drawing.Point(32, 286);
+            this.radioPolicy.Name = "radioPolicy";
+            this.radioPolicy.Size = new System.Drawing.Size(200, 110);
+            this.radioPolicy.TabIndex = 6;
+            // 
+            // spinPrice
+            // 
+            this.spinPrice.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.spinPrice.Location = new System.Drawing.Point(32, 167);
+            this.spinPrice.Name = "spinPrice";
+            this.spinPrice.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
+            this.spinPrice.Properties.Appearance.Options.UseTextOptions = true;
+            this.spinPrice.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.spinPrice.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.spinPrice.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.spinPrice.Properties.MaskSettings.Set("mask", "c");
+            this.spinPrice.Properties.MaxValue = new decimal(new int[] {
+            99999999,
+            0,
+            0,
+            0});
+            this.spinPrice.Properties.NullText = "Enter price...";
+            this.spinPrice.Size = new System.Drawing.Size(200, 28);
+            this.spinPrice.TabIndex = 7;
+            // 
             // UC_PricingCalendar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.Controls.Add(this.pnlCalendar);
             this.Controls.Add(this.pnlQuickEdit);
             this.Controls.Add(this.pnlMonthNav);
@@ -255,6 +293,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.cbCancellationPolicy.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radioSeason.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrice.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radioPolicy.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinPrice.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -280,5 +320,7 @@
         private DevExpress.XtraEditors.SimpleButton btnBack;
         private DevExpress.XtraEditors.SimpleButton btnAvailable;
         private DevExpress.XtraEditors.SimpleButton btnBlock;
+        private DevExpress.XtraEditors.SpinEdit spinPrice;
+        private DevExpress.XtraEditors.RadioGroup radioPolicy;
     }
 }

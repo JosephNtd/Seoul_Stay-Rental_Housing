@@ -72,6 +72,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dlgBankAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dlgBankAccount.Designer.cs">
+      <DependentUpon>dlgBankAccount.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_AddEditListing.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +138,12 @@
     <Compile Include="UC_Management.Designer.cs">
       <DependentUpon>UC_Management.cs</DependentUpon>
     </Compile>
+    <Compile Include="UC_MyProfile_Host.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_MyProfile_Host.Designer.cs">
+      <DependentUpon>UC_MyProfile_Host.cs</DependentUpon>
+    </Compile>
     <Compile Include="UC_PricingCalendar.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -139,6 +151,9 @@
       <DependentUpon>UC_PricingCalendar.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\PricingCalendarViewModel.cs" />
+    <EmbeddedResource Include="dlgBankAccount.resx">
+      <DependentUpon>dlgBankAccount.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_AddEditListing.resx">
       <DependentUpon>Form_AddEditListing.cs</DependentUpon>
     </EmbeddedResource>
@@ -168,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UC_Management.resx">
       <DependentUpon>UC_Management.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_MyProfile_Host.resx">
+      <DependentUpon>UC_MyProfile_Host.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_PricingCalendar.resx">
       <DependentUpon>UC_PricingCalendar.cs</DependentUpon>

@@ -48,6 +48,9 @@
     <Compile Include="ET_Attractions.cs" />
     <Compile Include="ET_Coupons.cs" />
     <Compile Include="ET_DimDates.cs" />
+    <Compile Include="ET_Guest.cs" />
+    <Compile Include="ET_Host.cs" />
+    <Compile Include="ET_HostBankAccount.cs" />
     <Compile Include="ET_ItemAvailability.cs" />
     <Compile Include="ET_Items.cs" />
     <Compile Include="ET_ItemAmenities.cs" />

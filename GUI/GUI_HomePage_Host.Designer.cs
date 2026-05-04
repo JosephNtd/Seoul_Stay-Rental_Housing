@@ -32,8 +32,9 @@
             this.fluentDesignFormContainer1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer();
             this.main = new DevExpress.XtraEditors.PanelControl();
             this.accordionControl1 = new DevExpress.XtraBars.Navigation.AccordionControl();
-            this.acc_MyList = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.acc_MyProfile = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
+            this.acc_MyList = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.fluentDesignFormContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.main)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
@@ -44,17 +45,19 @@
             // 
             this.fluentDesignFormContainer1.Controls.Add(this.main);
             this.fluentDesignFormContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fluentDesignFormContainer1.Location = new System.Drawing.Point(260, 31);
+            this.fluentDesignFormContainer1.Location = new System.Drawing.Point(390, 46);
+            this.fluentDesignFormContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.fluentDesignFormContainer1.Name = "fluentDesignFormContainer1";
-            this.fluentDesignFormContainer1.Size = new System.Drawing.Size(540, 419);
+            this.fluentDesignFormContainer1.Size = new System.Drawing.Size(810, 612);
             this.fluentDesignFormContainer1.TabIndex = 0;
             // 
             // main
             // 
             this.main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.main.Location = new System.Drawing.Point(0, 0);
+            this.main.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.main.Name = "main";
-            this.main.Size = new System.Drawing.Size(540, 419);
+            this.main.Size = new System.Drawing.Size(810, 612);
             this.main.TabIndex = 0;
             // 
             // accordionControl1
@@ -87,39 +90,52 @@
             this.accordionControl1.Appearance.Item.Pressed.Options.UseForeColor = true;
             this.accordionControl1.Dock = System.Windows.Forms.DockStyle.Left;
             this.accordionControl1.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
-            this.acc_MyList});
-            this.accordionControl1.Location = new System.Drawing.Point(0, 31);
+            this.acc_MyProfile});
+            this.accordionControl1.Location = new System.Drawing.Point(0, 46);
+            this.accordionControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.accordionControl1.Name = "accordionControl1";
+            this.accordionControl1.RootDisplayMode = DevExpress.XtraBars.Navigation.AccordionControlRootDisplayMode.Footer;
             this.accordionControl1.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
-            this.accordionControl1.Size = new System.Drawing.Size(260, 419);
+            this.accordionControl1.Size = new System.Drawing.Size(390, 612);
             this.accordionControl1.TabIndex = 1;
             this.accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
-            // acc_MyList
+            // acc_MyProfile
             // 
-            this.acc_MyList.Name = "acc_MyList";
-            this.acc_MyList.Text = "My Listing";
-            this.acc_MyList.Click += new System.EventHandler(this.acc_MyList_Click);
+            this.acc_MyProfile.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.acc_MyList});
+            this.acc_MyProfile.Expanded = true;
+            this.acc_MyProfile.Name = "acc_MyProfile";
+            this.acc_MyProfile.Text = "My Listing";
             // 
             // fluentDesignFormControl1
             // 
             this.fluentDesignFormControl1.FluentDesignForm = this;
             this.fluentDesignFormControl1.Location = new System.Drawing.Point(0, 0);
+            this.fluentDesignFormControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.fluentDesignFormControl1.Name = "fluentDesignFormControl1";
-            this.fluentDesignFormControl1.Size = new System.Drawing.Size(800, 31);
+            this.fluentDesignFormControl1.Size = new System.Drawing.Size(1200, 46);
             this.fluentDesignFormControl1.TabIndex = 2;
             this.fluentDesignFormControl1.TabStop = false;
             // 
+            // acc_MyList
+            // 
+            this.acc_MyList.Name = "acc_MyList";
+            this.acc_MyList.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.acc_MyList.Text = "My Listings";
+            this.acc_MyList.Click += new System.EventHandler(this.acc_MyList_Click);
+            // 
             // GUI_HomePage_Host
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1200, 658);
             this.ControlContainer = this.fluentDesignFormContainer1;
             this.Controls.Add(this.fluentDesignFormContainer1);
             this.Controls.Add(this.accordionControl1);
             this.Controls.Add(this.fluentDesignFormControl1);
             this.FluentDesignFormControl = this.fluentDesignFormControl1;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "GUI_HomePage_Host";
             this.NavigationControl = this.accordionControl1;
             this.Text = "GUI_HomePage_Host";
@@ -136,8 +152,9 @@
 
         private DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer fluentDesignFormContainer1;
         private DevExpress.XtraBars.Navigation.AccordionControl accordionControl1;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement acc_MyList;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement acc_MyProfile;
         private DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl fluentDesignFormControl1;
         private DevExpress.XtraEditors.PanelControl main;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement acc_MyList;
     }
 }

@@ -112,7 +112,7 @@ namespace DangNhap_Form
                         ET_ItemPrices price = null;
                         _priceDict.TryGetValue(date, out price);
 
-                        string text = $"{currentDay}\n${price?.Price ?? 240}";
+                        string text = $"{currentDay}\n${price?.Price ?? 0}";
 
                         var lbl = new LabelControl
                         {
@@ -228,18 +228,56 @@ namespace DangNhap_Form
 
         private void UpdateQuickEdit()
         {
+            //if (_vm.SelectedDates.Count == 0)
+            //{
+            //    lblSelectedRange.Text = "None";
+            //    txtPrice.Text = "";
+            //    cbCancellationPolicy.EditValue = null;   // không có ngày chọn → để trống
+            //    return;
+            //}
+
+            //var sorted = _vm.SelectedDates.OrderBy(d => d).ToList();
+            //lblSelectedRange.Text = $"{sorted.First():MMM dd} - {sorted.Last():MMM dd}";
+
+            //// ------------------ GIÁ ------------------
+            //decimal? firstPrice = null;
+            //bool samePrice = true;
+            //foreach (var date in sorted)
+            //{
+            //    if (_priceDict.TryGetValue(date, out var p))
+            //    {
+            //        if (firstPrice == null) firstPrice = p.Price;
+            //        else if (p.Price != firstPrice) { samePrice = false; break; }
+            //    }
+            //    else { samePrice = false; break; }
+            //}
+            //txtPrice.EditValue = (samePrice && firstPrice.HasValue) ? (object)firstPrice.Value : "";
+
+            //// ------------------ POLICY ------------------
+            //long? firstPolicyId = null;
+            //bool samePolicy = true;
+            //foreach (var date in sorted)
+            //{
+            //    if (_priceDict.TryGetValue(date, out var p))
+            //    {
+            //        if (firstPolicyId == null) firstPolicyId = p.CancellationPolicyID;
+            //        else if (p.CancellationPolicyID != firstPolicyId) { samePolicy = false; break; }
+            //    }
+            //    else { samePolicy = false; break; }
+            //}
+            //cbCancellationPolicy.EditValue = (samePolicy && firstPolicyId.HasValue) ? (object)firstPolicyId.Value : null;
             if (_vm.SelectedDates.Count == 0)
             {
                 lblSelectedRange.Text = "None";
-                txtPrice.Text = "";
-                cbCancellationPolicy.EditValue = null;   // không có ngày chọn → để trống
+                spinPrice.EditValue = null;
+                radioPolicy.EditValue = null;
                 return;
             }
 
             var sorted = _vm.SelectedDates.OrderBy(d => d).ToList();
             lblSelectedRange.Text = $"{sorted.First():MMM dd} - {sorted.Last():MMM dd}";
 
-            // ------------------ GIÁ ------------------
+            // --- GIÁ ---
             decimal? firstPrice = null;
             bool samePrice = true;
             foreach (var date in sorted)
@@ -251,9 +289,12 @@ namespace DangNhap_Form
                 }
                 else { samePrice = false; break; }
             }
-            txtPrice.EditValue = (samePrice && firstPrice.HasValue) ? (object)firstPrice.Value : "";
+            if (samePrice && firstPrice.HasValue)
+                spinPrice.Value = firstPrice.Value;
+            else
+                spinPrice.EditValue = null; // để trống nếu không đồng nhất
 
-            // ------------------ POLICY ------------------
+            // --- POLICY ---
             long? firstPolicyId = null;
             bool samePolicy = true;
             foreach (var date in sorted)
@@ -265,7 +306,10 @@ namespace DangNhap_Form
                 }
                 else { samePolicy = false; break; }
             }
-            cbCancellationPolicy.EditValue = (samePolicy && firstPolicyId.HasValue) ? (object)firstPolicyId.Value : null;
+            if (samePolicy && firstPolicyId.HasValue)
+                radioPolicy.EditValue = firstPolicyId.Value;
+            else
+                radioPolicy.EditValue = null;
         }
 
         // ================= ACTION =================
@@ -274,24 +318,37 @@ namespace DangNhap_Form
         {
             if (_vm.SelectedDates.Count == 0) return;
 
-            if (cbCancellationPolicy.EditValue == null)
+            //if (cbCancellationPolicy.EditValue == null)
+            //{
+            //    XtraMessageBox.Show("Please select a cancellation policy.", "Validation");
+            //    return;
+            //}
+
+            //long policyId = Convert.ToInt64(cbCancellationPolicy.EditValue);
+            //decimal? price = null;
+
+            //string priceText = txtPrice.Text.Trim();
+            //if (!string.IsNullOrEmpty(priceText))
+            //{
+            //    if (!decimal.TryParse(priceText, out decimal parsedPrice))
+            //    {
+            //        XtraMessageBox.Show("Please enter a valid numeric price.", "Validation");
+            //        return;
+            //    }
+            //    price = parsedPrice;
+            //}
+            if (radioPolicy.EditValue == null)
             {
                 XtraMessageBox.Show("Please select a cancellation policy.", "Validation");
                 return;
             }
+            long policyId = Convert.ToInt64(radioPolicy.EditValue);
 
-            long policyId = Convert.ToInt64(cbCancellationPolicy.EditValue);
+            // Lấy giá từ SpinEdit (cho phép null)
             decimal? price = null;
-
-            string priceText = txtPrice.Text.Trim();
-            if (!string.IsNullOrEmpty(priceText))
+            if (spinPrice.EditValue != null && spinPrice.Value > 0)
             {
-                if (!decimal.TryParse(priceText, out decimal parsedPrice))
-                {
-                    XtraMessageBox.Show("Please enter a valid numeric price.", "Validation");
-                    return;
-                }
-                price = parsedPrice;
+                price = spinPrice.Value;
             }
 
             if (!_vm.UpdateSelectedDates(price, policyId, out string errorMsg, out int updatedCount))
@@ -318,21 +375,33 @@ namespace DangNhap_Form
         }
         private void LoadPolicies()
         {
-            cbCancellationPolicy.Properties.DataSource = _vm.Policies;
-            cbCancellationPolicy.Properties.DisplayMember = "Name";
-            cbCancellationPolicy.Properties.ValueMember = "ID";
+            //cbCancellationPolicy.Properties.DataSource = _vm.Policies;
+            //cbCancellationPolicy.Properties.DisplayMember = "Name";
+            //cbCancellationPolicy.Properties.ValueMember = "ID";
 
-            cbCancellationPolicy.Properties.Columns.Clear();
-            cbCancellationPolicy.Properties.Columns.Add(
-                new LookUpColumnInfo("Name", "Policy")
-            );
+            //cbCancellationPolicy.Properties.Columns.Clear();
+            //cbCancellationPolicy.Properties.Columns.Add(
+            //    new LookUpColumnInfo("Name", "Policy")
+            //);
 
 
+            //if (_vm.Policies.Any())
+            //    cbCancellationPolicy.EditValue = _vm.Policies.First().ID;
+            radioPolicy.Properties.Items.Clear();
+            foreach (var policy in _vm.Policies)
+            {
+                radioPolicy.Properties.Items.Add(new RadioGroupItem(policy.ID, policy.Name));
+            }
             if (_vm.Policies.Any())
-                cbCancellationPolicy.EditValue = _vm.Policies.First().ID;
+                radioPolicy.SelectedIndex = 0;
         }
 
         private void btnBack_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblSeason_Click(object sender, EventArgs e)
         {
 
         }
