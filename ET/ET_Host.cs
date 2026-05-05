@@ -18,12 +18,14 @@ namespace ET
         public ET_Host() : base() { }
 
         // Constructor đầy đủ
-        public ET_Host(long id, Guid guid, string username, string password, string fullName,
-                       string email, byte gender, DateTime birthDate, bool isAdmin,
-                       string businessLicense, string taxCode, bool isVerified,
-                       DateTime? verifiedDate, decimal? rating, int totalReviews,
-                       DateTime joinedAsHostDate)
-            : base(id, guid, username, password, fullName, email, gender, birthDate, isAdmin)
+        public ET_Host(
+            long iD, Guid gUID, string username, string password, string fullName,
+            string email, string phoneNumber, byte gender, DateTime? birthDate,
+            string country, string profilePicture,
+            string businessLicense, string taxCode, bool isVerified,
+            DateTime? verifiedDate, decimal? rating, int totalReviews,
+            DateTime joinedAsHostDate)
+            : base(iD, gUID, username, password, fullName, email, phoneNumber, gender, birthDate, country, profilePicture)
         {
             BusinessLicense = businessLicense;
             TaxCode = taxCode;

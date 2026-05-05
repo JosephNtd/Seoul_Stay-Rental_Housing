@@ -1,5 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Seoul_Stay" Class="Seoul_StayDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-F8TMCM4;Initial Catalog=Seoul_Stay;Integrated Security=True;Encrypt=True;Trust Server Certificate=True" SettingsObjectName="DAL.Properties.Settings" SettingsPropertyName="Seoul_StayConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.AddonServiceDetails" Member="AddonServiceDetails">
+    <Type Name="AddonServiceDetail">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GUID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="AddonServiceID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="ServiceID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="FromDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Notes" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="NumberOfPeople" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="isRefund" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="AddonService_AddonServiceDetail" Member="AddonService" ThisKey="AddonServiceID" OtherKey="ID" Type="AddonService" IsForeignKey="true" />
+      <Association Name="Service_AddonServiceDetail" Member="Service" ThisKey="ServiceID" OtherKey="ID" Type="Service" IsForeignKey="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.Users" Member="Users">
     <Type Name="User">
       <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -16,12 +31,27 @@
       <Column Name="IsAdmin" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="User_AddonService" Member="AddonServices" ThisKey="ID" OtherKey="UserID" Type="AddonService" />
       <Association Name="User_BookingStatusHistory" Member="BookingStatusHistories" ThisKey="ID" OtherKey="ChangedByUserID" Type="BookingStatusHistory" />
       <Association Name="User_Guest" Member="Guest" ThisKey="ID" OtherKey="UserID" Type="Guest" Cardinality="One" />
       <Association Name="User_Host" Member="Host" ThisKey="ID" OtherKey="UserID" Type="Host" Cardinality="One" />
+      <Association Name="User_ItemScore" Member="ItemScores" ThisKey="ID" OtherKey="UserID" Type="ItemScore" />
       <Association Name="User_Review" Member="Reviews" ThisKey="ID" OtherKey="RevieweeID" Type="Review" />
       <Association Name="User_Review1" Member="Reviews1" ThisKey="ID" OtherKey="ReviewerID" Type="Review" />
       <Association Name="User_Transaction" Member="Transactions" ThisKey="ID" OtherKey="UserID" Type="Transaction" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AddonServices" Member="AddonServices">
+    <Type Name="AddonService">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GUID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="BookingID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CouponID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Association Name="AddonService_AddonServiceDetail" Member="AddonServiceDetails" ThisKey="ID" OtherKey="AddonServiceID" Type="AddonServiceDetail" />
+      <Association Name="User_AddonService" Member="User" ThisKey="UserID" OtherKey="ID" Type="User" IsForeignKey="true" />
+      <Association Name="Booking_AddonService" Member="Booking" ThisKey="BookingID" OtherKey="ID" Type="Booking" IsForeignKey="true" />
+      <Association Name="Coupon_AddonService" Member="Coupon" ThisKey="CouponID" OtherKey="ID" Type="Coupon" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Amenities" Member="Amenities">
@@ -65,6 +95,20 @@
       <Association Name="Coupon_BookingCoupon" Member="Coupon" ThisKey="CouponID" OtherKey="ID" Type="Coupon" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.BookingDetails" Member="BookingDetails">
+    <Type Name="BookingDetail">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GUID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="BookingID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="ItemPriceID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="isRefund" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="RefundDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="RefundCancellationPolicyID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Association Name="Booking_BookingDetail" Member="Booking" ThisKey="BookingID" OtherKey="ID" Type="Booking" IsForeignKey="true" />
+      <Association Name="CancellationPolicy_BookingDetail" Member="CancellationPolicy" ThisKey="RefundCancellationPolicyID" OtherKey="ID" Type="CancellationPolicy" IsForeignKey="true" />
+      <Association Name="ItemPrice_BookingDetail" Member="ItemPrice" ThisKey="ItemPriceID" OtherKey="ID" Type="ItemPrice" IsForeignKey="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.Bookings" Member="Bookings">
     <Type Name="Booking">
       <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -83,7 +127,9 @@
       <Column Name="BookingDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="SpecialRequests" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
       <Column Name="TransactionID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Association Name="Booking_AddonService" Member="AddonServices" ThisKey="ID" OtherKey="BookingID" Type="AddonService" />
       <Association Name="Booking_BookingCoupon" Member="BookingCoupons" ThisKey="ID" OtherKey="BookingID" Type="BookingCoupon" />
+      <Association Name="Booking_BookingDetail" Member="BookingDetails" ThisKey="ID" OtherKey="BookingID" Type="BookingDetail" />
       <Association Name="Booking_BookingStatusHistory" Member="BookingStatusHistories" ThisKey="ID" OtherKey="BookingID" Type="BookingStatusHistory" />
       <Association Name="Booking_Review" Member="Reviews" ThisKey="ID" OtherKey="BookingID" Type="Review" />
       <Association Name="CancellationPolicy_Booking" Member="CancellationPolicy" ThisKey="CancellationPolicyID" OtherKey="ID" Type="CancellationPolicy" IsForeignKey="true" />
@@ -114,6 +160,7 @@
       <Column Name="GUID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="PlatformCommissionRate" Type="System.Decimal" DbType="Decimal(5,2) NOT NULL" CanBeNull="false" />
+      <Association Name="CancellationPolicy_BookingDetail" Member="BookingDetails" ThisKey="ID" OtherKey="RefundCancellationPolicyID" Type="BookingDetail" />
       <Association Name="CancellationPolicy_Booking" Member="Bookings" ThisKey="ID" OtherKey="CancellationPolicyID" Type="Booking" />
       <Association Name="CancellationPolicy_CancellationRefundFee" Member="CancellationRefundFees" ThisKey="ID" OtherKey="CancellationPolicyID" Type="CancellationRefundFee" />
       <Association Name="CancellationPolicy_ItemPrice" Member="ItemPrices" ThisKey="ID" OtherKey="CancellationPolicyID" Type="ItemPrice" />
@@ -141,6 +188,7 @@
       <Column Name="MaxUsageCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="CurrentUsageCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Coupon_AddonService" Member="AddonServices" ThisKey="ID" OtherKey="CouponID" Type="AddonService" />
       <Association Name="Coupon_BookingCoupon" Member="BookingCoupons" ThisKey="ID" OtherKey="CouponID" Type="BookingCoupon" />
     </Type>
   </Table>
@@ -255,6 +303,7 @@
       <Column Name="Date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="Price" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
       <Column Name="CancellationPolicyID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Association Name="ItemPrice_BookingDetail" Member="BookingDetails" ThisKey="ID" OtherKey="ItemPriceID" Type="BookingDetail" />
       <Association Name="CancellationPolicy_ItemPrice" Member="CancellationPolicy" ThisKey="CancellationPolicyID" OtherKey="ID" Type="CancellationPolicy" IsForeignKey="true" />
       <Association Name="DimDate_ItemPrice" Member="DimDate" ThisKey="Date" OtherKey="Date" Type="DimDate" IsForeignKey="true" />
       <Association Name="Item_ItemPrice" Member="Item" ThisKey="ItemID" OtherKey="ID" Type="Item" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
@@ -286,10 +335,24 @@
       <Association Name="Item_ItemAvailability" Member="ItemAvailabilities" ThisKey="ID" OtherKey="ItemID" Type="ItemAvailability" />
       <Association Name="Item_ItemPicture" Member="ItemPictures" ThisKey="ID" OtherKey="ItemID" Type="ItemPicture" />
       <Association Name="Item_ItemPrice" Member="ItemPrices" ThisKey="ID" OtherKey="ItemID" Type="ItemPrice" />
+      <Association Name="Item_ItemScore" Member="ItemScores" ThisKey="ID" OtherKey="ItemID" Type="ItemScore" />
       <Association Name="Item_Review" Member="Reviews" ThisKey="ID" OtherKey="ItemID" Type="Review" />
       <Association Name="Area_Item" Member="Area" ThisKey="AreaID" OtherKey="ID" Type="Area" IsForeignKey="true" />
       <Association Name="Host_Item" Member="Host" ThisKey="HostUserID" OtherKey="UserID" Type="Host" IsForeignKey="true" />
       <Association Name="ItemType_Item" Member="ItemType" ThisKey="ItemTypeID" OtherKey="ID" Type="ItemType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ItemScores" Member="ItemScores">
+    <Type Name="ItemScore">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GUID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="ItemID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="ScoreID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Value" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Association Name="Item_ItemScore" Member="Item" ThisKey="ItemID" OtherKey="ID" Type="Item" IsForeignKey="true" />
+      <Association Name="User_ItemScore" Member="User" ThisKey="UserID" OtherKey="ID" Type="User" IsForeignKey="true" />
+      <Association Name="Score_ItemScore" Member="Score" ThisKey="ScoreID" OtherKey="ID" Type="Score" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.ItemTypes" Member="ItemTypes">
@@ -316,6 +379,41 @@
       <Association Name="Item_Review" Member="Item" ThisKey="ItemID" OtherKey="ID" Type="Item" IsForeignKey="true" />
       <Association Name="User_Review" Member="User" ThisKey="RevieweeID" OtherKey="ID" Type="User" IsForeignKey="true" />
       <Association Name="User_Review1" Member="User1" ThisKey="ReviewerID" OtherKey="ID" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Scores" Member="Scores">
+    <Type Name="Score">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GUID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Score_ItemScore" Member="ItemScores" ThisKey="ID" OtherKey="ScoreID" Type="ItemScore" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Services" Member="Services">
+    <Type Name="Service">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GUID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="ServiceTypeID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Duration" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="DayOfWeek" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DayOfMonth" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DailyCap" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="BookingCap" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Association Name="Service_AddonServiceDetail" Member="AddonServiceDetails" ThisKey="ID" OtherKey="ServiceID" Type="AddonServiceDetail" />
+      <Association Name="ServiceType_Service" Member="ServiceType" ThisKey="ServiceTypeID" OtherKey="ID" Type="ServiceType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ServiceTypes" Member="ServiceTypes">
+    <Type Name="ServiceType">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GUID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="IconName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Association Name="ServiceType_Service" Member="Services" ThisKey="ID" OtherKey="ServiceTypeID" Type="Service" />
     </Type>
   </Table>
   <Table Name="dbo.Transactions" Member="Transactions">

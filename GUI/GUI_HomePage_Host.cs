@@ -1,4 +1,7 @@
 ﻿using BUS;
+using DevExpress.XtraBars;
+using DevExpress.XtraBars.Navigation;
+using DevExpress.XtraEditors;
 using ET;
 using System;
 using System.Collections.Generic;
@@ -16,6 +19,8 @@ namespace DangNhap_Form
     {
         //private UC_Management ucManagement;
         private readonly ET_Users _currentUser;
+        private PopupMenu popupAccount;
+
         public GUI_HomePage_Host()
         {
             InitializeComponent();
@@ -25,8 +30,49 @@ namespace DangNhap_Form
         {
             InitializeComponent();
             _currentUser = currentUser;
+            SetupAccountMenu();
         }
 
+
+            private void SetupAccountMenu()
+        {
+            // Tạo ContextMenuStrip cho menu tài khoản
+            contextMenu = new ContextMenuStrip();
+            var itemProfile = new ToolStripMenuItem("My Profile");
+            itemProfile.Click += (s, e) => ShowUC(new UC_MyProfile_Host(_currentUser.ID));
+            var itemSettings = new ToolStripMenuItem("Settings");
+            itemSettings.Click += (s, e) =>
+                XtraMessageBox.Show("Settings page will be available soon.", "Settings");
+            var itemLogout = new ToolStripMenuItem("Log-out");
+            itemLogout.Click += (s, e) => Logout();
+            contextMenu.Items.AddRange(new ToolStripItem[] { itemProfile, itemSettings, itemLogout });
+
+            // Tạo phần tử "M" ở cuối AccordionControl
+            //var accountElement = new AccordionControlElement
+            //{
+            //    Text = "M",  // hoặc lấy chữ cái đầu tên
+            //    Style = ElementStyle.Item,
+            //    Height = 40
+            //};
+            acc_MyProfile.Click += (s, e) =>
+            {
+                // Hiển thị context menu ngay tại vị trí chuột
+                contextMenu.Show(Cursor.Position);
+            };
+
+            // Thêm vào cuối danh sách các mục của AccordionControl
+            //accordionControl1.Elements.Add(accountElement);
+        }
+        
+        
+        private void Logout()
+        {
+            // Đóng form host hiện tại
+            this.Close();
+            // Mở form login
+            var loginForm = new Form_Login();
+            loginForm.Show();
+        }
         private void acc_MyList_Click(object sender, EventArgs e)
         {
             //if (ucManagement == null)

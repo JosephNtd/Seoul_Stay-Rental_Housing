@@ -45,6 +45,7 @@
     <Compile Include="BUS_Area.cs" />
     <Compile Include="BUS_Attraction.cs" />
     <Compile Include="BUS_CancellationPolicy.cs" />
+    <Compile Include="BUS_Host.cs" />
     <Compile Include="BUS_ItemPrices.cs" />
     <Compile Include="BUS_Items.cs" />
     <Compile Include="BUS_Transaction.cs" />

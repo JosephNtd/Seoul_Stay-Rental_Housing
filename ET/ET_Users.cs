@@ -9,33 +9,54 @@ namespace ET
     public class ET_Users
     {
         public long ID { get; set; }
-        public Guid GUID { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public string FullName { get; set; }
-        public string Email { get; set; }
-        public byte Gender { get; set; }   // Gender: 0=Unknown  1=Male  2=Female  3=Other
-        public DateTime? BirthDate { get; set; }
-        public bool IsAdmin { get; set; }
 
-        public bool IsEmployee => IsAdmin;
-        public bool IsUser => !IsAdmin;
+        public Guid GUID { get; set; } = Guid.NewGuid();
+
+        public string Username { get; set; }
+
+        public string Password { get; set; }
+
+        public string FullName { get; set; }
+
+        public string Email { get; set; }
+
+        public string PhoneNumber { get; set; }
+
+        /// <summary>
+        /// 0: Unknown, 1: Male, 2: Female, 3: Other
+        /// </summary>
+        public byte Gender { get; set; } = 0;
+
+        public DateTime? BirthDate { get; set; }
+
+        public string Country { get; set; }
+
+        public string ProfilePicture { get; set; }
+
+        public bool IsAdmin { get; set; } = false;
+
+        public DateTime CreatedDate { get; set; } = DateTime.Now;
+
+        public bool IsActive { get; set; } = true;
 
         public ET_Users() { }
 
-        public ET_Users(long id, Guid guid, string username,
-                    string password, string fullName, string email, byte gender,
-                    DateTime birthDate, bool isAdmin)
+        public ET_Users(
+            long iD, Guid gUID, string username, string password, string fullName, 
+            string email, string phoneNumber, byte gender, DateTime? birthDate, 
+            string country, string profilePicture)
         {
-            ID = id;
-            GUID = guid;
+            ID = iD;
+            GUID = gUID;
             Username = username;
             Password = password;
             FullName = fullName;
             Email = email;
+            PhoneNumber = phoneNumber;
             Gender = gender;
             BirthDate = birthDate;
-            IsAdmin = isAdmin;
+            Country = country;
+            ProfilePicture = profilePicture;
         }
     }
 }

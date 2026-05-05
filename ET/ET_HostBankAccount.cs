@@ -9,6 +9,7 @@ namespace ET
     public class ET_HostBankAccount
     {
         public long ID { get; set; }
+        public Guid GUID { get; set; }
         public long HostUserID { get; set; }
         public string BankName { get; set; }
         public string AccountNumber { get; set; }
@@ -17,5 +18,6 @@ namespace ET
         public bool IsVerified { get; set; }
         public DateTime CreatedDate { get; set; }
         public bool IsActive { get; set; }
+        public ET_HostBankAccount() { }
     }
 }

@@ -237,11 +237,13 @@
     <None Include="Resources\WSC2022SE_TP09_Logo_actual_en.ico" />
     <None Include="Resources\plus.png" />
     <None Include="Resources\267-plus.png" />
+    <Content Include="Resources\declined.png" />
     <Content Include="Resources\delete.svg" />
     <Content Include="Resources\edit.svg" />
     <None Include="Resources\logout.png" />
     <None Include="Resources\images.png" />
     <None Include="Resources\f06c91_c1bddc88840f45238181e16f4cd75295~mv2.gif" />
+    <Content Include="Resources\verified.png" />
     <Content Include="Resources\WSC2022SE_TP09_Logo_actual_en.png" />
     <None Include="Resources\WSC2022SE_TP09_Logo_actual_en1.png" />
   </ItemGroup>

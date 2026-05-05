@@ -78,7 +78,6 @@
             this.labelControl4.Size = new System.Drawing.Size(167, 13);
             this.labelControl4.TabIndex = 1;
             this.labelControl4.Text = "Receive all payouts to this account";
-            this.labelControl4.Click += new System.EventHandler(this.labelControl4_Click);
             // 
             // labelControl5
             // 
@@ -134,6 +133,7 @@
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 5;
             this.btnSave.Text = "Save Details";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // dlgBankAccount
             // 
@@ -153,6 +153,7 @@
             this.Controls.Add(this.labelControl1);
             this.Name = "dlgBankAccount";
             this.Text = "dlgBankAccount";
+            this.Load += new System.EventHandler(this.dlgBankAccount_Load);
             ((System.ComponentModel.ISupportInitialize)(this.chkIsPrimary.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAccountNumber.Properties)).EndInit();
