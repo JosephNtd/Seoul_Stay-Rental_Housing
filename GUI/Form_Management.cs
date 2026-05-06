@@ -34,7 +34,7 @@ namespace DangNhap_Form
         private void Form_Management_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'seoul_StayDataSet.Areas' table. You can move, or remove it, as needed.
-            this.areasTableAdapter.Fill(this.seoul_StayDataSet.Areas);
+            //this.areasTableAdapter.Fill(this.seoul_StayDataSet.Areas);
 
         }
         private void btnLogout_Click(object sender, EventArgs e)
@@ -50,12 +50,12 @@ namespace DangNhap_Form
                 "{0} items found."
             );
         }
-        private void gcTraveler_Load(object sender, EventArgs e)
-        {
-            gcTraveler.DataSource = _bus.GetData();
-            SummaryFooter(gvTraveler);
-            gvTraveler.BestFitColumns();
-        }
+        //private void gcTraveler_Load(object sender, EventArgs e)
+        //{
+        //    gcTraveler.DataSource = _bus.GetData();
+        //    SummaryFooter(gvTraveler);
+        //    gvTraveler.BestFitColumns();
+        //}
         
         private void gcManager_Load(object sender, EventArgs e)
         {

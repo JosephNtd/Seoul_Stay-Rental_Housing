@@ -16,27 +16,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraCharts.XYDiagram xyDiagram2 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.Series series2 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SideBySideBarSeriesView sideBySideBarSeriesView2 = new DevExpress.XtraCharts.SideBySideBarSeriesView();
             this.areasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.seoul_StayDataSet = new DangNhap_Form.Seoul_StayDataSet();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.btnLogout = new DevExpress.XtraEditors.SimpleButton();
             this.btnExit = new DevExpress.XtraEditors.SimpleButton();
             this.tcMain = new DevExpress.XtraTab.XtraTabControl();
-            this.tpTraveler = new DevExpress.XtraTab.XtraTabPage();
-            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.search = new DevExpress.XtraEditors.SearchControl();
-            this.gcTraveler = new DevExpress.XtraGrid.GridControl();
-            this.gvTraveler = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.tbManager = new DevExpress.XtraTab.XtraTabPage();
             this.gcManager = new DevExpress.XtraGrid.GridControl();
             this.gvManager = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
-            this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
-            this.chartControl1 = new DevExpress.XtraCharts.ChartControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.areasTableAdapter = new DangNhap_Form.Seoul_StayDataSetTableAdapters.AreasTableAdapter();
             this.menu = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -48,22 +38,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tcMain)).BeginInit();
             this.tcMain.SuspendLayout();
-            this.tpTraveler.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
-            this.panelControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.search.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gcTraveler)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvTraveler)).BeginInit();
             this.tbManager.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
-            this.xtraTabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             this.menu.SuspendLayout();
@@ -121,74 +100,18 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tcMain.Location = new System.Drawing.Point(18, 174);
             this.tcMain.Name = "tcMain";
-            this.tcMain.SelectedTabPage = this.tpTraveler;
+            this.tcMain.SelectedTabPage = this.tbManager;
             this.tcMain.Size = new System.Drawing.Size(696, 274);
             this.tcMain.TabIndex = 4;
             this.tcMain.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
-            this.tpTraveler,
-            this.tbManager,
-            this.xtraTabPage1});
-            // 
-            // tpTraveler
-            // 
-            this.tpTraveler.Controls.Add(this.panelControl2);
-            this.tpTraveler.Controls.Add(this.gcTraveler);
-            this.tpTraveler.Name = "tpTraveler";
-            this.tpTraveler.Size = new System.Drawing.Size(694, 249);
-            this.tpTraveler.Text = "I\'m Traveler";
-            // 
-            // panelControl2
-            // 
-            this.panelControl2.Controls.Add(this.search);
-            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl2.Location = new System.Drawing.Point(0, 0);
-            this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(694, 58);
-            this.panelControl2.TabIndex = 2;
-            // 
-            // search
-            // 
-            this.search.Client = this.gcTraveler;
-            this.search.Location = new System.Drawing.Point(8, 22);
-            this.search.Name = "search";
-            this.search.Properties.Client = this.gcTraveler;
-            this.search.Properties.NullValuePrompt = "Search destination or Listing Title or Attraction";
-            this.search.Properties.ShowClearButton = false;
-            this.search.Properties.ShowSearchButton = false;
-            this.search.Size = new System.Drawing.Size(704, 20);
-            this.search.TabIndex = 0;
-            // 
-            // gcTraveler
-            // 
-            this.gcTraveler.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcTraveler.Location = new System.Drawing.Point(0, 0);
-            this.gcTraveler.MainView = this.gvTraveler;
-            this.gcTraveler.Name = "gcTraveler";
-            this.gcTraveler.Size = new System.Drawing.Size(694, 249);
-            this.gcTraveler.TabIndex = 1;
-            this.gcTraveler.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gvTraveler});
-            // 
-            // gvTraveler
-            // 
-            this.gvTraveler.Appearance.HeaderPanel.Font = new System.Drawing.Font("IcoMoon-Free", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gvTraveler.Appearance.HeaderPanel.Options.UseFont = true;
-            this.gvTraveler.Appearance.Row.Font = new System.Drawing.Font("IcoMoon-Free", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gvTraveler.Appearance.Row.Options.UseFont = true;
-            this.gvTraveler.GridControl = this.gcTraveler;
-            this.gvTraveler.Name = "gvTraveler";
-            this.gvTraveler.OptionsBehavior.Editable = false;
-            this.gvTraveler.OptionsView.EnableAppearanceEvenRow = true;
-            this.gvTraveler.OptionsView.ShowAutoFilterRow = true;
-            this.gvTraveler.OptionsView.ShowFooter = true;
-            this.gvTraveler.RowHeight = 30;
+            this.tbManager});
             // 
             // tbManager
             // 
             this.tbManager.Controls.Add(this.gcManager);
             this.tbManager.Controls.Add(this.panelControl3);
             this.tbManager.Name = "tbManager";
-            this.tbManager.Size = new System.Drawing.Size(694, 249);
+            this.tbManager.Size = new System.Drawing.Size(694, 243);
             this.tbManager.Text = "I\'m Owner/ Manager";
             // 
             // gcManager
@@ -198,7 +121,7 @@
             this.gcManager.Location = new System.Drawing.Point(0, 85);
             this.gcManager.MainView = this.gvManager;
             this.gcManager.Name = "gcManager";
-            this.gcManager.Size = new System.Drawing.Size(694, 164);
+            this.gcManager.Size = new System.Drawing.Size(694, 158);
             this.gcManager.TabIndex = 2;
             this.gcManager.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvManager});
@@ -236,32 +159,6 @@
             this.btnAdd.Text = "Add Listing";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // xtraTabPage1
-            // 
-            this.xtraTabPage1.Controls.Add(this.chartControl1);
-            this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(694, 249);
-            this.xtraTabPage1.Text = "Report";
-            // 
-            // chartControl1
-            // 
-            this.chartControl1.DataSource = this.seoul_StayDataSet.Areas;
-            xyDiagram2.AxisX.VisibleInPanesSerializable = "-1";
-            xyDiagram2.AxisY.VisibleInPanesSerializable = "-1";
-            this.chartControl1.Diagram = xyDiagram2;
-            this.chartControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chartControl1.Location = new System.Drawing.Point(0, 0);
-            this.chartControl1.Name = "chartControl1";
-            series2.DataSource = this.areasBindingSource;
-            series2.Name = "Series 1";
-            series2.SeriesID = 0;
-            sideBySideBarSeriesView2.ColorEach = true;
-            series2.View = sideBySideBarSeriesView2;
-            this.chartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series2};
-            this.chartControl1.Size = new System.Drawing.Size(694, 249);
-            this.chartControl1.TabIndex = 0;
-            // 
             // panelControl1
             // 
             this.panelControl1.Controls.Add(this.btnLogout);
@@ -288,19 +185,19 @@
             // edit
             // 
             this.edit.Name = "edit";
-            this.edit.Size = new System.Drawing.Size(180, 22);
+            this.edit.Size = new System.Drawing.Size(134, 22);
             this.edit.Text = "Edit Listing";
             // 
             // edit_price
             // 
             this.edit_price.Name = "edit_price";
-            this.edit_price.Size = new System.Drawing.Size(180, 22);
+            this.edit_price.Size = new System.Drawing.Size(134, 22);
             this.edit_price.Text = "Edit Price";
             // 
             // delete
             // 
             this.delete.Name = "delete";
-            this.delete.Size = new System.Drawing.Size(180, 22);
+            this.delete.Size = new System.Drawing.Size(134, 22);
             this.delete.Text = "Delete Item";
             // 
             // UC_Management
@@ -318,22 +215,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tcMain)).EndInit();
             this.tcMain.ResumeLayout(false);
-            this.tpTraveler.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
-            this.panelControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.search.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gcTraveler)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvTraveler)).EndInit();
             this.tbManager.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcManager)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvManager)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
-            this.xtraTabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.menu.ResumeLayout(false);
@@ -346,19 +232,12 @@
         private DevExpress.XtraEditors.SimpleButton btnLogout;
         private DevExpress.XtraEditors.SimpleButton btnExit;
         private DevExpress.XtraTab.XtraTabControl tcMain;
-        private DevExpress.XtraTab.XtraTabPage tpTraveler;
         private DevExpress.XtraTab.XtraTabPage tbManager;
         private DevExpress.XtraEditors.PanelControl panelControl1;
-        private DevExpress.XtraEditors.PanelControl panelControl2;
-        private DevExpress.XtraEditors.SearchControl search;
-        private DevExpress.XtraGrid.GridControl gcTraveler;
-        private DevExpress.XtraGrid.Views.Grid.GridView gvTraveler;
         private DevExpress.XtraEditors.SimpleButton btnAdd;
         private DevExpress.XtraGrid.GridControl gcManager;
         private DevExpress.XtraGrid.Views.Grid.GridView gvManager;
         private DevExpress.XtraEditors.PanelControl panelControl3;
-        private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
-        private DevExpress.XtraCharts.ChartControl chartControl1;
         private Seoul_StayDataSet seoul_StayDataSet;
         private System.Windows.Forms.BindingSource areasBindingSource;
         private Seoul_StayDataSetTableAdapters.AreasTableAdapter areasTableAdapter;

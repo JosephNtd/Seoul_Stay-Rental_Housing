@@ -29,7 +29,7 @@ namespace DangNhap_Form
         private void UC_Management_Load(object sender, EventArgs e)
         {
             InitContextMenu();
-            LoadTravelerListings();
+            //LoadTravelerListings();
             LoadManagerListings();
             ConfigureManagerGrid();
         }
@@ -102,7 +102,7 @@ namespace DangNhap_Form
 
             var col = gvManager.Columns.AddField("Action");
             col.Visible = true;
-            col.Width = 100;
+            col.Width = 180;
             col.OptionsColumn.FixedWidth = true;
             col.UnboundType = DevExpress.Data.UnboundColumnType.Object;
 
@@ -114,7 +114,7 @@ namespace DangNhap_Form
             {
                 Tag = "edit"
             };
-            btnEdit.ImageOptions.ImageUri.Uri = "Edit";
+            btnEdit.ImageOptions.Image = Properties.Resources._006_pencil;
             btnEdit.ImageOptions.SvgImageSize = new Size(16, 16);
             btnEdit.Appearance.ForeColor = Color.DimGray;
 
@@ -122,7 +122,7 @@ namespace DangNhap_Form
             {
                 Tag = "delete"
             };
-            btnDelete.ImageOptions.ImageUri.Uri = "Delete";
+            btnDelete.ImageOptions.Image = Properties.Resources.bin;
             btnDelete.ImageOptions.SvgImageSize = new Size(16, 16);
             btnDelete.Appearance.ForeColor = Color.Red;
 
@@ -148,17 +148,17 @@ namespace DangNhap_Form
             );
         }
 
-        private void gcTraveler_Load(object sender, EventArgs e)
-        {
-            LoadTravelerListings();
-            SummaryFooter(gvTraveler);
-            gvTraveler.BestFitColumns();
-        }
+        //private void gcTraveler_Load(object sender, EventArgs e)
+        //{
+        //    LoadTravelerListings();
+        //    SummaryFooter(gvTraveler);
+        //    gvTraveler.BestFitColumns();
+        //}
 
-        private void LoadTravelerListings()
-        {
-            gcTraveler.DataSource = _bus.GetData();
-        }
+        //private void LoadTravelerListings()
+        //{
+        //    gcTraveler.DataSource = _bus.GetData();
+        //}
 
         private void LoadManagerListings()
         {
@@ -174,7 +174,7 @@ namespace DangNhap_Form
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 LoadManagerListings();
-                LoadTravelerListings();
+                //LoadTravelerListings();
             }
         }
 
@@ -191,7 +191,7 @@ namespace DangNhap_Form
                 if (_bus.Delete(item.ID))
                 {
                     LoadManagerListings();
-                    LoadTravelerListings();
+                    //LoadTravelerListings();
                 }
                 else
                     MessageBox.Show(_bus.LastError, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -229,7 +229,7 @@ namespace DangNhap_Form
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 LoadManagerListings();
-                LoadTravelerListings();
+                //LoadTravelerListings();
             }
         }
 

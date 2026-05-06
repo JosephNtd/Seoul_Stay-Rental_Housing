@@ -1,6 +1,4 @@
-﻿using BUS;
-using DevExpress.XtraBars;
-using DevExpress.XtraBars.Navigation;
+﻿using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
 using ET;
 using System;
@@ -17,24 +15,15 @@ namespace DangNhap_Form
 {
     public partial class GUI_HomePage_Host : DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm
     {
-        //private UC_Management ucManagement;
         private readonly ET_Users _currentUser;
         private PopupMenu popupAccount;
-
-        public GUI_HomePage_Host()
-        {
-            InitializeComponent();
-        }
-
         public GUI_HomePage_Host(ET_Users currentUser)
         {
             InitializeComponent();
             _currentUser = currentUser;
             SetupAccountMenu();
         }
-
-
-            private void SetupAccountMenu()
+        private void SetupAccountMenu()
         {
             // Tạo ContextMenuStrip cho menu tài khoản
             contextMenu = new ContextMenuStrip();
@@ -47,24 +36,15 @@ namespace DangNhap_Form
             itemLogout.Click += (s, e) => Logout();
             contextMenu.Items.AddRange(new ToolStripItem[] { itemProfile, itemSettings, itemLogout });
 
-            // Tạo phần tử "M" ở cuối AccordionControl
-            //var accountElement = new AccordionControlElement
-            //{
-            //    Text = "M",  // hoặc lấy chữ cái đầu tên
-            //    Style = ElementStyle.Item,
-            //    Height = 40
-            //};
             acc_MyProfile.Click += (s, e) =>
             {
                 // Hiển thị context menu ngay tại vị trí chuột
                 contextMenu.Show(Cursor.Position);
             };
 
-            // Thêm vào cuối danh sách các mục của AccordionControl
-            //accordionControl1.Elements.Add(accountElement);
         }
-        
-        
+
+
         private void Logout()
         {
             // Đóng form host hiện tại
@@ -75,9 +55,6 @@ namespace DangNhap_Form
         }
         private void acc_MyList_Click(object sender, EventArgs e)
         {
-            //if (ucManagement == null)
-            //    ucManagement = new UC_Management(_currentUser);
-
             ShowUC(new UC_Management(_currentUser));
 
         }
@@ -95,7 +72,8 @@ namespace DangNhap_Form
         {
             var uc = new UC_PricingCalendar(itemId);
             // Khi user nhấn Back, ta quay lại UC_Management
-            uc.BackRequested += (s, e) => {
+            uc.BackRequested += (s, e) =>
+            {
                 var mgmt = new UC_Management(_currentUser);
                 ShowUC(mgmt);
             };
