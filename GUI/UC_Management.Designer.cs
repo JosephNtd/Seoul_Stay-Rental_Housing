@@ -16,6 +16,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Management));
             this.areasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.seoul_StayDataSet = new DangNhap_Form.Seoul_StayDataSet();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
@@ -24,7 +25,7 @@
             this.tcMain = new DevExpress.XtraTab.XtraTabControl();
             this.tbManager = new DevExpress.XtraTab.XtraTabPage();
             this.gcManager = new DevExpress.XtraGrid.GridControl();
-            this.gvManager = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.tvManager = new DevExpress.XtraGrid.Views.Tile.TileView();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
@@ -40,7 +41,7 @@
             this.tcMain.SuspendLayout();
             this.tbManager.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcManager)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvManager)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tvManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -111,32 +112,41 @@
             this.tbManager.Controls.Add(this.gcManager);
             this.tbManager.Controls.Add(this.panelControl3);
             this.tbManager.Name = "tbManager";
-            this.tbManager.Size = new System.Drawing.Size(694, 243);
+            this.tbManager.Size = new System.Drawing.Size(694, 249);
             this.tbManager.Text = "I\'m Owner/ Manager";
             // 
             // gcManager
             // 
+            this.gcManager.Cursor = System.Windows.Forms.Cursors.Default;
             this.gcManager.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gcManager.Font = new System.Drawing.Font("IcoMoon-Free", 12F);
-            this.gcManager.Location = new System.Drawing.Point(0, 85);
-            this.gcManager.MainView = this.gvManager;
+            this.gcManager.Location = new System.Drawing.Point(0, 62);
+            this.gcManager.MainView = this.tvManager;
             this.gcManager.Name = "gcManager";
-            this.gcManager.Size = new System.Drawing.Size(694, 158);
+            this.gcManager.Size = new System.Drawing.Size(694, 187);
             this.gcManager.TabIndex = 2;
             this.gcManager.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gvManager});
+            this.tvManager});
             // 
-            // gvManager
+            // tvManager
             // 
-            this.gvManager.Appearance.Row.Font = new System.Drawing.Font("IcoMoon-Free", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gvManager.Appearance.Row.Options.UseFont = true;
-            this.gvManager.GridControl = this.gcManager;
-            this.gvManager.Name = "gvManager";
-            this.gvManager.OptionsBehavior.Editable = false;
-            this.gvManager.OptionsView.EnableAppearanceEvenRow = true;
-            this.gvManager.OptionsView.ShowAutoFilterRow = true;
-            this.gvManager.OptionsView.ShowFooter = true;
-            this.gvManager.RowHeight = 30;
+            this.tvManager.ActiveFilterEnabled = false;
+            this.tvManager.Appearance.ItemHovered.BackColor = System.Drawing.Color.LightCoral;
+            this.tvManager.Appearance.ItemHovered.Options.UseBackColor = true;
+            this.tvManager.Appearance.ItemNormal.BackColor = System.Drawing.Color.White;
+            this.tvManager.Appearance.ItemNormal.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.tvManager.Appearance.ItemNormal.Options.UseBackColor = true;
+            this.tvManager.Appearance.ItemNormal.Options.UseBorderColor = true;
+            this.tvManager.GridControl = this.gcManager;
+            this.tvManager.Name = "tvManager";
+            this.tvManager.OptionsEditForm.PopupEditFormWidth = 1200;
+            this.tvManager.OptionsTiles.AllowItemHover = true;
+            this.tvManager.OptionsTiles.IndentBetweenItems = 40;
+            this.tvManager.OptionsTiles.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.ScrollButtons;
+            this.tvManager.TileHtmlTemplate.Styles = resources.GetString("tvManager.TileHtmlTemplate.Styles");
+            this.tvManager.TileHtmlTemplate.Template = resources.GetString("tvManager.TileHtmlTemplate.Template");
+            this.tvManager.HtmlElementMouseClick += new DevExpress.XtraGrid.Views.Tile.TileViewHtmlElementMouseEventHandler(this.tvManager_HtmlElementMouseClick);
+            this.tvManager.MouseMove += new System.Windows.Forms.MouseEventHandler(this.tvManager_MouseMove);
             // 
             // panelControl3
             // 
@@ -144,7 +154,7 @@
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl3.Location = new System.Drawing.Point(0, 0);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(694, 85);
+            this.panelControl3.Size = new System.Drawing.Size(694, 62);
             this.panelControl3.TabIndex = 1;
             // 
             // btnAdd
@@ -175,6 +185,7 @@
             // 
             // menu
             // 
+            this.menu.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.edit,
             this.edit_price,
@@ -217,7 +228,7 @@
             this.tcMain.ResumeLayout(false);
             this.tbManager.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcManager)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvManager)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tvManager)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
@@ -236,7 +247,6 @@
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.SimpleButton btnAdd;
         private DevExpress.XtraGrid.GridControl gcManager;
-        private DevExpress.XtraGrid.Views.Grid.GridView gvManager;
         private DevExpress.XtraEditors.PanelControl panelControl3;
         private Seoul_StayDataSet seoul_StayDataSet;
         private System.Windows.Forms.BindingSource areasBindingSource;
@@ -245,5 +255,6 @@
         private System.Windows.Forms.ToolStripMenuItem edit;
         private System.Windows.Forms.ToolStripMenuItem edit_price;
         private System.Windows.Forms.ToolStripMenuItem delete;
+        private DevExpress.XtraGrid.Views.Tile.TileView tvManager;
     }
 }

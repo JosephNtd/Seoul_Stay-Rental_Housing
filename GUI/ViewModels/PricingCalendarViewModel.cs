@@ -1,8 +1,10 @@
 ﻿using BUS;
+using DevExpress.XtraEditors;
 using ET;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace DangNhap_Form.ViewModels
 {
@@ -46,6 +48,12 @@ namespace DangNhap_Form.ViewModels
         }
         public void SetAvailabilityForSelected(bool isAvailable)
         {
+            // Khi Block/Unblock ngày, hiển thị cảnh báo nếu ngày đó đã có khách đặt và không thực hiện thay đổi
+            if (SelectedDates.Any(d => BookedDates.Contains(d)))
+            {
+                XtraMessageBox.Show("Cannot modify availability for dates with active or pending bookings.", "Action Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             foreach (var date in SelectedDates)
                 _busPrices.SetAvailability(ItemId, date, isAvailable);
             // Sau khi thay đổi availability, reload lại dữ liệu để cập nhật blocked dates

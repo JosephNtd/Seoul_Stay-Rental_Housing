@@ -13,11 +13,11 @@ using System.Windows.Forms;
 
 namespace DangNhap_Form
 {
-    public partial class GUI_HomePage_Host : DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm
+    public partial class GUI_HomePage_Host_Copy : DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm
     {
         private readonly ET_Users _currentUser;
         private PopupMenu popupAccount;
-        public GUI_HomePage_Host(ET_Users currentUser)
+        public GUI_HomePage_Host_Copy(ET_Users currentUser)
         {
             InitializeComponent();
             _currentUser = currentUser;

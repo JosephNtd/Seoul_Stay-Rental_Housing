@@ -40,6 +40,49 @@ namespace DAL
             }
         }
 
+        // DAL_Items.cs
+        public List<DTO_ItemCard> GetItemCards(long? hostUserId = null)
+        {
+            using (var db = new Seoul_StayDataContext())
+            {
+                var query = from i in db.Items
+                            join t in db.ItemTypes on i.ItemTypeID equals t.ID
+                            where i.IsActive
+                            let minPrice = db.ItemPrices
+                                .Where(p => p.ItemID == i.ID && p.Date >= DateTime.Today)
+                                .Min(p => (decimal?)p.Price)
+                            let firstPic = db.ItemPictures
+                                .Where(pic => pic.ItemID == i.ID)
+                                .OrderBy(pic => pic.DisplayOrder)
+                                .Select(pic => pic.PictureFileName)
+                                .FirstOrDefault()
+                            let hasActiveBooking = db.Bookings
+                                .Any(b => b.ItemID == i.ID &&
+                                          b.CheckInDate <= DateTime.Today &&
+                                          b.CheckOutDate >= DateTime.Today &&
+                                          b.BookingStatus != "Cancelled" && b.BookingStatus != "Refunded")
+                            select new DTO_ItemCard
+                            {
+                                ID = i.ID,
+                                Title = i.Title,
+                                ApproximateAddress = i.ApproximateAddress ?? "Unknown",
+                                Type = t.Name,
+                                Capacity = i.Capacity,
+                                NumberOfBeds = i.NumberOfBeds,
+                                NumberOfBathrooms = i.NumberOfBathrooms,
+                                MinPrice = minPrice,
+                                ThumbnailPath = firstPic,
+                                Status = hasActiveBooking ? "Occupied" :
+                                         (minPrice == null ? "Draft" : "Active")
+                            };
+                // Nếu user đăng nhập vào là host => trả và các home thuộc host đó
+                // Ngược lại trả về tất cả homestay có trong database
+                if (hostUserId.HasValue)
+                    query = query.Where(x => db.Items.Any(i => i.HostUserID == hostUserId.Value && i.ID == x.ID));
+                return query.ToList();
+            }
+        }
+
         public bool Add(Item i)
         {
             using (var db = new Seoul_StayDataContext())

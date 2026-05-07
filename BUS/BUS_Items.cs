@@ -24,6 +24,10 @@ namespace BUS
         {
             return _dal_items.GetItems(userId);
         }
+        public List<DTO_ItemCard> GetItemCards(long? hostUserId = null)
+        {
+            return _dal_items.GetItemCards(hostUserId);
+        }
         public bool Add(ET_Items i)
         {
             var item = new Item()

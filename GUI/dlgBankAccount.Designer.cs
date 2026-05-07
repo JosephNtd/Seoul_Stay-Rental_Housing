@@ -49,97 +49,109 @@
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(134, 26);
+            this.labelControl1.Location = new System.Drawing.Point(201, 40);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(173, 19);
+            this.labelControl1.Size = new System.Drawing.Size(252, 29);
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "Bank Account Details";
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(48, 71);
+            this.labelControl2.Location = new System.Drawing.Point(72, 109);
+            this.labelControl2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(53, 13);
+            this.labelControl2.Size = new System.Drawing.Size(80, 19);
             this.labelControl2.TabIndex = 1;
             this.labelControl2.Text = "Bank Name";
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(48, 154);
+            this.labelControl3.Location = new System.Drawing.Point(72, 237);
+            this.labelControl3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(79, 13);
+            this.labelControl3.Size = new System.Drawing.Size(119, 19);
             this.labelControl3.TabIndex = 1;
             this.labelControl3.Text = "Account Number";
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(66, 352);
+            this.labelControl4.Location = new System.Drawing.Point(99, 542);
+            this.labelControl4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(167, 13);
+            this.labelControl4.Size = new System.Drawing.Size(242, 19);
             this.labelControl4.TabIndex = 1;
             this.labelControl4.Text = "Receive all payouts to this account";
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(107, 391);
+            this.labelControl5.Location = new System.Drawing.Point(160, 602);
+            this.labelControl5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(200, 13);
+            this.labelControl5.Size = new System.Drawing.Size(291, 19);
             this.labelControl5.TabIndex = 1;
             this.labelControl5.Text = "Your bank details are securely encrypted.";
             // 
             // chkIsPrimary
             // 
-            this.chkIsPrimary.Location = new System.Drawing.Point(48, 326);
+            this.chkIsPrimary.Location = new System.Drawing.Point(72, 502);
+            this.chkIsPrimary.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.chkIsPrimary.Name = "chkIsPrimary";
             this.chkIsPrimary.Properties.Caption = "Set as Primary Account";
-            this.chkIsPrimary.Size = new System.Drawing.Size(335, 20);
+            this.chkIsPrimary.Size = new System.Drawing.Size(502, 27);
             this.chkIsPrimary.TabIndex = 2;
             // 
             // comboBoxEdit1
             // 
-            this.comboBoxEdit1.Location = new System.Drawing.Point(48, 105);
+            this.comboBoxEdit1.Location = new System.Drawing.Point(72, 162);
+            this.comboBoxEdit1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.comboBoxEdit1.Name = "comboBoxEdit1";
             this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit1.Size = new System.Drawing.Size(335, 20);
+            this.comboBoxEdit1.Size = new System.Drawing.Size(502, 26);
             this.comboBoxEdit1.TabIndex = 3;
             // 
             // txtAccountNumber
             // 
-            this.txtAccountNumber.Location = new System.Drawing.Point(48, 186);
+            this.txtAccountNumber.Location = new System.Drawing.Point(72, 286);
+            this.txtAccountNumber.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtAccountNumber.Name = "txtAccountNumber";
-            this.txtAccountNumber.Size = new System.Drawing.Size(335, 20);
+            this.txtAccountNumber.Size = new System.Drawing.Size(502, 26);
             this.txtAccountNumber.TabIndex = 4;
             // 
             // txtAccountHolder
             // 
-            this.txtAccountHolder.Location = new System.Drawing.Point(48, 269);
+            this.txtAccountHolder.Location = new System.Drawing.Point(72, 414);
+            this.txtAccountHolder.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtAccountHolder.Name = "txtAccountHolder";
-            this.txtAccountHolder.Size = new System.Drawing.Size(335, 20);
+            this.txtAccountHolder.Size = new System.Drawing.Size(502, 26);
             this.txtAccountHolder.TabIndex = 4;
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(200, 455);
+            this.btnCancel.Location = new System.Drawing.Point(300, 700);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Size = new System.Drawing.Size(112, 35);
             this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Cancel";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(308, 455);
+            this.btnSave.Location = new System.Drawing.Point(462, 700);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.Size = new System.Drawing.Size(112, 35);
             this.btnSave.TabIndex = 5;
             this.btnSave.Text = "Save Details";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // dlgBankAccount
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(438, 510);
+            this.ClientSize = new System.Drawing.Size(657, 785);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.txtAccountHolder);
@@ -151,7 +163,9 @@
             this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.labelControl1);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "dlgBankAccount";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "dlgBankAccount";
             this.Load += new System.EventHandler(this.dlgBankAccount_Load);
             ((System.ComponentModel.ISupportInitialize)(this.chkIsPrimary.Properties)).EndInit();

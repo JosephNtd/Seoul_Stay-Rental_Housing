@@ -16,6 +16,7 @@ namespace DangNhap_Form
         BUS_Amenity _amenity;
         BUS_Attraction _attraction;
         BUS_Items _items;
+        BUS_Area _areas;
         BindingList<DTO_Amenities> _amenityData;
         BindingList<DTO_Attraction_Distance> _attractionData;
         long _hostUserId;
@@ -50,6 +51,7 @@ namespace DangNhap_Form
             _amenity = new BUS_Amenity();
             _attraction = new BUS_Attraction();
             _items = new BUS_Items();
+            _areas = new BUS_Area();
             tabControl.SelectedPageChanging += tabControl_SelectedPageChanging;
             tabControl.SelectedPageChanged += tabControl_SelectedPageChanged;
         }
@@ -152,6 +154,25 @@ namespace DangNhap_Form
             cbType.Properties.NullText = "-- Select type --";
             cbType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             cbType.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
+
+            cbApproxAdress.Properties.DataSource = _areas.GetAreasName();
+            cbApproxAdress.Properties.DisplayMember = "Name";
+            cbApproxAdress.Properties.ValueMember = "ID";
+
+            cbApproxAdress.Properties.PopulateColumns();
+
+            if (cbApproxAdress.Properties.Columns["ID"] != null)
+            {
+                cbApproxAdress.Properties.Columns["ID"].Visible = false;
+            }
+            if (cbApproxAdress.Properties.Columns["GUID"] != null)
+            {
+                cbApproxAdress.Properties.Columns["GUID"].Visible = false;
+            }
+
+            cbApproxAdress.Properties.NullText = "-- Select type --";
+            cbApproxAdress.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            cbApproxAdress.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
         }
 
         private void PrepareControls()
@@ -204,7 +225,8 @@ namespace DangNhap_Form
             numBathroom.Value = _et.NumberOfBathrooms;
             numBedroom.Value = _et.NumberOfBedrooms;
             txtExactAddress.Text = _et.ExactAddress;
-            txtApproxAdress.Text = _et.ApproximateAddress;
+            //txtApproxAdress.Text = _et.ApproximateAddress;
+            cbApproxAdress.Text = _et.ApproximateAddress;
             txtDescription.Text = _et.Description;
             txtHostRule.Text = _et.HostRules;
             numTimeMaximum.Value = _et.MaximumNights;
@@ -383,14 +405,14 @@ namespace DangNhap_Form
                 GUID = _et?.GUID ?? Guid.Empty,
                 HostUserID = hostUserId,
                 ItemTypeID = Convert.ToInt64(cbType.EditValue),
-                AreaID = _items.GetAreaIdByApproximateAddress(txtApproxAdress.Text.Trim()),
+                AreaID = _items.GetAreaIdByApproximateAddress(cbApproxAdress.Text.Trim()),
                 Title = txtTitle.Text.Trim(),
                 Capacity = Convert.ToInt32(numCapacity.Value),
                 NumberOfBeds = Convert.ToInt32(numBed.Value),
                 NumberOfBedrooms = Convert.ToInt32(numBedroom.Value),
                 NumberOfBathrooms = Convert.ToInt32(numBathroom.Value),
                 ExactAddress = txtExactAddress.Text.Trim(),
-                ApproximateAddress = txtApproxAdress.Text.Trim(),
+                ApproximateAddress = cbApproxAdress.Text.Trim(),
                 Description = txtDescription.Text.Trim(),
                 HostRules = txtHostRule.Text.Trim(),
                 MinimumNights = Convert.ToInt32(numTimeMinimum.Value),
@@ -429,14 +451,14 @@ namespace DangNhap_Form
                 return ShowValidation("Capacity, beds, bedrooms and bathrooms must be greater than zero.");
             }
 
-            if (string.IsNullOrWhiteSpace(txtApproxAdress.Text))
+            if (string.IsNullOrWhiteSpace(cbApproxAdress.Text))
             {
-                return ShowValidation("Please enter the approximate address.", txtApproxAdress);
+                return ShowValidation("Please enter the approximate address.", cbApproxAdress);
             }
 
-            if (_items.GetAreaIdByApproximateAddress(txtApproxAdress.Text.Trim()) <= 0)
+            if (_items.GetAreaIdByApproximateAddress(cbApproxAdress.Text.Trim()) <= 0)
             {
-                return ShowValidation("Approximate Address must match an existing area.", txtApproxAdress);
+                return ShowValidation("Approximate Address must match an existing area.", cbApproxAdress);
             }
 
             if (string.IsNullOrWhiteSpace(txtExactAddress.Text))
@@ -518,6 +540,11 @@ namespace DangNhap_Form
             MessageBox.Show(message, "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             control?.Focus();
             return false;
+        }
+
+        private void numBed_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

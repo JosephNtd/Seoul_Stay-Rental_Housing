@@ -30,35 +30,31 @@
         {
             this.pnlMonthNav = new DevExpress.XtraEditors.PanelControl();
             this.btnBack = new DevExpress.XtraEditors.SimpleButton();
-            this.lblMonthYear = new DevExpress.XtraEditors.LabelControl();
             this.btnNext = new DevExpress.XtraEditors.SimpleButton();
             this.btnPrev = new DevExpress.XtraEditors.SimpleButton();
+            this.lblMonthYear = new DevExpress.XtraEditors.LabelControl();
             this.pnlCalendar = new DevExpress.XtraEditors.PanelControl();
             this.pnlQuickEdit = new DevExpress.XtraEditors.PanelControl();
+            this.spinPrice = new DevExpress.XtraEditors.SpinEdit();
+            this.radioPolicy = new DevExpress.XtraEditors.RadioGroup();
             this.btnAvailable = new DevExpress.XtraEditors.SimpleButton();
             this.btnBlock = new DevExpress.XtraEditors.SimpleButton();
             this.btnUpdate = new DevExpress.XtraEditors.SimpleButton();
-            this.cbCancellationPolicy = new DevExpress.XtraEditors.LookUpEdit();
             this.radioSeason = new DevExpress.XtraEditors.RadioGroup();
-            this.txtPrice = new DevExpress.XtraEditors.TextEdit();
             this.lblPolicy = new DevExpress.XtraEditors.LabelControl();
             this.lblSeason = new DevExpress.XtraEditors.LabelControl();
             this.lblNightlyRate = new DevExpress.XtraEditors.LabelControl();
             this.lblSelectedRange = new DevExpress.XtraEditors.LabelControl();
             this.label = new DevExpress.XtraEditors.LabelControl();
             this.lblQuickEdit = new DevExpress.XtraEditors.LabelControl();
-            this.radioPolicy = new DevExpress.XtraEditors.RadioGroup();
-            this.spinPrice = new DevExpress.XtraEditors.SpinEdit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlMonthNav)).BeginInit();
             this.pnlMonthNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnlCalendar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlQuickEdit)).BeginInit();
             this.pnlQuickEdit.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cbCancellationPolicy.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radioSeason.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPrice.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radioPolicy.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinPrice.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radioPolicy.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radioSeason.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlMonthNav
@@ -67,8 +63,6 @@
             this.pnlMonthNav.Controls.Add(this.btnNext);
             this.pnlMonthNav.Controls.Add(this.btnPrev);
             this.pnlMonthNav.Controls.Add(this.lblMonthYear);
-            this.pnlMonthNav.Controls.Add(this.cbCancellationPolicy);
-            this.pnlMonthNav.Controls.Add(this.txtPrice);
             this.pnlMonthNav.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlMonthNav.Location = new System.Drawing.Point(0, 0);
             this.pnlMonthNav.Name = "pnlMonthNav";
@@ -85,14 +79,6 @@
             this.btnBack.Text = "← Back to Listings";
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // lblMonthYear
-            // 
-            this.lblMonthYear.Location = new System.Drawing.Point(109, 38);
-            this.lblMonthYear.Name = "lblMonthYear";
-            this.lblMonthYear.Size = new System.Drawing.Size(102, 19);
-            this.lblMonthYear.TabIndex = 1;
-            this.lblMonthYear.Text = "October 2024.";
-            // 
             // btnNext
             // 
             this.btnNext.Location = new System.Drawing.Point(217, 34);
@@ -108,6 +94,14 @@
             this.btnPrev.Size = new System.Drawing.Size(75, 23);
             this.btnPrev.TabIndex = 0;
             this.btnPrev.Text = "<";
+            // 
+            // lblMonthYear
+            // 
+            this.lblMonthYear.Location = new System.Drawing.Point(109, 38);
+            this.lblMonthYear.Name = "lblMonthYear";
+            this.lblMonthYear.Size = new System.Drawing.Size(102, 19);
+            this.lblMonthYear.TabIndex = 1;
+            this.lblMonthYear.Text = "October 2024.";
             // 
             // pnlCalendar
             // 
@@ -137,6 +131,38 @@
             this.pnlQuickEdit.Size = new System.Drawing.Size(266, 497);
             this.pnlQuickEdit.TabIndex = 2;
             // 
+            // spinPrice
+            // 
+            this.spinPrice.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.spinPrice.Location = new System.Drawing.Point(32, 167);
+            this.spinPrice.Name = "spinPrice";
+            this.spinPrice.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
+            this.spinPrice.Properties.Appearance.Options.UseTextOptions = true;
+            this.spinPrice.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.spinPrice.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.spinPrice.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.spinPrice.Properties.MaskSettings.Set("mask", "c");
+            this.spinPrice.Properties.MaxValue = new decimal(new int[] {
+            99999999,
+            0,
+            0,
+            0});
+            this.spinPrice.Properties.NullText = "Enter price...";
+            this.spinPrice.Size = new System.Drawing.Size(200, 28);
+            this.spinPrice.TabIndex = 7;
+            // 
+            // radioPolicy
+            // 
+            this.radioPolicy.Location = new System.Drawing.Point(32, 286);
+            this.radioPolicy.Name = "radioPolicy";
+            this.radioPolicy.Size = new System.Drawing.Size(200, 110);
+            this.radioPolicy.TabIndex = 6;
+            // 
             // btnAvailable
             // 
             this.btnAvailable.Location = new System.Drawing.Point(135, 442);
@@ -155,20 +181,11 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(83, 402);
+            this.btnUpdate.Location = new System.Drawing.Point(52, 402);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(123, 34);
             this.btnUpdate.TabIndex = 5;
             this.btnUpdate.Text = "Update Pricing";
-            // 
-            // cbCancellationPolicy
-            // 
-            this.cbCancellationPolicy.Location = new System.Drawing.Point(342, 5);
-            this.cbCancellationPolicy.Name = "cbCancellationPolicy";
-            this.cbCancellationPolicy.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbCancellationPolicy.Size = new System.Drawing.Size(200, 26);
-            this.cbCancellationPolicy.TabIndex = 4;
             // 
             // radioSeason
             // 
@@ -181,16 +198,6 @@
             new DevExpress.XtraEditors.Controls.RadioGroupItem(false, "Off-Peak")});
             this.radioSeason.Size = new System.Drawing.Size(200, 34);
             this.radioSeason.TabIndex = 3;
-            // 
-            // txtPrice
-            // 
-            this.txtPrice.EditValue = "";
-            this.txtPrice.Location = new System.Drawing.Point(342, 37);
-            this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
-            this.txtPrice.Properties.MaxLength = 12;
-            this.txtPrice.Size = new System.Drawing.Size(200, 26);
-            this.txtPrice.TabIndex = 2;
             // 
             // lblPolicy
             // 
@@ -243,38 +250,6 @@
             this.lblQuickEdit.TabIndex = 0;
             this.lblQuickEdit.Text = "Quick Edit";
             // 
-            // radioPolicy
-            // 
-            this.radioPolicy.Location = new System.Drawing.Point(32, 286);
-            this.radioPolicy.Name = "radioPolicy";
-            this.radioPolicy.Size = new System.Drawing.Size(200, 110);
-            this.radioPolicy.TabIndex = 6;
-            // 
-            // spinPrice
-            // 
-            this.spinPrice.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.spinPrice.Location = new System.Drawing.Point(32, 167);
-            this.spinPrice.Name = "spinPrice";
-            this.spinPrice.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
-            this.spinPrice.Properties.Appearance.Options.UseTextOptions = true;
-            this.spinPrice.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.spinPrice.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.spinPrice.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.spinPrice.Properties.MaskSettings.Set("mask", "c");
-            this.spinPrice.Properties.MaxValue = new decimal(new int[] {
-            99999999,
-            0,
-            0,
-            0});
-            this.spinPrice.Properties.NullText = "Enter price...";
-            this.spinPrice.Size = new System.Drawing.Size(200, 28);
-            this.spinPrice.TabIndex = 7;
-            // 
             // UC_PricingCalendar
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -290,11 +265,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pnlQuickEdit)).EndInit();
             this.pnlQuickEdit.ResumeLayout(false);
             this.pnlQuickEdit.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cbCancellationPolicy.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radioSeason.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPrice.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radioPolicy.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinPrice.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radioPolicy.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radioSeason.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -310,12 +283,10 @@
         private DevExpress.XtraEditors.LabelControl lblNightlyRate;
         private DevExpress.XtraEditors.LabelControl label;
         private DevExpress.XtraEditors.LabelControl lblQuickEdit;
-        private DevExpress.XtraEditors.TextEdit txtPrice;
         private DevExpress.XtraEditors.RadioGroup radioSeason;
         private DevExpress.XtraEditors.LabelControl lblSeason;
         private DevExpress.XtraEditors.LabelControl lblSelectedRange;
         private DevExpress.XtraEditors.SimpleButton btnUpdate;
-        private DevExpress.XtraEditors.LookUpEdit cbCancellationPolicy;
         private DevExpress.XtraEditors.LabelControl lblPolicy;
         private DevExpress.XtraEditors.SimpleButton btnBack;
         private DevExpress.XtraEditors.SimpleButton btnAvailable;
