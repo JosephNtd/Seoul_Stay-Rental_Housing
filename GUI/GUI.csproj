@@ -132,6 +132,36 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Seoul_StayDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="UC_AmenityManagement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_AmenityManagement.Designer.cs">
+      <DependentUpon>UC_AmenityManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_AreaManagement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_AreaManagement.Designer.cs">
+      <DependentUpon>UC_AreaManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_AttractionManagement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_AttractionManagement.Designer.cs">
+      <DependentUpon>UC_AttractionManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_CouponManagement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_CouponManagement.Designer.cs">
+      <DependentUpon>UC_CouponManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_ItemTypesManagement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_ItemTypesManagement.Designer.cs">
+      <DependentUpon>UC_ItemTypesManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="UC_Management.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -144,11 +174,24 @@
     <Compile Include="UC_MyProfile_Host.Designer.cs">
       <DependentUpon>UC_MyProfile_Host.cs</DependentUpon>
     </Compile>
+    <Compile Include="UC_MyProfile_User.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_MyProfile_User.Designer.cs">
+      <DependentUpon>UC_MyProfile_User.cs</DependentUpon>
+    </Compile>
     <Compile Include="UC_PricingCalendar.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UC_PricingCalendar.Designer.cs">
       <DependentUpon>UC_PricingCalendar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_TransactionTypesManagement.cs" />
+    <Compile Include="UC_UserManagement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_UserManagement.Designer.cs">
+      <DependentUpon>UC_UserManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\PricingCalendarViewModel.cs" />
     <EmbeddedResource Include="dlgBankAccount.resx">
@@ -181,14 +224,26 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="UC_AmenityManagement.resx">
+      <DependentUpon>UC_AmenityManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_AreaManagement.resx">
+      <DependentUpon>UC_AreaManagement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UC_Management.resx">
       <DependentUpon>UC_Management.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_MyProfile_Host.resx">
       <DependentUpon>UC_MyProfile_Host.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UC_MyProfile_User.resx">
+      <DependentUpon>UC_MyProfile_User.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UC_PricingCalendar.resx">
       <DependentUpon>UC_PricingCalendar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_UserManagement.resx">
+      <DependentUpon>UC_UserManagement.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -237,14 +292,18 @@
     <None Include="Resources\WSC2022SE_TP09_Logo_actual_en.ico" />
     <None Include="Resources\plus.png" />
     <None Include="Resources\267-plus.png" />
+    <None Include="Resources\add.png" />
     <Content Include="Resources\bin.png" />
     <Content Include="Resources\declined.png" />
     <Content Include="Resources\delete.svg" />
+    <None Include="Resources\downloads.png" />
     <Content Include="Resources\edit.svg" />
     <None Include="Resources\logout.png" />
     <None Include="Resources\images.png" />
     <None Include="Resources\f06c91_c1bddc88840f45238181e16f4cd75295~mv2.gif" />
+    <None Include="Resources\lock.png" />
     <Content Include="Resources\pencil.png" />
+    <None Include="Resources\search.png" />
     <Content Include="Resources\verified.png" />
     <Content Include="Resources\WSC2022SE_TP09_Logo_actual_en.png" />
     <None Include="Resources\WSC2022SE_TP09_Logo_actual_en1.png" />

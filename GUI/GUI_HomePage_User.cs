@@ -28,7 +28,7 @@ namespace DangNhap_Form
             // Tạo ContextMenuStrip cho menu tài khoản
             contextMenu = new ContextMenuStrip();
             var itemProfile = new ToolStripMenuItem("My Profile");
-            itemProfile.Click += (s, e) => ShowUC(new UC_MyProfile_Host(_currentUser.ID));
+            itemProfile.Click += (s, e) => ShowUC(new UC_MyProfile_User(_currentUser.ID));
             var itemSettings = new ToolStripMenuItem("Settings");
             itemSettings.Click += (s, e) =>
                 XtraMessageBox.Show("Settings page will be available soon.", "Settings");

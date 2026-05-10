@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,9 +43,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTO_Amenities.cs" />
+    <Compile Include="DTO_AreaDisplay.cs" />
     <Compile Include="DTO_Attraction_Distance.cs" />
     <Compile Include="DTO_ItemCard.cs" />
     <Compile Include="DTO_ItemsView.cs" />
+    <Compile Include="DTO_RecentStay.cs" />
+    <Compile Include="DTO_UserDisplay.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

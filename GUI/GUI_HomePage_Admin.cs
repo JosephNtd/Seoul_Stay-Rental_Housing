@@ -19,6 +19,30 @@ namespace DangNhap_Form
             InitializeComponent();
         }
 
-        
+        private void ShowUC(UserControl uc)
+        {
+            main.SuspendLayout();
+            
+            main.Controls.Clear();
+            uc.Dock = DockStyle.Fill;
+            main.Controls.Add(uc);
+
+            main.ResumeLayout();
+        }
+
+        private void acc_User_Click(object sender, EventArgs e)
+        {
+            ShowUC(new UC_UserManagement());
+        }
+
+        private void accArrea_Click(object sender, EventArgs e)
+        {
+            ShowUC(new UC_AreaManagement());
+        }
+
+        private void accAmmenities_Click(object sender, EventArgs e)
+        {
+            ShowUC(new UC_AmenityManagement());
+        }
     }
 }

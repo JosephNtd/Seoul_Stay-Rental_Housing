@@ -10,11 +10,19 @@ namespace BUS
 {
     public class BUS_Host
     {
-        private readonly DAL_Host _dal = new DAL_Host();
+        private readonly DAL_Host _host = new DAL_Host();
+        private readonly DAL_HostBankAccount _bank = new DAL_HostBankAccount();
 
-        public ET_Host GetHostProfile(long userId) => _dal.GetHostProfile(userId);
-        public List<ET_HostBankAccount> GetBankAccounts(long hostUserId) => _dal.GetBankAccounts(hostUserId);
-        public bool SaveBankAccount(ET_HostBankAccount account) => _dal.SaveBankAccount(account);
-        public bool DeleteBankAccount(long accountId) => _dal.DeleteBankAccount(accountId);
+        public ET_Host GetHostProfile(long userId) => _host.GetHostProfile(userId);
+        public bool UpdateHostProfile(ET_Host info) => _host.Update(info);
+        public List<ET_HostBankAccount> GetBankAccounts(long hostUserId) => _bank.GetBankAccounts(hostUserId);
+        public bool SaveBankAccount(ET_HostBankAccount account)
+        {
+            if (account.ID > 0)
+                return _bank.Update(account);
+
+            return _bank.Insert(account);
+        }
+        public bool DeleteBankAccount(long accountId) => _bank.DeleteBankAccount(accountId);
     }
 }

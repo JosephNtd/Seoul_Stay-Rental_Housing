@@ -29,5 +29,14 @@ namespace ET
             NationalID = nationalID;
             NationalIDVerified = nationalIDVerified;
         }
+        public ET_Guest(long iD, string fullName,
+                        string email, string phoneNumber, byte gender, DateTime? birthDate,
+                        string country,
+                        int loyaltyPoints, string preferredLanguage, string nationalID)
+        {
+            LoyaltyPoints = loyaltyPoints;
+            PreferredLanguage = preferredLanguage;
+            NationalID = nationalID;
+        }
     }
 }

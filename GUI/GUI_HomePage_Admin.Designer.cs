@@ -30,108 +30,53 @@
         {
             this.components = new System.ComponentModel.Container();
             this.fluentDesignFormContainer1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer();
-            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.xtraUserControl1 = new DevExpress.XtraEditors.XtraUserControl();
+            this.main = new DevExpress.XtraEditors.PanelControl();
             this.accordionControl1 = new DevExpress.XtraBars.Navigation.AccordionControl();
             this.accordionControlElement7 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlSeparator3 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
             this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement3 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement4 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.acc_User = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accHostVerification = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlSeparator1 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
             this.accordionControlElement2 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement5 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement6 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement8 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement10 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement9 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement11 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accArrea = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accAttraction = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accAmmenities = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accCoupons = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accItemTypes = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accTransactionTypes = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlSeparator2 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
             this.accordionControlElement12 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement13 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accUserHostGuesReport = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement14 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement15 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
             this.fluentDesignFormContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
-            this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.main)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             this.SuspendLayout();
             // 
             // fluentDesignFormContainer1
             // 
-            this.fluentDesignFormContainer1.Controls.Add(this.panelControl1);
-            this.fluentDesignFormContainer1.Controls.Add(this.xtraUserControl1);
+            this.fluentDesignFormContainer1.Controls.Add(this.main);
             this.fluentDesignFormContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fluentDesignFormContainer1.Location = new System.Drawing.Point(260, 31);
+            this.fluentDesignFormContainer1.Location = new System.Drawing.Point(280, 31);
             this.fluentDesignFormContainer1.Name = "fluentDesignFormContainer1";
-            this.fluentDesignFormContainer1.Size = new System.Drawing.Size(668, 441);
+            this.fluentDesignFormContainer1.Size = new System.Drawing.Size(648, 441);
             this.fluentDesignFormContainer1.TabIndex = 0;
             // 
-            // panelControl1
+            // main
             // 
-            this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl1.Controls.Add(this.simpleButton1);
-            this.panelControl1.Controls.Add(this.labelControl2);
-            this.panelControl1.Controls.Add(this.labelControl1);
-            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl1.Location = new System.Drawing.Point(0, 0);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(668, 77);
-            this.panelControl1.TabIndex = 1;
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.simpleButton1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(194)))), ((int)(((byte)(194)))));
-            this.simpleButton1.Appearance.Font = new System.Drawing.Font("IcoMoon-Free", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton1.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(92)))), ((int)(((byte)(85)))));
-            this.simpleButton1.Appearance.Options.UseBackColor = true;
-            this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.Appearance.Options.UseForeColor = true;
-            this.simpleButton1.ImageOptions.Image = global::DangNhap_Form.Properties.Resources._267_plus;
-            this.simpleButton1.Location = new System.Drawing.Point(512, 34);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(151, 31);
-            this.simpleButton1.TabIndex = 1;
-            this.simpleButton1.Text = "New Listing";
-            // 
-            // labelControl2
-            // 
-            this.labelControl2.Appearance.Font = new System.Drawing.Font("IcoMoon-Free", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl2.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(92)))), ((int)(((byte)(85)))));
-            this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Appearance.Options.UseForeColor = true;
-            this.labelControl2.Location = new System.Drawing.Point(23, 49);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(468, 16);
-            this.labelControl2.TabIndex = 0;
-            this.labelControl2.Text = "Here\'s what\'s happening with your properties today.";
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("IcoMoon-Free", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(23, 18);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(195, 25);
-            this.labelControl1.TabIndex = 0;
-            this.labelControl1.Text = "Welcome back,";
-            // 
-            // xtraUserControl1
-            // 
-            this.xtraUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xtraUserControl1.Location = new System.Drawing.Point(0, 0);
-            this.xtraUserControl1.Name = "xtraUserControl1";
-            this.xtraUserControl1.Size = new System.Drawing.Size(668, 441);
-            this.xtraUserControl1.TabIndex = 0;
+            this.main.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.main.Location = new System.Drawing.Point(0, 0);
+            this.main.Name = "main";
+            this.main.Size = new System.Drawing.Size(648, 441);
+            this.main.TabIndex = 0;
             // 
             // accordionControl1
             // 
-            this.accordionControl1.Appearance.AccordionControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(247)))), ((int)(((byte)(248)))));
+            this.accordionControl1.Appearance.AccordionControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.accordionControl1.Appearance.AccordionControl.Font = new System.Drawing.Font("IcoMoon-Free", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.accordionControl1.Appearance.AccordionControl.ForeColor = System.Drawing.Color.Red;
             this.accordionControl1.Appearance.AccordionControl.Options.UseBackColor = true;
@@ -147,21 +92,24 @@
             this.accordionControl1.Appearance.Group.Normal.Options.UseBackColor = true;
             this.accordionControl1.Appearance.Group.Normal.Options.UseFont = true;
             this.accordionControl1.Appearance.Group.Normal.Options.UseForeColor = true;
-            this.accordionControl1.Appearance.Item.Hovered.Font = new System.Drawing.Font("IcoMoon-Free", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accordionControl1.Appearance.Item.Hovered.Font = new System.Drawing.Font("IcoMoon-Free", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.accordionControl1.Appearance.Item.Hovered.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.accordionControl1.Appearance.Item.Hovered.Options.UseFont = true;
             this.accordionControl1.Appearance.Item.Hovered.Options.UseForeColor = true;
             this.accordionControl1.Appearance.Item.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(247)))), ((int)(((byte)(248)))));
-            this.accordionControl1.Appearance.Item.Normal.Font = new System.Drawing.Font("IcoMoon-Free", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accordionControl1.Appearance.Item.Normal.Font = new System.Drawing.Font("IcoMoon-Free", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.accordionControl1.Appearance.Item.Normal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(92)))), ((int)(((byte)(85)))));
             this.accordionControl1.Appearance.Item.Normal.Options.UseBackColor = true;
             this.accordionControl1.Appearance.Item.Normal.Options.UseFont = true;
             this.accordionControl1.Appearance.Item.Normal.Options.UseForeColor = true;
+            this.accordionControl1.Appearance.Item.Pressed.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accordionControl1.Appearance.Item.Pressed.Options.UseFont = true;
             this.accordionControl1.Appearance.ItemWithContainer.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(247)))), ((int)(((byte)(248)))));
             this.accordionControl1.Appearance.ItemWithContainer.Normal.Options.UseBackColor = true;
             this.accordionControl1.Dock = System.Windows.Forms.DockStyle.Left;
             this.accordionControl1.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accordionControlElement7,
+            this.accordionControlSeparator3,
             this.accordionControlElement1,
             this.accordionControlElement2,
             this.accordionControlElement12});
@@ -169,37 +117,68 @@
             this.accordionControl1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.accordionControl1.Name = "accordionControl1";
             this.accordionControl1.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
-            this.accordionControl1.Size = new System.Drawing.Size(260, 441);
+            this.accordionControl1.Size = new System.Drawing.Size(280, 441);
             this.accordionControl1.TabIndex = 1;
             this.accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
             // accordionControlElement7
             // 
+            this.accordionControlElement7.Appearance.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.accordionControlElement7.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accordionControlElement7.Appearance.Normal.Options.UseBackColor = true;
+            this.accordionControlElement7.Appearance.Normal.Options.UseFont = true;
             this.accordionControlElement7.Name = "accordionControlElement7";
             this.accordionControlElement7.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement7.Text = "DashBoard";
             // 
+            // accordionControlSeparator3
+            // 
+            this.accordionControlSeparator3.Name = "accordionControlSeparator3";
+            // 
             // accordionControlElement1
             // 
+            this.accordionControlElement1.Appearance.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.accordionControlElement1.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accordionControlElement1.Appearance.Normal.Options.UseBackColor = true;
+            this.accordionControlElement1.Appearance.Normal.Options.UseFont = true;
+            this.accordionControlElement1.Appearance.Pressed.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accordionControlElement1.Appearance.Pressed.Options.UseFont = true;
             this.accordionControlElement1.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
-            this.accordionControlElement3,
-            this.accordionControlElement4,
+            this.acc_User,
+            this.accHostVerification,
             this.accordionControlSeparator1});
             this.accordionControlElement1.Expanded = true;
             this.accordionControlElement1.Name = "accordionControlElement1";
             this.accordionControlElement1.Text = "User & Host Management";
             // 
-            // accordionControlElement3
+            // acc_User
             // 
-            this.accordionControlElement3.Name = "accordionControlElement3";
-            this.accordionControlElement3.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement3.Text = "User";
+            this.acc_User.Appearance.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.acc_User.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.acc_User.Appearance.Normal.ForeColor = System.Drawing.Color.Black;
+            this.acc_User.Appearance.Normal.Options.UseBackColor = true;
+            this.acc_User.Appearance.Normal.Options.UseFont = true;
+            this.acc_User.Appearance.Normal.Options.UseForeColor = true;
+            this.acc_User.Appearance.Pressed.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.acc_User.Appearance.Pressed.Options.UseFont = true;
+            this.acc_User.Name = "acc_User";
+            this.acc_User.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.acc_User.Text = "User";
+            this.acc_User.Click += new System.EventHandler(this.acc_User_Click);
             // 
-            // accordionControlElement4
+            // accHostVerification
             // 
-            this.accordionControlElement4.Name = "accordionControlElement4";
-            this.accordionControlElement4.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement4.Text = "Host";
+            this.accHostVerification.Appearance.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.accHostVerification.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accHostVerification.Appearance.Normal.ForeColor = System.Drawing.Color.Black;
+            this.accHostVerification.Appearance.Normal.Options.UseBackColor = true;
+            this.accHostVerification.Appearance.Normal.Options.UseFont = true;
+            this.accHostVerification.Appearance.Normal.Options.UseForeColor = true;
+            this.accHostVerification.Appearance.Pressed.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accHostVerification.Appearance.Pressed.Options.UseFont = true;
+            this.accHostVerification.Name = "accHostVerification";
+            this.accHostVerification.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accHostVerification.Text = "Host Verification";
             // 
             // accordionControlSeparator1
             // 
@@ -207,53 +186,109 @@
             // 
             // accordionControlElement2
             // 
+            this.accordionControlElement2.Appearance.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.accordionControlElement2.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accordionControlElement2.Appearance.Normal.Options.UseBackColor = true;
+            this.accordionControlElement2.Appearance.Normal.Options.UseFont = true;
+            this.accordionControlElement2.Appearance.Pressed.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accordionControlElement2.Appearance.Pressed.Options.UseFont = true;
             this.accordionControlElement2.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
-            this.accordionControlElement5,
-            this.accordionControlElement6,
-            this.accordionControlElement8,
-            this.accordionControlElement10,
-            this.accordionControlElement9,
-            this.accordionControlElement11,
+            this.accArrea,
+            this.accAttraction,
+            this.accAmmenities,
+            this.accCoupons,
+            this.accItemTypes,
+            this.accTransactionTypes,
             this.accordionControlSeparator2});
             this.accordionControlElement2.Expanded = true;
             this.accordionControlElement2.Name = "accordionControlElement2";
             this.accordionControlElement2.Text = "Catalog Management";
             // 
-            // accordionControlElement5
+            // accArrea
             // 
-            this.accordionControlElement5.Name = "accordionControlElement5";
-            this.accordionControlElement5.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement5.Text = "Areas";
+            this.accArrea.Appearance.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.accArrea.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accArrea.Appearance.Normal.ForeColor = System.Drawing.Color.Black;
+            this.accArrea.Appearance.Normal.Options.UseBackColor = true;
+            this.accArrea.Appearance.Normal.Options.UseFont = true;
+            this.accArrea.Appearance.Normal.Options.UseForeColor = true;
+            this.accArrea.Appearance.Pressed.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accArrea.Appearance.Pressed.Options.UseFont = true;
+            this.accArrea.Name = "accArrea";
+            this.accArrea.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accArrea.Text = "Areas";
+            this.accArrea.Click += new System.EventHandler(this.accArrea_Click);
             // 
-            // accordionControlElement6
+            // accAttraction
             // 
-            this.accordionControlElement6.Name = "accordionControlElement6";
-            this.accordionControlElement6.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement6.Text = "Attractions";
+            this.accAttraction.Appearance.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.accAttraction.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accAttraction.Appearance.Normal.ForeColor = System.Drawing.Color.Black;
+            this.accAttraction.Appearance.Normal.Options.UseBackColor = true;
+            this.accAttraction.Appearance.Normal.Options.UseFont = true;
+            this.accAttraction.Appearance.Normal.Options.UseForeColor = true;
+            this.accAttraction.Appearance.Pressed.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accAttraction.Appearance.Pressed.Options.UseFont = true;
+            this.accAttraction.Name = "accAttraction";
+            this.accAttraction.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accAttraction.Text = "Attractions";
             // 
-            // accordionControlElement8
+            // accAmmenities
             // 
-            this.accordionControlElement8.Name = "accordionControlElement8";
-            this.accordionControlElement8.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement8.Text = "Ammenities";
+            this.accAmmenities.Appearance.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.accAmmenities.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accAmmenities.Appearance.Normal.ForeColor = System.Drawing.Color.Black;
+            this.accAmmenities.Appearance.Normal.Options.UseBackColor = true;
+            this.accAmmenities.Appearance.Normal.Options.UseFont = true;
+            this.accAmmenities.Appearance.Normal.Options.UseForeColor = true;
+            this.accAmmenities.Appearance.Pressed.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accAmmenities.Appearance.Pressed.Options.UseFont = true;
+            this.accAmmenities.Name = "accAmmenities";
+            this.accAmmenities.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accAmmenities.Text = "Ammenities";
+            this.accAmmenities.Click += new System.EventHandler(this.accAmmenities_Click);
             // 
-            // accordionControlElement10
+            // accCoupons
             // 
-            this.accordionControlElement10.Name = "accordionControlElement10";
-            this.accordionControlElement10.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement10.Text = "Coupons";
+            this.accCoupons.Appearance.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.accCoupons.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accCoupons.Appearance.Normal.ForeColor = System.Drawing.Color.Black;
+            this.accCoupons.Appearance.Normal.Options.UseBackColor = true;
+            this.accCoupons.Appearance.Normal.Options.UseFont = true;
+            this.accCoupons.Appearance.Normal.Options.UseForeColor = true;
+            this.accCoupons.Appearance.Pressed.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accCoupons.Appearance.Pressed.Options.UseFont = true;
+            this.accCoupons.Name = "accCoupons";
+            this.accCoupons.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accCoupons.Text = "Coupons";
             // 
-            // accordionControlElement9
+            // accItemTypes
             // 
-            this.accordionControlElement9.Name = "accordionControlElement9";
-            this.accordionControlElement9.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement9.Text = "Item Types";
+            this.accItemTypes.Appearance.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.accItemTypes.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accItemTypes.Appearance.Normal.ForeColor = System.Drawing.Color.Black;
+            this.accItemTypes.Appearance.Normal.Options.UseBackColor = true;
+            this.accItemTypes.Appearance.Normal.Options.UseFont = true;
+            this.accItemTypes.Appearance.Normal.Options.UseForeColor = true;
+            this.accItemTypes.Appearance.Pressed.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accItemTypes.Appearance.Pressed.Options.UseFont = true;
+            this.accItemTypes.Name = "accItemTypes";
+            this.accItemTypes.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accItemTypes.Text = "Item Types";
             // 
-            // accordionControlElement11
+            // accTransactionTypes
             // 
-            this.accordionControlElement11.Name = "accordionControlElement11";
-            this.accordionControlElement11.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement11.Text = "Transaction Types";
+            this.accTransactionTypes.Appearance.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.accTransactionTypes.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accTransactionTypes.Appearance.Normal.ForeColor = System.Drawing.Color.Black;
+            this.accTransactionTypes.Appearance.Normal.Options.UseBackColor = true;
+            this.accTransactionTypes.Appearance.Normal.Options.UseFont = true;
+            this.accTransactionTypes.Appearance.Normal.Options.UseForeColor = true;
+            this.accTransactionTypes.Appearance.Pressed.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accTransactionTypes.Appearance.Pressed.Options.UseFont = true;
+            this.accTransactionTypes.Name = "accTransactionTypes";
+            this.accTransactionTypes.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accTransactionTypes.Text = "Transaction Types";
             // 
             // accordionControlSeparator2
             // 
@@ -261,28 +296,58 @@
             // 
             // accordionControlElement12
             // 
+            this.accordionControlElement12.Appearance.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.accordionControlElement12.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accordionControlElement12.Appearance.Normal.Options.UseBackColor = true;
+            this.accordionControlElement12.Appearance.Normal.Options.UseFont = true;
+            this.accordionControlElement12.Appearance.Pressed.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accordionControlElement12.Appearance.Pressed.Options.UseFont = true;
             this.accordionControlElement12.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
-            this.accordionControlElement13,
+            this.accUserHostGuesReport,
             this.accordionControlElement14,
             this.accordionControlElement15});
             this.accordionControlElement12.Expanded = true;
             this.accordionControlElement12.Name = "accordionControlElement12";
             this.accordionControlElement12.Text = "Report";
             // 
-            // accordionControlElement13
+            // accUserHostGuesReport
             // 
-            this.accordionControlElement13.Name = "accordionControlElement13";
-            this.accordionControlElement13.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement13.Text = "User & Host & Guest";
+            this.accUserHostGuesReport.Appearance.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.accUserHostGuesReport.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accUserHostGuesReport.Appearance.Normal.ForeColor = System.Drawing.Color.Black;
+            this.accUserHostGuesReport.Appearance.Normal.Options.UseBackColor = true;
+            this.accUserHostGuesReport.Appearance.Normal.Options.UseFont = true;
+            this.accUserHostGuesReport.Appearance.Normal.Options.UseForeColor = true;
+            this.accUserHostGuesReport.Appearance.Pressed.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accUserHostGuesReport.Appearance.Pressed.Options.UseFont = true;
+            this.accUserHostGuesReport.Name = "accUserHostGuesReport";
+            this.accUserHostGuesReport.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accUserHostGuesReport.Text = "User & Host & Guest";
             // 
             // accordionControlElement14
             // 
+            this.accordionControlElement14.Appearance.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.accordionControlElement14.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accordionControlElement14.Appearance.Normal.ForeColor = System.Drawing.Color.Black;
+            this.accordionControlElement14.Appearance.Normal.Options.UseBackColor = true;
+            this.accordionControlElement14.Appearance.Normal.Options.UseFont = true;
+            this.accordionControlElement14.Appearance.Normal.Options.UseForeColor = true;
+            this.accordionControlElement14.Appearance.Pressed.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accordionControlElement14.Appearance.Pressed.Options.UseFont = true;
             this.accordionControlElement14.Name = "accordionControlElement14";
             this.accordionControlElement14.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement14.Text = "Booking & Area & Cancel";
             // 
             // accordionControlElement15
             // 
+            this.accordionControlElement15.Appearance.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.accordionControlElement15.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accordionControlElement15.Appearance.Normal.ForeColor = System.Drawing.Color.Black;
+            this.accordionControlElement15.Appearance.Normal.Options.UseBackColor = true;
+            this.accordionControlElement15.Appearance.Normal.Options.UseFont = true;
+            this.accordionControlElement15.Appearance.Normal.Options.UseForeColor = true;
+            this.accordionControlElement15.Appearance.Pressed.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accordionControlElement15.Appearance.Pressed.Options.UseFont = true;
             this.accordionControlElement15.Name = "accordionControlElement15";
             this.accordionControlElement15.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement15.Text = "Coupon & Total Sale";
@@ -311,9 +376,7 @@
             this.Text = "HomePage";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.fluentDesignFormContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
-            this.panelControl1.ResumeLayout(false);
-            this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.main)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).EndInit();
             this.ResumeLayout(false);
@@ -327,25 +390,22 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement1;
         private DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl fluentDesignFormControl1;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement2;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement3;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement4;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement acc_User;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accHostVerification;
         private DevExpress.XtraBars.Navigation.AccordionControlSeparator accordionControlSeparator1;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement5;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement6;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accArrea;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accAttraction;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement7;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement8;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement9;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement10;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement11;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accAmmenities;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accItemTypes;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accCoupons;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accTransactionTypes;
         private DevExpress.XtraBars.Navigation.AccordionControlSeparator accordionControlSeparator2;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement12;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement13;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accUserHostGuesReport;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement14;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement15;
-        private DevExpress.XtraEditors.XtraUserControl xtraUserControl1;
-        private DevExpress.XtraEditors.PanelControl panelControl1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraBars.Navigation.AccordionControlSeparator accordionControlSeparator3;
+        private DevExpress.XtraEditors.PanelControl main;
     }
 }

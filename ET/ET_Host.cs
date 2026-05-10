@@ -35,5 +35,15 @@ namespace ET
             TotalReviews = totalReviews;
             JoinedAsHostDate = joinedAsHostDate;
         }
+        public ET_Host(
+            long iD, string fullName,
+            string email, string phoneNumber, byte gender, DateTime? birthDate,
+            string country,
+            string businessLicense, string taxCode)
+            : base(iD, fullName, email, phoneNumber, gender, birthDate, country)
+        {
+            BusinessLicense = businessLicense;
+            TaxCode = taxCode;
+        }
     }
 }

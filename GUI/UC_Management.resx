@@ -156,8 +156,9 @@
 }
 
 .card-image img{
-    width:100%;
-    height:180px;
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
 }
 
 /* STATUS */
@@ -181,26 +182,40 @@
 /* CONTENT */
 
 .card-content{
-    padding:20px;
-    padding-bottom:40px;
+	
+    padding:10px;
+    
+    display:flex;
+    flex-direction:column;
+
+	flex-basis:auto;
 }
 
 /* TITLE */
 
-.title{
-    font-size:22px;
-    font-weight:700;
-    color:#222222;
-    margin-bottom:10px;
+.title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #222222;
+    margin-bottom: 10px;
+    
+    /* 3 dòng này để cắt chữ */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* LOCATION */
 
-.approximateAddress{
-    margin-top:8px;
-
-    font-size:14px;
-    color:#666666;
+.approximateAddress {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #666666;
+    
+    /* 3 dòng này để cắt chữ */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* PRICE */
@@ -218,6 +233,7 @@
 
 .features{
     margin-top:26px;
+    margin-bottom:26px;
 }
 
 .feature{
@@ -232,7 +248,7 @@
 /* ACTIONS */
 
 .actions{
-    margin-top:40px;
+    margin-top:auto;
 }
 
 /* EDIT BUTTON */
@@ -290,15 +306,12 @@
   </data>
   <data name="tvManager.TileHtmlTemplate.Template" xml:space="preserve">
     <value>&lt;div class="property-card"&gt;
-
     &lt;div class="card-image"&gt;
-
-        &lt;img src="${ThumbnailPath}" /&gt;
+        &lt;img src="${ImageDisplay}" alt="Property Thumbnail" /&gt;
 
         &lt;div class="badge"&gt;
             ${Status}
         &lt;/div&gt;
-
     &lt;/div&gt;
 
     &lt;div class="card-content"&gt;

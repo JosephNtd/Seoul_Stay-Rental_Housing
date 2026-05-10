@@ -42,83 +42,35 @@ namespace DAL
                 return query.FirstOrDefault();
             }
         }
-        public List<ET_HostBankAccount> GetBankAccounts(long hostUserId)
+
+        public bool Update(ET_Host editData)
         {
-            using (var db = new Seoul_StayDataContext())
+            using(var db = new Seoul_StayDataContext())
             {
-                return db.HostBankAccounts
-                         .Where(a => a.HostUserID == hostUserId && a.IsActive)
-                         .Select(a => new ET_HostBankAccount
-                         {
-                             ID = a.ID,
-                             GUID = a.GUID,
-                             HostUserID = a.HostUserID,
-                             BankName = a.BankName,
-                             AccountNumber = a.AccountNumber,
-                             AccountHolder = a.AccountHolder,
-                             IsPrimary = a.IsPrimary,
-                             IsVerified = a.IsVerified,
-                             CreatedDate = a.CreatedDate,
-                             IsActive = a.IsActive
-                         })
-                         .ToList();
-            }
-        }
+                var userInfo = db.Users.FirstOrDefault(x => x.ID == editData.ID);
+                if (userInfo == null) return false;
 
-        public bool SaveBankAccount(ET_HostBankAccount account)
-        {
-            using (var db = new Seoul_StayDataContext())
-            {
-                HostBankAccount entity;
-                if (account.ID == 0) // Thêm mới
-                {
-                    entity = new HostBankAccount
-                    {
-                        GUID = Guid.NewGuid(),
-                        CreatedDate = DateTime.Now,
-                        IsActive = true
-                    };
-                    db.HostBankAccounts.InsertOnSubmit(entity);
-                }
-                else // Cập nhật
-                {
-                    entity = db.HostBankAccounts.FirstOrDefault(a => a.ID == account.ID);
-                    if (entity == null) return false;
-                }
+                var hostInfo = db.Hosts.FirstOrDefault(x => x.UserID == editData.ID);
+                if (hostInfo == null) return false;
 
-                // Gán thuộc tính
-                entity.HostUserID = account.HostUserID;
-                entity.BankName = account.BankName;
-                entity.AccountNumber = account.AccountNumber;
-                entity.AccountHolder = account.AccountHolder;
-                entity.IsPrimary = account.IsPrimary;
-                entity.IsVerified = account.IsVerified; // thường do admin xác minh, nhưng vẫn cho gán
+                // Update user infomation
+                //userInfo.Username = editData.Username;
+                //userInfo.Password = editData.Password;
+                userInfo.FullName = editData.FullName;
+                userInfo.Email = editData.Email;
+                userInfo.PhoneNumber = editData.PhoneNumber;
+                userInfo.Gender = editData.Gender;
+                userInfo.BirthDate = editData.BirthDate;
+                userInfo.Country = editData.Country;
+                //userInfo.ProfilePicture = editData.ProfilePicture;
 
-                // Nếu đặt là primary, bỏ primary các tài khoản khác của host
-                if (entity.IsPrimary)
-                {
-                    var others = db.HostBankAccounts.Where(a => a.HostUserID == entity.HostUserID && a.ID != entity.ID);
-                    foreach (var other in others) other.IsPrimary = false;
-                }
+                // Update host infomation
+                hostInfo.BusinessLicense = editData.BusinessLicense;
+                hostInfo.TaxCode = editData.TaxCode;
 
                 db.SubmitChanges();
-                account.ID = entity.ID; // trả lại ID cho đối tượng ET
-                return true;
-            }
-        }
 
-        public bool DeleteBankAccount(long accountId)
-        {
-            using (var db = new Seoul_StayDataContext())
-            {
-                var acc = db.HostBankAccounts.FirstOrDefault(a => a.ID == accountId);
-                if (acc != null)
-                {
-                    db.HostBankAccounts.DeleteOnSubmit(acc);
-                    db.SubmitChanges();
-                    return true;
-                }
-                return false;
+                return true;
             }
         }
     }

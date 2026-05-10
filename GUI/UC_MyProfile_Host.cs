@@ -1,6 +1,7 @@
 ﻿using BUS;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
+using DTO;
 using ET;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static DevExpress.XtraEditors.Mask.Design.MaskSettingsForm.DesignInfo.MaskManagerInfo;
 
 namespace DangNhap_Form
 {
@@ -24,6 +26,12 @@ namespace DangNhap_Form
         {
             InitializeComponent();
             _userId = userId;
+            
+        }
+
+        private void UC_MyProfile_Host_Load(object sender, EventArgs e)
+        {
+            LoadGender();
             LoadData();
         }
         private void LoadData()
@@ -61,185 +69,90 @@ namespace DangNhap_Form
             // --- Personal ---
             txtFullname.Text = profile.FullName;
             txtPhone.Text = profile.PhoneNumber ?? "";
-            txtGender.Text = profile.Gender == 1 ? "Male" : profile.Gender == 2 ? "Female" : "Other";
+            cbGender.EditValue = profile.Gender;
             txtEmail.Text = profile.Email;
             txtLanguages.Text = "English, Korean"; // nếu có field, chưa có trong DB thì để mặc định
-            txtBirthday.Text = profile.BirthDate?.ToString("MMMM dd, yyyy") ?? "";
+            deBirthday.EditValue = profile.BirthDate?.ToString("MMMM dd, yyyy") ?? "";
             txtCountry.Text = profile.Country ?? "";
 
             // --- Bank Accounts ---
             LoadBankAccounts();
+            SetupBankTileView();
+        }
+
+        private void LoadGender()
+        {
+            var genders = new[]
+            {
+                new { Id = (byte)1, Name = "Male" },
+                new { Id = (byte)2, Name = "Female" },
+                new { Id = (byte)3, Name = "Other" }
+            };
+
+            cbGender.Properties.DataSource = genders;
+            cbGender.Properties.DisplayMember = "Name";
+            cbGender.Properties.ValueMember = "Id";
+
+            cbGender.Properties.NullText = "-- Select Gender --";
+
+            cbGender.Properties.Columns.Clear();
+
+            cbGender.Properties.Columns.Add(
+                new LookUpColumnInfo("Name", "Gender")
+            );
+
+            cbGender.Properties.ShowHeader = false;
         }
         private void LoadBankAccounts()
         {
-            _bankAccounts = _busHost.GetBankAccounts(_userId);
-            pnlAccountList.Controls.Clear();
+            var data = _busHost.GetBankAccounts(_userId);
 
-            if (_bankAccounts.Count == 0)
+            data.Add(new ET_HostBankAccount
             {
-                // Hiển thị thông báo nếu chưa có tài khoản
-                pnlAccountList.Controls.Add(new LabelControl
-                {
-                    Text = "No bank accounts added yet.",
-                    Location = new Point(3, 3),
-                    AutoSize = true
-                });
-            }
-            else
-            {
-                foreach (var acc in _bankAccounts)
-                {
-                    var card = CreateBankAccountCard(acc);
-                    pnlAccountList.Controls.Add(card);
-                }
-            }
+                IsAddCard = true
+            });
 
-            // Thêm card "Link International Account" 
-            var linkCard = CreateLinkInternationalCard();
-            pnlAccountList.Controls.Add(linkCard);
+            gcBankAccounts.DataSource = data;
+
+            tvBankAccounts.PopulateColumns();
+
+            tvBankAccounts.RefreshData();
         }
-        private PanelControl CreateBankAccountCard(ET_HostBankAccount account)
+        private void SetupBankTileView()
         {
-            // Card có chiều cao cố định, rộng theo panel
-            PanelControl card = new PanelControl
-            {
-                Height = 80,
-                Width = pnlAccountList.Width - 10,
-                BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple,
-                Margin = new Padding(3),
-                Tag = account
-            };
+            gcBankAccounts.Dock = DockStyle.Fill;
 
-            // Tiêu đề: Tên ngân hàng
-            LabelControl lblBank = new LabelControl
-            {
-                Text = account.BankName,
-                Font = new Font("Segoe UI", 10, FontStyle.Bold),
-                Location = new Point(10, 10)
-            };
+            tvBankAccounts.OptionsTiles.RowCount = 0;
 
-            // Tài khoản ẩn (mask)
-            LabelControl lblNumber = new LabelControl
-            {
-                Text = MaskAccountNumber(account.AccountNumber),
-                Location = new Point(10, 30)
-            };
+            tvBankAccounts.Columns.Clear();
 
-            // Chủ tài khoản
-            LabelControl lblHolder = new LabelControl
-            {
-                Text = account.AccountHolder,
-                Location = new Point(10, 50)
-            };
+            tvBankAccounts.Columns.AddVisible("BankName");
+            tvBankAccounts.Columns.AddVisible("MaskedAccountNumber");
+            tvBankAccounts.Columns.AddVisible("AccountHolder");
+            tvBankAccounts.Columns.AddVisible("IsPrimary");
+            tvBankAccounts.Columns.AddVisible("IsVerified");
 
-            // Icon verified (nếu có)
-            PictureEdit verifiedIcon = new PictureEdit
-            {
-                Image = account.IsVerified ? Properties.Resources.verified : Properties.Resources.declined,
-                //SizeMode = PictureSizeMode.Zoom,
-                Width = 16,
-                Height = 16,
-                Location = new Point(card.Width - 100, 10)
-            };
-            verifiedIcon.Properties.SizeMode = PictureSizeMode.Zoom;
-            // Nút Edit
-            SimpleButton btnEdit = new SimpleButton
-            {
-                Text = "Edit",
-                Location = new Point(card.Width - 120, 40),
-                Width = 50,
-                Tag = account
-            };
-            btnEdit.Click += (s, e) =>
-            {
-                var acc = (s as SimpleButton).Tag as ET_HostBankAccount;
-                OpenBankDialog(acc);
-            };
+            tvBankAccounts.OptionsTiles.ItemSize =
+                new Size(380, 400);
 
-            // Nút Delete
-            SimpleButton btnDelete = new SimpleButton
-            {
-                Text = "Delete",
-                Location = new Point(card.Width - 60, 40),
-                Width = 50,
-                Tag = account,
-                Appearance = { ForeColor = Color.Red }
-            };
-            btnDelete.Click += (s, e) =>
-            {
-                var acc = (s as SimpleButton).Tag as ET_HostBankAccount;
-                if (MessageBox.Show("Remove this bank account?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                {
-                    _busHost.DeleteBankAccount(acc.ID);
-                    LoadBankAccounts();
-                }
-            };
+            tvBankAccounts.OptionsTiles.Padding =
+                new Padding(20);
 
-            card.Controls.Add(lblBank);
-            card.Controls.Add(lblNumber);
-            card.Controls.Add(lblHolder);
-            card.Controls.Add(verifiedIcon);
-            card.Controls.Add(btnEdit);
-            card.Controls.Add(btnDelete);
+            tvBankAccounts.OptionsTiles.IndentBetweenItems = 30;
 
-            return card;
+            tvBankAccounts.OptionsTiles.RowCount = 0;
+
+            tvBankAccounts.OptionsTiles.LayoutMode =
+                DevExpress.XtraGrid.Views.Tile.TileViewLayoutMode.Default;
+
+            tvBankAccounts.OptionsTiles.ScrollMode = TileControlScrollMode.TouchScrollBar;
+
+            tvBankAccounts.OptionsTiles.RowCount = 0;
+
+            tvBankAccounts.OptionsTiles.Orientation =
+                Orientation.Vertical;
         }
 
-        private string MaskAccountNumber(string fullNumber)
-        {
-            if (string.IsNullOrEmpty(fullNumber) || fullNumber.Length <= 4)
-                return "****";
-            return new string('*', fullNumber.Length - 4) + fullNumber.Substring(fullNumber.Length - 4);
-        }
-
-        private PanelControl CreateLinkInternationalCard()
-        {
-            PanelControl card = new PanelControl
-            {
-                Height = 80,
-                Width = pnlAccountList.Width - 10,
-                BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple,
-                Margin = new Padding(3),
-                Appearance = { BackColor = Color.FromArgb(240, 246, 255) },
-                Cursor = Cursors.Hand
-            };
-
-            PictureEdit icon = new PictureEdit
-            {
-                Image = Properties.Resources.plus, // cần thêm ảnh này hoặc dùng ảnh khác
-                // SizeMode = PictureSizeMode.Zoom,
-                Width = 32,
-                Height = 32,
-                Location = new Point(10, (card.Height - 32) / 2)
-            };
-            icon.Properties.SizeMode = PictureSizeMode.Zoom;
-
-            LabelControl lblTitle = new LabelControl
-            {
-                Text = "Link International Account",
-                Font = new Font("Segoe UI", 10, FontStyle.Bold),
-                Location = new Point(50, 10)
-            };
-
-            LabelControl lblDesc = new LabelControl
-            {
-                Text = "Connect your global bank account for international transfers.",
-                Font = new Font("Segoe UI", 8),
-                ForeColor = Color.Gray,
-                Location = new Point(50, 30)
-            };
-
-            // Click vào bất kỳ đâu cũng mở dialog
-            card.Click += (s, e) => OpenBankDialog(null, true);
-            icon.Click += (s, e) => OpenBankDialog(null, true);
-            lblTitle.Click += (s, e) => OpenBankDialog(null, true);
-            lblDesc.Click += (s, e) => OpenBankDialog(null, true);
-
-            card.Controls.Add(icon);
-            card.Controls.Add(lblTitle);
-            card.Controls.Add(lblDesc);
-            return card;
-        }
 
         private void OpenBankDialog(ET_HostBankAccount existing = null, bool isInternational = false)
         {
@@ -249,17 +162,56 @@ namespace DangNhap_Form
                 LoadBankAccounts(); // refresh list
             }
         }
-
+        private void OpenDelete(ET_HostBankAccount item)
+        {
+            var result = MessageBox.Show(
+                "Are you sure you want to delete this account?",
+                "Confirm Delete",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+            if (result == DialogResult.Yes)
+            {
+                if (_busHost.DeleteBankAccount(item.ID))
+                {
+                    LoadBankAccounts();
+                }
+                else
+                    MessageBox.Show("aaa", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         // ========== Event handlers ==========
         private void btnAddAccount_Click(object sender, EventArgs e)
         {
-            OpenBankDialog(null);
+            OpenBankDialog();
         }
-
-        private void btnEditProfile_Click(object sender, EventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
-            // Sau này sẽ mở form chỉnh sửa hồ sơ
-            XtraMessageBox.Show("Edit Profile feature will be implemented soon.", "Info");
+            var result = MessageBox.Show(
+                "Are you sure you want to update new infomation?",
+                "Confirm Update",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+            if (result == DialogResult.No)
+                return;
+
+            string fullName = txtFullname.Text.ToString();
+            string email = txtEmail.Text.ToString();
+            string phoneNumber = txtPhone.Text.ToString();
+            byte gender = (byte)cbGender.EditValue;
+            DateTime birthDate = deBirthday.DateTime;
+            string country = txtCountry.Text.ToString();
+            string businessLiscense = txtBusinessLicense.Text.ToString();
+            string taxCode = txtTaxCode.Text.ToString();
+
+            ET_Host data = new ET_Host(_userId, fullName, email, phoneNumber, gender, birthDate, country, businessLiscense, taxCode);
+            if (_busHost.UpdateHostProfile(data))
+            {
+                LoadBankAccounts();
+            }
+            else
+                XtraMessageBox.Show("Some error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btnViewListing_Click(object sender, EventArgs e)
@@ -274,5 +226,27 @@ namespace DangNhap_Form
         {
             BackToManagerRequested?.Invoke(this, EventArgs.Empty);
         }
+
+        private void tvBankAccounts_HtmlElementMouseClick(object sender, DevExpress.XtraGrid.Views.Tile.TileViewHtmlElementMouseEventArgs e)
+        {
+            var item = tvBankAccounts.GetRow(e.RowHandle) as ET_HostBankAccount;
+            if (item == null) return;
+
+            if (e.ElementId == "editBtn")
+            {
+                OpenBankDialog(item);
+            }
+            else if (e.ElementId == "deleteBtn")
+            {
+                OpenDelete(item);
+            }
+            else if(e.ElementId == "addBtn")
+            {
+                OpenBankDialog(null, true);
+                return;
+            }
+        }
+
+        
     }
 }

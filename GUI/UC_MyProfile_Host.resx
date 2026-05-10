@@ -117,4 +117,326 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="tvBankAccounts.TileHtmlTemplate.Styles" xml:space="preserve">
+    <value>.bank-card{
+    width:340px;
+
+    padding:24px;
+
+    border-radius:28px;
+
+    background-color:#fdf3ee;
+
+    border:1px solid #f1e5df;
+
+    font-family:'Segoe UI';
+    
+    position:relative;
+    margin-bottom: 10px;
+}
+
+/* TOP */
+
+.top-section{
+    height:80px;
+
+    margin-bottom:24px;
+}
+
+/* ICON */
+
+.bank-icon{
+    width:44px;
+    height:44px;
+
+    line-height:44px;
+    text-align:center;
+
+    border-radius:22px;
+
+    background-color:#ffffff;
+
+    border:1px solid #eeeeee;
+
+    font-size:20px;
+
+    display:inline-block;
+
+    vertical-align:middle;
+    margin-bottom:24px;
+}
+
+/* STATUS */
+
+.status-section{
+    display:inline-block;
+
+    vertical-align:middle;
+
+    margin-left:16px;
+}
+/* PRIMARY */
+
+.primary-badge{
+	display:inline-block;
+    padding:4px 12px;
+
+    border-radius:14px;
+
+    background-color:#7d4d4f;
+
+    color:#ffffff;
+
+    font-size:11px;
+    font-weight:700;
+
+    text-align:center;
+
+    margin-bottom:6px;
+}
+
+/* VERIFIED */
+
+.verified-badge{
+	display:inline-block;
+    padding:4px 12px;
+
+    border-radius:14px;
+
+    background-color:#5d7f73;
+
+    color:#ffffff;
+
+    font-size:11px;
+    font-weight:700;
+
+    text-align:center;
+}
+
+/* FIELD */
+
+.field-block{
+    margin-top:20px;
+}
+
+/* LABEL */
+
+.field-label{
+    font-size:11px;
+
+    color:#b2a8a5;
+
+    margin-bottom:8px;
+}
+
+/* VALUE */
+
+.field-value{
+    font-size:16px;
+
+    color:#383230;
+}
+
+/* BANK NAME */
+
+.bank-name{
+    color:#b04363;
+
+    font-size:18px;
+}
+/* ACTIONS */
+
+.actions{
+    margin-top:40px;
+}
+
+/* EDIT BUTTON */
+
+.edit-btn{
+    width:150px;
+    height:48px;
+
+    background-color:#f1c8cc;
+    border:1px solid #e5b8bd;
+    border-radius:30px;
+
+    color:#5d4548;
+    font-size:16px;
+    font-weight:600;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+	display: inline-flex;
+}
+.edit-btn:hover{
+    background-color:#e7b2b8;
+    border-color:#d89ca4;
+
+    transform:translateY(-1px);
+
+    box-shadow:0 4px 10px rgba(0,0,0,0.08);
+}
+.edit-btn:active{
+    transform:scale(0.98);
+}
+/* MORE BUTTON */
+
+.delete-btn{
+    width:28px;
+    height:28px;
+
+    line-height:26px;
+    text-align:center;
+
+    border-radius:14px;
+
+    background-color:#ffffff;
+
+    border:1px solid #e8dddd;
+
+    color:#a89b9b;
+
+    font-size:14px;
+    font-weight:700;
+
+    position:absolute;
+
+    top:20px;
+    right:20px;
+}
+.delete-btn:hover{
+    background-color:#f4d8db;
+}
+
+.add-card{
+    width:340px;
+    height:260px;
+
+    border:2px dashed #f3d6d9;
+
+    border-radius:28px;
+
+    background-color:#fffafa;
+
+    text-align:center;
+
+    font-family:'Segoe UI';
+}
+
+/* PLUS */
+
+.plus-icon{
+    margin-top:80px;
+
+    font-size:52px;
+
+    color:#b7bcc8;
+}
+
+/* TEXT */
+
+.add-text{
+    margin-top:12px;
+
+    font-size:18px;
+
+    color:#9ca3af;
+}</value>
+  </data>
+  <data name="tvBankAccounts.TileHtmlTemplate.Template" xml:space="preserve">
+    <value>&lt;div class="bank-card"&gt;
+
+    &lt;!-- TOP --&gt;
+
+    &lt;div class="top-section" style="display:${NormalCardDisplay}"&gt;
+	
+        &lt;div class="bank-icon"&gt;
+            💳
+        &lt;/div&gt;
+		&lt;div class="delete-btn" id="deleteBtn"&gt;
+		    ✕
+		&lt;/div&gt;
+        &lt;div class="status-section"&gt;
+
+            &lt;div class="primary-badge"
+			     style="display:${PrimaryVisible}"&gt;
+			    PRIMARY
+			&lt;/div&gt;
+
+			&lt;div class="verified-badge"
+			     style="display:${VerifiedVisible}"&gt;
+			    VERIFIED
+			&lt;/div&gt;
+
+        &lt;/div&gt;
+
+    &lt;/div&gt;
+
+    &lt;!-- BANK NAME --&gt;
+
+    &lt;div class="field-block"&gt;
+
+        &lt;div class="field-label"&gt;
+            BANK NAME
+        &lt;/div&gt;
+
+        &lt;div class="field-value bank-name"&gt;
+            ${BankName}
+        &lt;/div&gt;
+
+    &lt;/div&gt;
+
+    &lt;!-- ACCOUNT NUMBER --&gt;
+
+    &lt;div class="field-block"&gt;
+
+        &lt;div class="field-label"&gt;
+            ACCOUNT NUMBER
+        &lt;/div&gt;
+
+        &lt;div class="field-value"&gt;
+            ${MaskedAccountNumber}
+        &lt;/div&gt;
+
+    &lt;/div&gt;
+
+    &lt;!-- ACCOUNT HOLDER --&gt;
+
+    &lt;div class="field-block"&gt;
+
+        &lt;div class="field-label"&gt;
+            ACCOUNT HOLDER
+        &lt;/div&gt;
+
+        &lt;div class="field-value"&gt;
+            ${AccountHolder}
+        &lt;/div&gt;
+
+    &lt;/div&gt;
+	&lt;div class="actions"&gt;
+
+        &lt;div class="edit-btn" id="editBtn"&gt;
+            Edit Details
+        &lt;/div&gt;
+
+       &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- ADD CARD --&gt;
+
+&lt;div class="add-card"
+     id="addBtn"
+     style="display:${AddCardDisplay}"&gt;
+
+    &lt;div class="plus-icon"&gt;
+        +
+    &lt;/div&gt;
+
+    &lt;div class="add-text"&gt;
+        Link International Account
+    &lt;/div&gt;
+
+&lt;/div&gt;</value>
+  </data>
 </root>

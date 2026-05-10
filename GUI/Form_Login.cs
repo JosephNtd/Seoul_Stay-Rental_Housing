@@ -83,9 +83,30 @@ namespace DangNhap_Form
 
                 Properties.Settings.Default.Save();
 
-                GUI_HomePage_Host f = new GUI_HomePage_Host(user);
+                Form nextForm = null;
+
+                if (user.IsAdmin)
+                {
+                    // 1. Admin
+                    nextForm = new GUI_HomePage_Admin();
+                }
+                else
+                {
+                    // 2. Kiểm tra xem có phải Host không (có bản ghi trong bảng Hosts)
+                    var hostProfile = new BUS_Host().GetHostProfile(user.ID);
+                    if (hostProfile != null) // Nếu muốn yêu cầu Host đã được verify thì thêm: && hostProfile.IsVerified
+                    {
+                        nextForm = new GUI_HomePage_Host(user);
+                    }
+                    else
+                    {
+                        // 3. Guest (mặc định)
+                        nextForm = new GUI_HomePage_User(user);
+                    }
+                }
+
                 this.Hide();
-                f.ShowDialog();
+                nextForm.ShowDialog();
                 this.Show();
             }
         }

@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_AddEditListing));
             this.tabControl = new DevExpress.XtraTab.XtraTabControl();
             this.tabItenDetail = new DevExpress.XtraTab.XtraTabPage();
+            this.cbApproxAdress = new DevExpress.XtraEditors.LookUpEdit();
             this.txtDescription = new System.Windows.Forms.RichTextBox();
             this.cbType = new DevExpress.XtraEditors.LookUpEdit();
             this.numTimeMaximum = new System.Windows.Forms.NumericUpDown();
@@ -65,15 +67,20 @@
             this.gvAttraction = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
+            this.tabPictures = new DevExpress.XtraTab.XtraTabPage();
+            this.gcPictures = new DevExpress.XtraGrid.GridControl();
+            this.tvPictures = new DevExpress.XtraGrid.Views.Tile.TileView();
+            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.btnAddPicture = new DevExpress.XtraEditors.SimpleButton();
             this.panelBtnControl = new DevExpress.XtraEditors.PanelControl();
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
             this.btnNext = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btnFinish = new DevExpress.XtraEditors.SimpleButton();
-            this.cbApproxAdress = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.tabControl)).BeginInit();
             this.tabControl.SuspendLayout();
             this.tabItenDetail.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbApproxAdress.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numTimeMaximum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numTimeMinimum)).BeginInit();
@@ -95,9 +102,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.gvAttraction)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            this.tabPictures.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcPictures)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tvPictures)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
+            this.panelControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelBtnControl)).BeginInit();
             this.panelBtnControl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cbApproxAdress.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
@@ -111,7 +122,8 @@
             this.tabControl.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tabItenDetail,
             this.tabAmenity,
-            this.tabDistance});
+            this.tabDistance,
+            this.tabPictures});
             // 
             // tabItenDetail
             // 
@@ -144,12 +156,24 @@
             this.tabItenDetail.Size = new System.Drawing.Size(827, 431);
             this.tabItenDetail.Text = "Listing Details";
             // 
+            // cbApproxAdress
+            // 
+            this.cbApproxAdress.Location = new System.Drawing.Point(217, 101);
+            this.cbApproxAdress.Name = "cbApproxAdress";
+            this.cbApproxAdress.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbApproxAdress.Properties.Appearance.Options.UseFont = true;
+            this.cbApproxAdress.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbApproxAdress.Properties.ImmediatePopup = true;
+            this.cbApproxAdress.Size = new System.Drawing.Size(583, 26);
+            this.cbApproxAdress.TabIndex = 7;
+            // 
             // txtDescription
             // 
             this.txtDescription.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescription.Location = new System.Drawing.Point(217, 184);
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(583, 26);
+            this.txtDescription.Size = new System.Drawing.Size(583, 57);
             this.txtDescription.TabIndex = 5;
             this.txtDescription.Text = "";
             // 
@@ -162,6 +186,7 @@
             this.cbType.Properties.AutoHeight = false;
             this.cbType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbType.Properties.ImmediatePopup = true;
             this.cbType.Size = new System.Drawing.Size(312, 26);
             this.cbType.TabIndex = 4;
             // 
@@ -204,7 +229,6 @@
             this.numBed.Name = "numBed";
             this.numBed.Size = new System.Drawing.Size(53, 27);
             this.numBed.TabIndex = 3;
-            this.numBed.ValueChanged += new System.EventHandler(this.numBed_ValueChanged);
             // 
             // numCapacity
             // 
@@ -386,7 +410,7 @@
             this.panelControl2.Controls.Add(this.labelControl15);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl2.Location = new System.Drawing.Point(0, 0);
-            this.panelControl2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelControl2.Margin = new System.Windows.Forms.Padding(2);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(827, 32);
             this.panelControl2.TabIndex = 1;
@@ -396,7 +420,7 @@
             this.labelControl15.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl15.Appearance.Options.UseFont = true;
             this.labelControl15.Location = new System.Drawing.Point(23, 9);
-            this.labelControl15.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.labelControl15.Margin = new System.Windows.Forms.Padding(2);
             this.labelControl15.Name = "labelControl15";
             this.labelControl15.Size = new System.Drawing.Size(211, 18);
             this.labelControl15.TabIndex = 0;
@@ -452,10 +476,10 @@
             this.gcAttraction.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gcAttraction.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gcAttraction.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2);
             this.gcAttraction.Location = new System.Drawing.Point(0, 44);
             this.gcAttraction.MainView = this.gvAttraction;
-            this.gcAttraction.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gcAttraction.Margin = new System.Windows.Forms.Padding(2);
             this.gcAttraction.Name = "gcAttraction";
             this.gcAttraction.Size = new System.Drawing.Size(828, 315);
             this.gcAttraction.TabIndex = 1;
@@ -487,7 +511,7 @@
             this.panelControl1.Controls.Add(this.labelControl14);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
-            this.panelControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelControl1.Margin = new System.Windows.Forms.Padding(2);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(827, 40);
             this.panelControl1.TabIndex = 0;
@@ -498,12 +522,60 @@
             this.labelControl14.Appearance.Options.UseFont = true;
             this.labelControl14.Dock = System.Windows.Forms.DockStyle.Left;
             this.labelControl14.Location = new System.Drawing.Point(2, 2);
-            this.labelControl14.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.labelControl14.Margin = new System.Windows.Forms.Padding(2);
             this.labelControl14.Name = "labelControl14";
             this.labelControl14.Size = new System.Drawing.Size(649, 18);
             this.labelControl14.TabIndex = 0;
             this.labelControl14.Text = "Specify the distance from each close byb attraction and the time it takes to get " +
     "to them:";
+            // 
+            // tabPictures
+            // 
+            this.tabPictures.Controls.Add(this.gcPictures);
+            this.tabPictures.Controls.Add(this.panelControl3);
+            this.tabPictures.Name = "tabPictures";
+            this.tabPictures.Size = new System.Drawing.Size(827, 431);
+            this.tabPictures.Text = "Pictures";
+            // 
+            // gcPictures
+            // 
+            this.gcPictures.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcPictures.Location = new System.Drawing.Point(0, 68);
+            this.gcPictures.MainView = this.tvPictures;
+            this.gcPictures.Name = "gcPictures";
+            this.gcPictures.Size = new System.Drawing.Size(827, 363);
+            this.gcPictures.TabIndex = 1;
+            this.gcPictures.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.tvPictures});
+            // 
+            // tvPictures
+            // 
+            this.tvPictures.ContextButtonOptions.AllowHtmlText = true;
+            this.tvPictures.GridControl = this.gcPictures;
+            this.tvPictures.Name = "tvPictures";
+            this.tvPictures.TileHtmlTemplate.Styles = resources.GetString("tvPictures.TileHtmlTemplate.Styles");
+            this.tvPictures.TileHtmlTemplate.Template = resources.GetString("tvPictures.TileHtmlTemplate.Template");
+            this.tvPictures.ItemClick += new DevExpress.XtraGrid.Views.Tile.TileViewItemClickEventHandler(this.tvPictures_ItemClick);
+            // 
+            // panelControl3
+            // 
+            this.panelControl3.Controls.Add(this.btnAddPicture);
+            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl3.Location = new System.Drawing.Point(0, 0);
+            this.panelControl3.Name = "panelControl3";
+            this.panelControl3.Size = new System.Drawing.Size(827, 68);
+            this.panelControl3.TabIndex = 0;
+            // 
+            // btnAddPicture
+            // 
+            this.btnAddPicture.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddPicture.Appearance.Options.UseFont = true;
+            this.btnAddPicture.Location = new System.Drawing.Point(622, 22);
+            this.btnAddPicture.Name = "btnAddPicture";
+            this.btnAddPicture.Size = new System.Drawing.Size(119, 26);
+            this.btnAddPicture.TabIndex = 0;
+            this.btnAddPicture.Text = "Add Pictures";
+            this.btnAddPicture.Click += new System.EventHandler(this.btnAddPicture_Click);
             // 
             // panelBtnControl
             // 
@@ -562,17 +634,6 @@
             this.btnFinish.Text = "Finish";
             this.btnFinish.Click += new System.EventHandler(this.btnFinish_Click);
             // 
-            // cbApproxAdress
-            // 
-            this.cbApproxAdress.Location = new System.Drawing.Point(217, 101);
-            this.cbApproxAdress.Name = "cbApproxAdress";
-            this.cbApproxAdress.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbApproxAdress.Properties.Appearance.Options.UseFont = true;
-            this.cbApproxAdress.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbApproxAdress.Size = new System.Drawing.Size(583, 26);
-            this.cbApproxAdress.TabIndex = 7;
-            // 
             // Form_AddEditListing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -589,6 +650,7 @@
             this.tabControl.ResumeLayout(false);
             this.tabItenDetail.ResumeLayout(false);
             this.tabItenDetail.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbApproxAdress.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numTimeMaximum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numTimeMinimum)).EndInit();
@@ -612,9 +674,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
+            this.tabPictures.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gcPictures)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tvPictures)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
+            this.panelControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelBtnControl)).EndInit();
             this.panelBtnControl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.cbApproxAdress.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -664,5 +730,10 @@
         private DevExpress.XtraEditors.LookUpEdit cbType;
         private System.Windows.Forms.RichTextBox txtDescription;
         private DevExpress.XtraEditors.LookUpEdit cbApproxAdress;
+        private DevExpress.XtraTab.XtraTabPage tabPictures;
+        private DevExpress.XtraGrid.GridControl gcPictures;
+        private DevExpress.XtraGrid.Views.Tile.TileView tvPictures;
+        private DevExpress.XtraEditors.PanelControl panelControl3;
+        private DevExpress.XtraEditors.SimpleButton btnAddPicture;
     }
 }

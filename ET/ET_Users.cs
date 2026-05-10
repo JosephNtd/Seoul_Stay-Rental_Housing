@@ -58,5 +58,18 @@ namespace ET
             Country = country;
             ProfilePicture = profilePicture;
         }
+        public ET_Users(
+            long iD, string fullName, 
+            string email, string phoneNumber, byte gender, DateTime? birthDate, string country)
+        {
+            ID = iD;
+            FullName = fullName;
+            Email = email;
+            PhoneNumber = phoneNumber;
+            Gender = gender;
+            BirthDate = birthDate;
+            Country = country;
+        }
+
     }
 }

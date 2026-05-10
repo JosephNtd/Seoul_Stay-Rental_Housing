@@ -1,6 +1,6 @@
 ﻿namespace DangNhap_Form
 {
-    partial class GUI_HomePage_Host_Copy
+    partial class GUI_HomePage_Host
     {
         /// <summary>
         /// Required designer variable.

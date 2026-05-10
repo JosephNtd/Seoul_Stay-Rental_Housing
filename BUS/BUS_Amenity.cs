@@ -1,5 +1,6 @@
 ﻿using DAL;
 using DTO;
+using ET;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +13,8 @@ namespace BUS
     {
         private readonly DAL_Amenity _dal = new DAL_Amenity();
 
-        public List<DTO_Amenities> GetData(long? itemId = null)
-        {
-            return _dal.GetData(itemId);
-        }
+        public List<DTO_Amenities> GetData(long? itemId = null) => _dal.GetData(itemId);
+        public List<ET_Amenities> GetAllData() => _dal.GetAllData();
         
     }
 }

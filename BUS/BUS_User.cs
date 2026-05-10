@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAL;
+using DTO;
 using ET;
 
 namespace BUS
@@ -61,5 +62,6 @@ namespace BUS
         }
 
         public User GetByID(long id) => _dal.GetById(id);
+        public List<DTO_UserDisplay> GetAllUsersDisplay() => _dal.GetAllUsersDisplay();
     }
 }

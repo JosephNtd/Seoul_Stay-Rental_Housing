@@ -18,6 +18,31 @@ namespace ET
         public bool IsVerified { get; set; }
         public DateTime CreatedDate { get; set; }
         public bool IsActive { get; set; }
+        public bool IsAddCard { get; set; }
+        public string PrimaryVisible =>
+            IsPrimary ? "inline-block" : "none";
+
+        public string VerifiedVisible =>
+            IsVerified ? "inline-block" : "none";
+        public string NormalCardDisplay =>
+            IsAddCard ? "none" : "block";
+
+        public string AddCardDisplay =>
+            IsAddCard ? "block" : "none";
+        public string MaskedAccountNumber
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(AccountNumber))
+                    return "****";
+
+                if (AccountNumber.Length <= 4)
+                    return AccountNumber;
+
+                return "•••• •••• " +
+                       AccountNumber.Substring(AccountNumber.Length - 4);
+            }
+        }
         public ET_HostBankAccount() { }
     }
 }

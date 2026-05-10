@@ -1,6 +1,8 @@
 ﻿using BUS;
+using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.Repository;
+using DevExpress.XtraGrid.Views.Tile;
 using DTO;
 using ET;
 using System;
@@ -73,20 +75,53 @@ namespace DangNhap_Form
             tvManager.Columns.AddVisible(nameof(DTO_ItemCard.MinPrice));
             tvManager.Columns.AddVisible(nameof(DTO_ItemCard.NumberOfBeds));
             tvManager.Columns.AddVisible(nameof(DTO_ItemCard.NumberOfBathrooms));
-            tvManager.Columns.AddVisible(nameof(DTO_ItemCard.ThumbnailPath));
             tvManager.Columns.AddVisible(nameof(DTO_ItemCard.Status));
 
-            tvManager.OptionsTiles.RowCount = 0;
+            tvManager.Columns.AddVisible(nameof(DTO_ItemCard.ImageDisplay));
+            tvManager.Columns["ImageDisplay"].Visible = false;
 
-            tvManager.OptionsTiles.ItemSize = new Size(320, 520);
+            tvManager.TileTemplate.Clear();
 
+            // Ảnh bìa — bind vào ThumbnailData
+            var imgElement = new TileViewItemElement();
+            imgElement.Column = tvManager.Columns["ImageDisplay"];
+            imgElement.ImageAlignment = TileItemContentAlignment.TopCenter;
+            imgElement.ImageSize = new Size(280, 200);
+            imgElement.ImageScaleMode = TileItemImageScaleMode.ZoomInside;
+            tvManager.TileTemplate.Add(imgElement);
+
+            // 2. Tiêu đề
+            TileViewItemElement titleElement = new TileViewItemElement();
+            titleElement.Column = tvManager.Columns["Title"];
+            titleElement.TextAlignment = TileItemContentAlignment.TopLeft;
+            tvManager.TileTemplate.Add(titleElement);
+
+            // 3. Địa chỉ
+            TileViewItemElement addrElement = new TileViewItemElement();
+            addrElement.Column = tvManager.Columns["ApproximateAddress"];
+            addrElement.TextAlignment = TileItemContentAlignment.TopLeft;
+            tvManager.TileTemplate.Add(addrElement);
+
+            // 4. Giá (cần định dạng khi hiển thị, có thể dùng cột phụ hoặc CustomColumnDisplayText)
+            // Có thể tạo một cột ảo để hiển thị giá đã format, hoặc dùng event CustomColumnDisplayText
+            tvManager.CustomColumnDisplayText += (s, e) =>
+            {
+                if (e.Column.FieldName == nameof(DTO_ItemCard.MinPrice) && e.Value != null)
+                {
+                    e.DisplayText = $"${(decimal)e.Value:N0} / đêm";
+                }
+            };
+            TileViewItemElement priceElement = new TileViewItemElement();
+            priceElement.Column = tvManager.Columns["MinPrice"];
+            priceElement.TextAlignment = TileItemContentAlignment.TopRight;
+            tvManager.TileTemplate.Add(priceElement);
+
+
+            // Cấu hình chung
+            tvManager.OptionsTiles.ItemSize = new Size(320, 500);
             tvManager.OptionsTiles.Padding = new Padding(20);
-
             tvManager.OptionsTiles.Orientation = Orientation.Vertical;
-
-            tvManager.OptionsTiles.LayoutMode =
-                DevExpress.XtraGrid.Views.Tile.TileViewLayoutMode.Default;
-
+            tvManager.OptionsTiles.LayoutMode = TileViewLayoutMode.Default;
             tvManager.BorderStyle = BorderStyles.NoBorder;
         }
 
@@ -122,7 +157,7 @@ namespace DangNhap_Form
         {
             if (item != null)
             {
-                var parent = this.FindForm() as GUI_HomePage_Host_Copy;
+                var parent = this.FindForm() as GUI_HomePage_Host;
                 parent?.ShowPricingCalendar(item.ID);
             }
         }

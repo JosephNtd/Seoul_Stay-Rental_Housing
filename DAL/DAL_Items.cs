@@ -240,7 +240,7 @@ namespace DAL
                            select new ET_Amenities
                            {
                                ID = a.ID,
-                               Name = a.Name
+                               AmenitiesName = a.Name
                            };
                 return data.ToList();
             }

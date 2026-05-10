@@ -1,4 +1,5 @@
 ﻿using DAL;
+using DTO;
 using ET;
 using System;
 using System.Collections.Generic;
@@ -12,13 +13,8 @@ namespace BUS
     {
         DAL_Area dal = new DAL_Area();
 
-        public List<object> GetThongKe()
-        {
-            return dal.GetHotelCountByArea();
-        }
-        public List<ET_Areas> GetAreasName()
-        {
-            return dal.GetAreaName();
-        }
+        public List<object> GetThongKe() => dal.GetHotelCountByArea();
+        public List<ET_Areas> GetAreasName() => dal.GetAreaName();
+        public List<DTO_AreaDisplay> GetData() => dal.GetData();
     }
 }

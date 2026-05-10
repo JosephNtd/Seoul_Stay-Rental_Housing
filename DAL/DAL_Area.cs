@@ -1,4 +1,5 @@
-﻿using ET;
+﻿using DTO;
+using ET;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,6 +41,30 @@ namespace DAL
                            };
                 return data.ToList();
             }
+        }
+
+        public List<DTO_AreaDisplay> GetData()
+        {
+            using(var db = new Seoul_StayDataContext())
+            {
+                var data = (from a in db.Areas
+                            join i in db.Items on a.ID equals i.AreaID into g
+                            from x in g.DefaultIfEmpty()
+                            group x by new
+                            {
+                                a.ID,
+                                a.Name
+                            } into grp
+
+                            select new DTO_AreaDisplay
+                            {
+                                AreaID = grp.Key.ID,
+                                AreaName = grp.Key.Name,
+                                StayCount = grp.Count(x => x != null)
+                            }).ToList();
+                return data;
+            }
+            
         }
     }
 }
