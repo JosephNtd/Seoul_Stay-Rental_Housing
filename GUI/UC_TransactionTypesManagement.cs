@@ -1,12 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DangNhap_Form
 {
-    internal class UC_TransactionTypesManagement
+    public partial class UC_TransactionTypesManagement : UserControl
     {
+        public UC_TransactionTypesManagement()
+        {
+            InitializeComponent();
+        }
     }
 }

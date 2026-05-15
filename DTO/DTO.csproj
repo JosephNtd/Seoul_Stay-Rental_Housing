@@ -44,6 +44,8 @@
   <ItemGroup>
     <Compile Include="DTO_Amenities.cs" />
     <Compile Include="DTO_AreaDisplay.cs" />
+    <Compile Include="DTO_AreaOverview.cs" />
+    <Compile Include="DTO_AttractionDisplay.cs" />
     <Compile Include="DTO_Attraction_Distance.cs" />
     <Compile Include="DTO_ItemCard.cs" />
     <Compile Include="DTO_ItemsView.cs" />

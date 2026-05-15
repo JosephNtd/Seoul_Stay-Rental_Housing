@@ -19,5 +19,10 @@ namespace ET
             GUID = gUID;
             Name = name;
         }
+        public ET_Areas(long iD, string name)
+        {
+            ID = iD;
+            Name = name;
+        }
     }
 }

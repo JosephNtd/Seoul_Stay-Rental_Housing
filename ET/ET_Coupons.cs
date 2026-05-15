@@ -16,10 +16,14 @@ namespace ET
         public decimal DiscountPercent { get; set; }
         public decimal MaximumDiscountAmount { get; set; }
         public DateTime StartedDate { get; set; }
-        public DateTime ExpirationDate { get; set; }
-        public int MaxUsageCount { get; set; }
+        public DateTime? ExpirationDate { get; set; }
+        public int? MaxUsageCount { get; set; }
         public int CurrentUsageCount { get; set; }
         public bool IsActive { get; set; }
+        public string UsageText
+        {
+            get => $"{CurrentUsageCount}/ {MaxUsageCount}";
+        }
         public ET_Coupons() {}
 
         public ET_Coupons(long iD, Guid gUID, string couponCode, decimal discountPercent, decimal maximumDiscountAmount, DateTime startedDate, DateTime expirationDate, int maxUsageCount, int currentUsageCount, bool isActive)

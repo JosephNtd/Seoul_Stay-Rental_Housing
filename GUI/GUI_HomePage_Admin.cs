@@ -44,5 +44,31 @@ namespace DangNhap_Form
         {
             ShowUC(new UC_AmenityManagement());
         }
+
+        private void accAttraction_Click(object sender, EventArgs e)
+        {
+            ShowUC(new UC_AttractionManagement());
+        }
+
+        private void accCoupons_Click(object sender, EventArgs e)
+        {
+            ShowUC(new UC_CouponManagement());
+        }
+
+        private void accItemTypes_Click(object sender, EventArgs e)
+        {
+            ShowUC(new UC_ItemTypesManagement());
+
+        }
+
+        private void acc_Services_Click(object sender, EventArgs e)
+        {
+            ShowUC(new UC_ServicesManagement());
+        }
+
+        private void acc_ServiceTypes_Click(object sender, EventArgs e)
+        {
+            ShowUC(new UC_ServiceTypeManagement());
+        }
     }
 }

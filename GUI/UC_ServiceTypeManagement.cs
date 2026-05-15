@@ -1,5 +1,6 @@
 ﻿using BUS;
 using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Controls;
 using ET;
 using System;
 using System.Collections.Generic;
@@ -15,50 +16,64 @@ using System.Windows.Forms;
 
 namespace DangNhap_Form
 {
-    public partial class UC_ItemTypesManagement : UserControl
+    public partial class UC_ServiceTypeManagement : UserControl
     {
-        private readonly BUS_ItemType _bus = new BUS_ItemType();
-        private List<ET_ItemTypes> _allData;
+        private readonly BUS_ServiceType _bus = new BUS_ServiceType();
+        private List<ET_ServiceType> _allData;
 
         private string _mode = "";
         private long _currentId = 0;
         private string _selectedImagePath = ""; // Lưu tạm đường dẫn ảnh khi User Browse file
-        public UC_ItemTypesManagement()
+        public UC_ServiceTypeManagement()
         {
             InitializeComponent();
         }
-        private void UC_ItemTypesManagement_Load(object sender, EventArgs e)
+
+        private void UC_ServiceType_Load(object sender, EventArgs e)
         {
             HideDetailPanel();
             LoadData();
+            LoadComboBox();
 
             txtSearch.EditValueChanged += Filters;
+            cboSort.EditValueChanged += Filters;
 
             // Gán sự kiện Grid
-            gvItemTypes.DoubleClick += gvItemTypes_DoubleClick;
+            gvServiceType.DoubleClick += gvServiceType_DoubleClick;
             repoBtnActions.ButtonClick += repoBtnActions_ButtonClick;
 
             // Gán sự kiện cho Icon PictureEdit (Click để đổi ảnh)
             picIcon.Click += picIcon_Click;
+            
         }
         private void LoadData()
         {
             _allData = _bus.GetData();
 
-            ET_ItemTypes.DefaultIcon = Properties.Resources.WSC2022SE_TP09_Logo_actual_en1;
-            gcItemTypes.DataSource = _allData;
-            gvItemTypes.RefreshData();
+            ET_ServiceType.DefaultIcon = Properties.Resources.WSC2022SE_TP09_Logo_actual_en1;
+            gcServiceType.DataSource = _allData;
+            gvServiceType.RefreshData();
 
             // Ẩn cột không cần thiết
-            if (gvItemTypes.Columns["ID"] != null) gvItemTypes.Columns["ID"].Visible = false;
-            if (gvItemTypes.Columns["GUID"] != null) gvItemTypes.Columns["GUID"].Visible = false;
-            if (gvItemTypes.Columns["IconPath"] != null) gvItemTypes.Columns["IconPath"].Visible = false; // Đã hiển thị qua ImageDisplay
+            if (gvServiceType.Columns["ID"] != null) gvServiceType.Columns["ID"].Visible = false;
+            if (gvServiceType.Columns["GUID"] != null) gvServiceType.Columns["GUID"].Visible = false;
+            if (gvServiceType.Columns["IconPath"] != null) gvServiceType.Columns["IconPath"].Visible = false; // Đã hiển thị qua ImageDisplay
         }
+        private void LoadComboBox()
+        {
+            // Sort
+            cboSort.Properties.Items.Clear();
+            cboSort.Properties.NullText = "---Sort by---";
+            cboSort.Properties.Items.AddRange(new string[] { "Name (A - Z)", "Name (Z - A)"});
+            cboSort.SelectedIndex = -1;
+            cboSort.Properties.TextEditStyle = TextEditStyles.DisableTextEditor;
 
+        }
         // QUẢN LÝ TRẠNG THÁI PANEL CHI TIẾT
         private void ShowDetailPanel()
         {
             splitContainerControl1.PanelVisibility = DevExpress.XtraEditors.SplitPanelVisibility.Both;
+            splitContainerControl1.SplitterPosition = this.Width - 550;
         }
 
         private void HideDetailPanel()
@@ -69,7 +84,7 @@ namespace DangNhap_Form
             _selectedImagePath = "";
         }
 
-        private void SetUIState(string mode, ET_ItemTypes data = null)
+        private void SetUIState(string mode, ET_ServiceType data = null)
         {
             _mode = mode;
             ShowDetailPanel();
@@ -162,7 +177,7 @@ namespace DangNhap_Form
             }
 
             // Gói dữ liệu
-            ET_ItemTypes et = new ET_ItemTypes
+            ET_ServiceType et = new ET_ServiceType
             {
                 ID = _currentId,
                 Name = name,
@@ -182,15 +197,15 @@ namespace DangNhap_Form
         }
 
         // CÁC SỰ KIỆN TRÊN GRIDVIEW
-        private void gvItemTypes_DoubleClick(object sender, EventArgs e)
+        private void gvServiceType_DoubleClick(object sender, EventArgs e)
         {
-            var data = gvItemTypes.GetFocusedRow() as ET_ItemTypes;
+            var data = gvServiceType.GetFocusedRow() as ET_ServiceType;
             if (data != null) SetUIState("VIEW", data);
         }
 
         private void repoBtnActions_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            var data = gvItemTypes.GetFocusedRow() as ET_ItemTypes;
+            var data = gvServiceType.GetFocusedRow() as ET_ServiceType;
             if (data == null) return;
 
             if (e.Button.Tag.ToString() == "edit")
@@ -218,29 +233,43 @@ namespace DangNhap_Form
         {
             if (_allData == null) return;
 
+            IEnumerable<ET_ServiceType> filtered = _allData;
+
+            // Search
             string keyword = txtSearch.Text.Trim().ToLower();
+
             if (!string.IsNullOrEmpty(keyword))
             {
-                var filtered = _allData.Where(x =>
-                    x.Name.ToLower().Contains(keyword) ||
-                    (x.Description != null && x.Description.ToLower().Contains(keyword)));
+                filtered = filtered.Where(x =>
+                    !string.IsNullOrEmpty(x.Name) &&
+                    x.Name.ToLower().Contains(keyword));
+            }
+            // Sort
+            string sortOption = cboSort.Text;
 
-                gcItemTypes.DataSource = filtered.ToList();
-            }
-            else
+            switch (sortOption)
             {
-                gcItemTypes.DataSource = _allData;
+                case "Name (A - Z)":
+                    filtered = filtered.OrderBy(x => x.Name);
+                    break;
+
+                case "Name (Z - A)":
+                    filtered = filtered.OrderByDescending(x => x.Name);
+                    break;
+
             }
+
+            gcServiceType.DataSource = filtered.ToList();
         }
 
         private void btnReset_Click(object sender, EventArgs e)
         {
             txtSearch.EditValue = "";
             cboSort.SelectedIndex = -1;
-            gcItemTypes.DataSource = _allData;
+            Filters(null, null);
         }
 
-        private void btnInvite_Click(object sender, EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)
         {
             _mode = "ADD";
             SetUIState(_mode);

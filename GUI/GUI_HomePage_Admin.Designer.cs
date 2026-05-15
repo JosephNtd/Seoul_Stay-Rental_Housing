@@ -44,7 +44,8 @@
             this.accAmmenities = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accCoupons = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accItemTypes = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accTransactionTypes = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.acc_Services = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.acc_ServiceTypes = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlSeparator2 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
             this.accordionControlElement12 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accUserHostGuesReport = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -61,17 +62,19 @@
             // 
             this.fluentDesignFormContainer1.Controls.Add(this.main);
             this.fluentDesignFormContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fluentDesignFormContainer1.Location = new System.Drawing.Point(280, 31);
+            this.fluentDesignFormContainer1.Location = new System.Drawing.Point(420, 46);
+            this.fluentDesignFormContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.fluentDesignFormContainer1.Name = "fluentDesignFormContainer1";
-            this.fluentDesignFormContainer1.Size = new System.Drawing.Size(648, 441);
+            this.fluentDesignFormContainer1.Size = new System.Drawing.Size(972, 644);
             this.fluentDesignFormContainer1.TabIndex = 0;
             // 
             // main
             // 
             this.main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.main.Location = new System.Drawing.Point(0, 0);
+            this.main.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.main.Name = "main";
-            this.main.Size = new System.Drawing.Size(648, 441);
+            this.main.Size = new System.Drawing.Size(972, 644);
             this.main.TabIndex = 0;
             // 
             // accordionControl1
@@ -113,11 +116,13 @@
             this.accordionControlElement1,
             this.accordionControlElement2,
             this.accordionControlElement12});
-            this.accordionControl1.Location = new System.Drawing.Point(0, 31);
+            this.accordionControl1.Location = new System.Drawing.Point(0, 46);
+            this.accordionControl1.LookAndFeel.SkinMaskColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.accordionControl1.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.accordionControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.accordionControl1.Name = "accordionControl1";
             this.accordionControl1.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
-            this.accordionControl1.Size = new System.Drawing.Size(280, 441);
+            this.accordionControl1.Size = new System.Drawing.Size(420, 644);
             this.accordionControl1.TabIndex = 1;
             this.accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
@@ -198,7 +203,8 @@
             this.accAmmenities,
             this.accCoupons,
             this.accItemTypes,
-            this.accTransactionTypes,
+            this.acc_Services,
+            this.acc_ServiceTypes,
             this.accordionControlSeparator2});
             this.accordionControlElement2.Expanded = true;
             this.accordionControlElement2.Name = "accordionControlElement2";
@@ -232,6 +238,7 @@
             this.accAttraction.Name = "accAttraction";
             this.accAttraction.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accAttraction.Text = "Attractions";
+            this.accAttraction.Click += new System.EventHandler(this.accAttraction_Click);
             // 
             // accAmmenities
             // 
@@ -261,6 +268,7 @@
             this.accCoupons.Name = "accCoupons";
             this.accCoupons.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accCoupons.Text = "Coupons";
+            this.accCoupons.Click += new System.EventHandler(this.accCoupons_Click);
             // 
             // accItemTypes
             // 
@@ -275,20 +283,33 @@
             this.accItemTypes.Name = "accItemTypes";
             this.accItemTypes.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accItemTypes.Text = "Item Types";
+            this.accItemTypes.Click += new System.EventHandler(this.accItemTypes_Click);
             // 
-            // accTransactionTypes
+            // acc_Services
             // 
-            this.accTransactionTypes.Appearance.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.accTransactionTypes.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.accTransactionTypes.Appearance.Normal.ForeColor = System.Drawing.Color.Black;
-            this.accTransactionTypes.Appearance.Normal.Options.UseBackColor = true;
-            this.accTransactionTypes.Appearance.Normal.Options.UseFont = true;
-            this.accTransactionTypes.Appearance.Normal.Options.UseForeColor = true;
-            this.accTransactionTypes.Appearance.Pressed.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.accTransactionTypes.Appearance.Pressed.Options.UseFont = true;
-            this.accTransactionTypes.Name = "accTransactionTypes";
-            this.accTransactionTypes.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accTransactionTypes.Text = "Transaction Types";
+            this.acc_Services.Appearance.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.acc_Services.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.acc_Services.Appearance.Normal.ForeColor = System.Drawing.Color.Black;
+            this.acc_Services.Appearance.Normal.Options.UseBackColor = true;
+            this.acc_Services.Appearance.Normal.Options.UseFont = true;
+            this.acc_Services.Appearance.Normal.Options.UseForeColor = true;
+            this.acc_Services.Name = "acc_Services";
+            this.acc_Services.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.acc_Services.Text = "Services";
+            this.acc_Services.Click += new System.EventHandler(this.acc_Services_Click);
+            // 
+            // acc_ServiceTypes
+            // 
+            this.acc_ServiceTypes.Appearance.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.acc_ServiceTypes.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.acc_ServiceTypes.Appearance.Normal.ForeColor = System.Drawing.Color.Black;
+            this.acc_ServiceTypes.Appearance.Normal.Options.UseBackColor = true;
+            this.acc_ServiceTypes.Appearance.Normal.Options.UseFont = true;
+            this.acc_ServiceTypes.Appearance.Normal.Options.UseForeColor = true;
+            this.acc_ServiceTypes.Name = "acc_ServiceTypes";
+            this.acc_ServiceTypes.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.acc_ServiceTypes.Text = "Service Types";
+            this.acc_ServiceTypes.Click += new System.EventHandler(this.acc_ServiceTypes_Click);
             // 
             // accordionControlSeparator2
             // 
@@ -356,21 +377,23 @@
             // 
             this.fluentDesignFormControl1.FluentDesignForm = this;
             this.fluentDesignFormControl1.Location = new System.Drawing.Point(0, 0);
+            this.fluentDesignFormControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.fluentDesignFormControl1.Name = "fluentDesignFormControl1";
-            this.fluentDesignFormControl1.Size = new System.Drawing.Size(928, 31);
+            this.fluentDesignFormControl1.Size = new System.Drawing.Size(1392, 46);
             this.fluentDesignFormControl1.TabIndex = 2;
             this.fluentDesignFormControl1.TabStop = false;
             // 
             // GUI_HomePage_Admin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(928, 472);
+            this.ClientSize = new System.Drawing.Size(1392, 690);
             this.ControlContainer = this.fluentDesignFormContainer1;
             this.Controls.Add(this.fluentDesignFormContainer1);
             this.Controls.Add(this.accordionControl1);
             this.Controls.Add(this.fluentDesignFormControl1);
             this.FluentDesignFormControl = this.fluentDesignFormControl1;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "GUI_HomePage_Admin";
             this.NavigationControl = this.accordionControl1;
             this.Text = "HomePage";
@@ -399,7 +422,6 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accAmmenities;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accItemTypes;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accCoupons;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accTransactionTypes;
         private DevExpress.XtraBars.Navigation.AccordionControlSeparator accordionControlSeparator2;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement12;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accUserHostGuesReport;
@@ -407,5 +429,7 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement15;
         private DevExpress.XtraBars.Navigation.AccordionControlSeparator accordionControlSeparator3;
         private DevExpress.XtraEditors.PanelControl main;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement acc_Services;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement acc_ServiceTypes;
     }
 }

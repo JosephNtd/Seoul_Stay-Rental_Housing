@@ -1,11 +1,15 @@
-    -- ============================================================
+-- ============================================================
     -- DATABASE: Seoul_Stay
     -- ============================================================
-    USE master
+    USE master;
+    GO
+    IF EXISTS (SELECT name FROM sys.databases WHERE name = N'Seoul_Stay')
+        ALTER DATABASE Seoul_Stay
+        SET SINGLE_USER
+        WITH ROLLBACK IMMEDIATE;
     GO
 
-    IF EXISTS (SELECT name FROM sys.databases WHERE name = N'Seoul_Stay')
-        DROP DATABASE Seoul_Stay
+    DROP DATABASE Seoul_Stay;
     GO
 
     CREATE DATABASE Seoul_Stay
@@ -23,9 +27,11 @@
     -- LOOKUP TABLES
     -- ============================================================
     CREATE TABLE [dbo].[ItemTypes](
-        [ID]   [bigint]           IDENTITY(1,1) NOT NULL,
-        [GUID] [uniqueidentifier] NOT NULL DEFAULT NEWID(),
-        [Name] [nvarchar](50)     NOT NULL,
+        [ID]          [bigint]           IDENTITY(1,1) NOT NULL,
+        [GUID]        [uniqueidentifier] NOT NULL DEFAULT NEWID(),
+        [Name]        [nvarchar](50)     NOT NULL,
+        [Icon]        [nvarchar](100)    NULL,
+        [Description] [nvarchar](500)    NULL,
         CONSTRAINT [PK_ItemTypes]      PRIMARY KEY CLUSTERED ([ID] ASC),
         CONSTRAINT [UQ_ItemTypes_GUID] UNIQUE ([GUID])
     )
@@ -711,12 +717,12 @@
 
     -- ItemTypes
     SET IDENTITY_INSERT [dbo].[ItemTypes] ON
-    INSERT [dbo].[ItemTypes] ([ID],[GUID],[Name]) VALUES
-    (1, N'60b72778-02fd-4602-a7a7-84f9ae17a6c2', N'Apartment'),
-    (2, N'dffe3bca-92b1-4760-8371-1cf145fd772c', N'House'),
-    (3, N'e62aa132-bcc2-40df-872f-e553ba156acb', N'Secondary unit'),
-    (4, N'5dc77099-57fe-4000-b321-63ba98194d66', N'Unique space'),
-    (5, N'727443d0-d486-4d3b-a3bb-2af3abe39dd7', N'Boutique hotel')
+    INSERT [dbo].[ItemTypes] ([ID],[GUID],[Name],[Icon],[Description]) VALUES
+    (1, N'60b72778-02fd-4602-a7a7-84f9ae17a6c2', N'Apartment',     N'icon-apartment.png',     N'A self-contained housing unit that occupies part of a building.'),
+    (2, N'dffe3bca-92b1-4760-8371-1cf145fd772c', N'House',          N'icon-house.png',          N'A standalone residential building with private entrance and yard.'),
+    (3, N'e62aa132-bcc2-40df-872f-e553ba156acb', N'Secondary unit', N'icon-secondary-unit.png', N'A smaller, secondary dwelling unit on the same lot as a main house.'),
+    (4, N'5dc77099-57fe-4000-b321-63ba98194d66', N'Unique space',   N'icon-unique-space.png',   N'An unusual or creative space such as a cabin, treehouse, or converted building.'),
+    (5, N'727443d0-d486-4d3b-a3bb-2af3abe39dd7', N'Boutique hotel', N'icon-boutique-hotel.png', N'A small, stylish hotel with individually decorated rooms and personalized service.')
     SET IDENTITY_INSERT [dbo].[ItemTypes] OFF
     GO
 

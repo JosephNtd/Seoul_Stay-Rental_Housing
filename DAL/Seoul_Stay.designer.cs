@@ -8379,6 +8379,10 @@ namespace DAL
 		
 		private string _Name;
 		
+		private string _Icon;
+		
+		private string _Description;
+		
 		private EntitySet<Item> _Items;
 		
     #region Extensibility Method Definitions
@@ -8391,6 +8395,10 @@ namespace DAL
     partial void OnGUIDChanged();
     partial void OnNameChanging(string value);
     partial void OnNameChanged();
+    partial void OnIconChanging(string value);
+    partial void OnIconChanged();
+    partial void OnDescriptionChanging(string value);
+    partial void OnDescriptionChanged();
     #endregion
 		
 		public ItemType()
@@ -8455,6 +8463,46 @@ namespace DAL
 					this._Name = value;
 					this.SendPropertyChanged("Name");
 					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Icon", DbType="NVarChar(100)")]
+		public string Icon
+		{
+			get
+			{
+				return this._Icon;
+			}
+			set
+			{
+				if ((this._Icon != value))
+				{
+					this.OnIconChanging(value);
+					this.SendPropertyChanging();
+					this._Icon = value;
+					this.SendPropertyChanged("Icon");
+					this.OnIconChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(500)")]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this.OnDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._Description = value;
+					this.SendPropertyChanged("Description");
+					this.OnDescriptionChanged();
 				}
 			}
 		}

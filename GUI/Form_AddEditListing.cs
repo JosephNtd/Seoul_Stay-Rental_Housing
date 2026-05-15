@@ -142,6 +142,8 @@ namespace DangNhap_Form
             cbType.Properties.PopulateColumns();
             if (cbType.Properties.Columns["ID"] != null) cbType.Properties.Columns["ID"].Visible = false;
             if (cbType.Properties.Columns["GUID"] != null) cbType.Properties.Columns["GUID"].Visible = false;
+            if (cbType.Properties.Columns["IconPath"] != null) cbType.Properties.Columns["IconPath"].Visible = false;
+            if (cbType.Properties.Columns["Description"] != null) cbType.Properties.Columns["Description"].Visible = false;
             cbType.Properties.NullText = "-- Select type --";
             cbType.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
 

@@ -25,8 +25,7 @@ namespace DangNhap_Form
 
         private void UC_AreaManagement_Load(object sender, EventArgs e)
         {
-            repoBtnActions.ButtonClick += repoBtnActions_ButtonClick;
-
+            HideDetailPanel();
             LoadData();
             LoadCombobox();
 
@@ -38,13 +37,13 @@ namespace DangNhap_Form
         {
             _allData = _bus.GetData();
 
-            gcAmenities.DataSource = null;
-            gcAmenities.DataSource = _allData;
+            gcAreas.DataSource = null;
+            gcAreas.DataSource = _allData;
 
-            gvAmenities.RefreshData();
+            gvAreas.RefreshData();
 
-            if (gvAmenities.Columns["AreaID"] != null)
-                gvAmenities.Columns["AreaID"].Visible = false;
+            if (gvAreas.Columns["AreaID"] != null)
+                gvAreas.Columns["AreaID"].Visible = false;
             
         }
 
@@ -93,32 +92,65 @@ namespace DangNhap_Form
                     break;
             }
 
-            gcAmenities.DataSource = filteredData.ToList();
-            gvAmenities.RefreshData();
+            gcAreas.DataSource = filteredData.ToList();
+            gvAreas.RefreshData();
         }
 
-        private void repoBtnActions_ButtonClick(object sender, ButtonPressedEventArgs e)
+        private void gvAreas_DoubleClick(object sender, EventArgs e)
         {
-            var row = gvAmenities.GetFocusedRow() as DTO_AreaDisplay;
+            ShowDetailPanel();
+            // Lấy dòng đang được click đúp
+            var row = gvAreas.GetFocusedRow() as DTO_AreaDisplay;
             if (row == null) return;
 
-            switch (e.Button.Tag.ToString())
-            {
-                case "edit":
-                    XtraMessageBox.Show("Edit ne", "Edit", MessageBoxButtons.OKCancel);
-                    break;
-                case "delete":
-                    XtraMessageBox.Show("Delete ne", "Edit", MessageBoxButtons.OKCancel);
-                    break;
-            }
-        }
+            long areaId = row.AreaID;
 
+            // --- TAB 1: HIỂN THỊ TỔNG QUAN ---
+            // Sử dụng biến StayCount có sẵn từ DTO của bạn cho "Lượt khách" hoặc "Số lượng phòng"
+            lblStayCount.Text = $"Lượt chỗ nghỉ/khách: {row.StayCount}";
+            lblDetailTitle.Text = $"KHÁM PHÁ: {row.AreaName.ToUpper()}"; // Đổi tiêu đề Panel
+
+            // Gọi BUS lấy thêm thống kê sâu hơn
+            DTO_AreaOverview overview = _bus.GetAreaOverview(areaId);
+            if (overview != null)
+            {
+                lblTotalItems.Text = $"Tổng số Chỗ nghỉ: {overview.TotalItems}";
+                lblTotalAmenities.Text = $"Tổng số Tiện ích cung cấp: {overview.TotalAmenities}";
+            }
+
+            // --- TAB 2: DANH SÁCH CHỖ NGHỈ ---
+            gcAreaItems.DataSource = _bus.GetItemsByArea(areaId);
+            if (gvAreaItems.Columns["ID"] != null) gvAreaItems.Columns["ID"].Visible = false;
+            gvAreaItems.BestFitColumns();
+
+            // --- TAB 3: ĐIỂM THAM QUAN ---
+            gcAreaAttractions.DataSource = _bus.GetAttractionsByArea(areaId);
+            if (gvAreaAttractions.Columns["ID"] != null) gvAreaAttractions.Columns["ID"].Visible = false;
+            gvAreaAttractions.BestFitColumns();
+
+            // Auto chuyển focus sang tab Tổng quan mỗi khi click mới
+            xtraTabAreaInsights.SelectedTabPage = xtraTabAreaInsights.TabPages[0];
+        }
         private void btnReset_Click(object sender, EventArgs e)
         {
             txtSearch.EditValue = "";
             cboSort.EditValue = null;
 
-            gcAmenities.DataSource = _allData;
+            gcAreas.DataSource = _allData;
+        }
+        private void ShowDetailPanel()
+        {
+            splitContainerControl1.PanelVisibility =
+                SplitPanelVisibility.Both;
+
+            splitContainerControl1.SplitterPosition =
+                this.Width - 600;
+        }
+
+        private void HideDetailPanel()
+        {
+            splitContainerControl1.PanelVisibility =
+                SplitPanelVisibility.Panel1;
         }
     }
 }

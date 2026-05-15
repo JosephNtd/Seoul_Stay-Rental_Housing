@@ -57,6 +57,8 @@
     <Compile Include="ET_ItemAmenities.cs" />
     <Compile Include="ET_ItemAttractions.cs" />
     <Compile Include="ET_ItemTypes.cs" />
+    <Compile Include="ET_Services.cs" />
+    <Compile Include="ET_ServiceType.cs" />
     <Compile Include="ET_TransactionTypes.cs" />
     <Compile Include="ET_Users.cs" />
     <Compile Include="ET_ItemPictures.cs" />

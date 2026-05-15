@@ -8,8 +8,10 @@ using System.Drawing;
 
 namespace ET
 {
-    public class ET_ItemTypes
+    public class ET_ServiceType
     {
+        
+
         public long ID { get; set; }
         public Guid GUID { get; set; }
         public string Name { get; set; }
@@ -51,13 +53,16 @@ namespace ET
                 }
             }
         }
-        public ET_ItemTypes() { }
-
-        public ET_ItemTypes(long iD, Guid gUID, string name)
+        public ET_ServiceType()
+        {
+        }
+        public ET_ServiceType(long iD, Guid gUID, string name, string iconPath, string description)
         {
             ID = iD;
             GUID = gUID;
             Name = name;
+            IconPath = iconPath;
+            Description = description;
         }
     }
 }

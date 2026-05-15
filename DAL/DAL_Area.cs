@@ -66,5 +66,55 @@ namespace DAL
             }
             
         }
+
+        public DTO_AreaOverview GetAreaOverview(long areaId)
+        {
+            using (var db = new Seoul_StayDataContext())
+            {
+                int totalItems = db.Items.Count(i => i.AreaID == areaId);
+
+                var totalAmenities = (from i in db.Items
+                                      join ia in db.ItemAmenities on i.ID equals ia.ItemID
+                                      where i.AreaID == areaId
+                                      select ia.AmenityID).Distinct().Count();
+
+                // Trả về object DTO public thay vì Anonymous Type
+                return new DTO_AreaOverview
+                {
+                    TotalItems = totalItems,
+                    TotalAmenities = totalAmenities
+                };
+            }
+        }
+
+        public object GetItemsByArea(long areaId)
+        {
+            using (var db = new Seoul_StayDataContext())
+            {
+                var items = db.Items.Where(i => i.AreaID == areaId)
+                                    .Select(i => new {
+                                        i.ID,
+                                        TênChỗNghỉ = i.Title,
+                                        SứcChứa = i.Capacity,
+                                        Loại = i.ItemType.Name,
+                                        Địa_Chỉ = i.ApproximateAddress
+                                    }).ToList();
+                return items;
+            }
+        }
+
+        public object GetAttractionsByArea(long areaId)
+        {
+            using (var db = new Seoul_StayDataContext())
+            {
+                var attractions = db.Attractions.Where(a => a.AreaID == areaId)
+                                                .Select(a => new {
+                                                    a.ID,
+                                                    TênĐịaDanh = a.Name,
+                                                    Địa_Chỉ = a.Address
+                                                }).ToList();
+                return attractions;
+            }
+        }
     }
 }

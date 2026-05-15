@@ -3,68 +3,68 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class DAL_ItemType
+    public class DAL_ServiceType
     {
-        // 1. LẤY DỮ LIỆU
-        public List<ET_ItemTypes> GetData()
+        public List<ET_ServiceType> GetData()
         {
             using (var db = new Seoul_StayDataContext())
             {
-                var data = db.ItemTypes
+                var data = db.ServiceTypes
                     .Select(t => new
                     {
                         t.ID,
                         t.GUID,
                         t.Name,
                         t.Description,
-                        t.Icon
+                        t.IconName
                     })
                     .ToList();
 
-                return data.Select(t => new ET_ItemTypes
+                return data.Select(t => new ET_ServiceType
                 {
                     ID = t.ID,
                     GUID = t.GUID,
                     Name = t.Name,
                     Description = t.Description,
 
-                    IconPath = !string.IsNullOrEmpty(t.Icon)
+                    IconPath = !string.IsNullOrEmpty(t.IconName)
                         ? Path.Combine(
                             AppDomain.CurrentDomain.BaseDirectory,
                             "Images",
-                            t.Icon)
+                            t.IconName)
                         : null
                 }).ToList();
             }
         }
-
         // 2. KIỂM TRA TRÙNG TÊN LOẠI
         public bool IsNameExists(string name, long idToIgnore = 0)
         {
             using (var db = new Seoul_StayDataContext())
             {
-                return db.ItemTypes.Any(x => x.Name.ToLower() == name.ToLower() && x.ID != idToIgnore);
+                return db.ServiceTypes.Any(x => x.Name.ToLower() == name.ToLower() && x.ID != idToIgnore);
             }
         }
 
         // 3. THÊM MỚI
-        public bool Insert(ET_ItemTypes et, string iconFileName)
+        public bool Insert(ET_ServiceType et, string iconFileName)
         {
             try
             {
                 using (var db = new Seoul_StayDataContext())
                 {
-                    var itemType = new ItemType
+                    var ServiceType = new ServiceType
                     {
                         GUID = Guid.NewGuid(),
                         Name = et.Name,
                         Description = et.Description,
-                        Icon = iconFileName // Chỉ lưu tên file vào Database
+                        IconName = iconFileName // Chỉ lưu tên file vào Database
                     };
-                    db.ItemTypes.InsertOnSubmit(itemType);
+                    db.ServiceTypes.InsertOnSubmit(ServiceType);
                     db.SubmitChanges();
                     return true;
                 }
@@ -73,22 +73,22 @@ namespace DAL
         }
 
         // 4. SỬA
-        public bool Update(ET_ItemTypes et, string iconFileName)
+        public bool Update(ET_ServiceType et, string iconFileName)
         {
             try
             {
                 using (var db = new Seoul_StayDataContext())
                 {
-                    var itemType = db.ItemTypes.FirstOrDefault(x => x.ID == et.ID);
-                    if (itemType != null)
+                    var ServiceType = db.ServiceTypes.FirstOrDefault(x => x.ID == et.ID);
+                    if (ServiceType != null)
                     {
-                        itemType.Name = et.Name;
-                        itemType.Description = et.Description;
+                        ServiceType.Name = et.Name;
+                        ServiceType.Description = et.Description;
 
                         // Nếu user có chọn ảnh mới thì mới update lại tên file Icon
                         if (!string.IsNullOrEmpty(iconFileName))
                         {
-                            itemType.Icon = iconFileName;
+                            ServiceType.IconName = iconFileName;
                         }
 
                         db.SubmitChanges();
@@ -108,15 +108,15 @@ namespace DAL
                 using (var db = new Seoul_StayDataContext())
                 {
                     // KIỂM TRA KHÓA NGOẠI: Có Item nào đang dùng loại này không?
-                    if (db.Items.Any(i => i.ItemTypeID == id))
+                    if (db.Items.Any(i => i.ID == id))
                     {
                         return false; // Trả về false để báo lỗi bên GUI
                     }
 
-                    var itemType = db.ItemTypes.FirstOrDefault(x => x.ID == id);
-                    if (itemType != null)
+                    var ServiceType = db.ServiceTypes.FirstOrDefault(x => x.ID == id);
+                    if (ServiceType != null)
                     {
-                        db.ItemTypes.DeleteOnSubmit(itemType);
+                        db.ServiceTypes.DeleteOnSubmit(ServiceType);
                         db.SubmitChanges();
                         return true;
                     }
