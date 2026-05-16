@@ -1,4 +1,5 @@
 ﻿using BUS;
+using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -56,7 +57,7 @@ namespace DangNhap_Form
                                 "Notice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            var user = _bus.Login(username, password, employeeOnly: false);
+            var user = _bus.Login(username, password);
 
             if (user == null)
             {
@@ -64,6 +65,12 @@ namespace DangNhap_Form
                                 "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtPassword.Clear();
                 txtPassword.Focus();
+                return;
+            }
+            // Kiểm tra tài khoản bị khóa
+            if (!user.IsActive)
+            {
+                XtraMessageBox.Show("Tài khoản đã bị khóa, vui lòng gửi yêu cầu đến quản trị viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             else

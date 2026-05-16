@@ -1,33 +1,33 @@
-﻿namespace DangNhap_Form
-{
-    partial class UC_UserManagement
+﻿    namespace DangNhap_Form
     {
-        /// <summary> 
-        /// Required designer variable.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
-
-        /// <summary> 
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
+        partial class UC_UserManagement
         {
-            if (disposing && (components != null))
+            /// <summary> 
+            /// Required designer variable.
+            /// </summary>
+            private System.ComponentModel.IContainer components = null;
+
+            /// <summary> 
+            /// Clean up any resources being used.
+            /// </summary>
+            /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+            protected override void Dispose(bool disposing)
             {
-                components.Dispose();
+                if (disposing && (components != null))
+                {
+                    components.Dispose();
+                }
+                base.Dispose(disposing);
             }
-            base.Dispose(disposing);
-        }
 
-        #region Component Designer generated code
+            #region Component Designer generated code
 
-        /// <summary> 
-        /// Required method for Designer support - do not modify 
-        /// the contents of this method with the code editor.
-        /// </summary>
-        private void InitializeComponent()
-        {
+            /// <summary> 
+            /// Required method for Designer support - do not modify 
+            /// the contents of this method with the code editor.
+            /// </summary>
+            private void InitializeComponent()
+            {
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -54,6 +54,7 @@
             this.cboRole = new DevExpress.XtraEditors.ComboBoxEdit();
             this.txtSearch = new DevExpress.XtraEditors.TextEdit();
             this.pnlCardStats = new DevExpress.XtraEditors.PanelControl();
+            this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.gcUsers = new DevExpress.XtraGrid.GridControl();
             this.gvUsers = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.UserID = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -65,6 +66,25 @@
             this.LastActive = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Actions = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repoBtnActions = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.lblDetailTitle = new DevExpress.XtraEditors.LabelControl();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.cboAddEditRole = new DevExpress.XtraEditors.LookUpEdit();
+            this.txtEmail = new DevExpress.XtraEditors.TextEdit();
+            this.txtName = new DevExpress.XtraEditors.TextEdit();
+            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.btnClose = new DevExpress.XtraEditors.SimpleButton();
+            this.btnSave = new DevExpress.XtraEditors.SimpleButton();
+            this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
+            this.txtUsername = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.txtPassword = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.chkShow = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlHeader)).BeginInit();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnlFilter)).BeginInit();
@@ -73,10 +93,30 @@
             ((System.ComponentModel.ISupportInitialize)(this.cboRole.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSearch.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlCardStats)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel1)).BeginInit();
+            this.splitContainerControl1.Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel2)).BeginInit();
+            this.splitContainerControl1.Panel2.SuspendLayout();
+            this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repoBtnActions)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
+            this.panelControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
+            this.panelControl4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cboAddEditRole.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEmail.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
+            this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtUsername.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkShow.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlHeader
@@ -91,7 +131,7 @@
             this.pnlHeader.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.pnlHeader.Name = "pnlHeader";
             this.pnlHeader.Padding = new System.Windows.Forms.Padding(24);
-            this.pnlHeader.Size = new System.Drawing.Size(1231, 120);
+            this.pnlHeader.Size = new System.Drawing.Size(1274, 120);
             this.pnlHeader.TabIndex = 0;
             // 
             // lblSubtitle
@@ -102,7 +142,7 @@
             this.lblSubtitle.Appearance.Options.UseForeColor = true;
             this.lblSubtitle.Location = new System.Drawing.Point(47, 69);
             this.lblSubtitle.Name = "lblSubtitle";
-            this.lblSubtitle.Size = new System.Drawing.Size(451, 28);
+            this.lblSubtitle.Size = new System.Drawing.Size(291, 18);
             this.lblSubtitle.TabIndex = 2;
             this.lblSubtitle.Text = "Overview of all registered accounts and roles";
             // 
@@ -114,7 +154,7 @@
             this.lblTitle.Appearance.Options.UseForeColor = true;
             this.lblTitle.Location = new System.Drawing.Point(47, 19);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(510, 68);
+            this.lblTitle.Size = new System.Drawing.Size(337, 45);
             this.lblTitle.TabIndex = 2;
             this.lblTitle.Text = "User Management";
             // 
@@ -133,6 +173,7 @@
             this.btnInvite.Size = new System.Drawing.Size(103, 33);
             this.btnInvite.TabIndex = 1;
             this.btnInvite.Text = "Invite User";
+            this.btnInvite.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnExport
             // 
@@ -162,7 +203,7 @@
             this.pnlFilter.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlFilter.Location = new System.Drawing.Point(0, 120);
             this.pnlFilter.Name = "pnlFilter";
-            this.pnlFilter.Size = new System.Drawing.Size(1231, 80);
+            this.pnlFilter.Size = new System.Drawing.Size(1274, 80);
             this.pnlFilter.TabIndex = 1;
             // 
             // btnReset
@@ -223,22 +264,43 @@
             // 
             this.pnlCardStats.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.pnlCardStats.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlCardStats.Location = new System.Drawing.Point(0, 517);
+            this.pnlCardStats.Location = new System.Drawing.Point(0, 570);
             this.pnlCardStats.Name = "pnlCardStats";
-            this.pnlCardStats.Size = new System.Drawing.Size(1231, 111);
+            this.pnlCardStats.Size = new System.Drawing.Size(1274, 111);
             this.pnlCardStats.TabIndex = 2;
+            // 
+            // splitContainerControl1
+            // 
+            this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerControl1.Location = new System.Drawing.Point(0, 200);
+            this.splitContainerControl1.Name = "splitContainerControl1";
+            // 
+            // splitContainerControl1.Panel1
+            // 
+            this.splitContainerControl1.Panel1.Controls.Add(this.gcUsers);
+            this.splitContainerControl1.Panel1.Text = "Panel1";
+            // 
+            // splitContainerControl1.Panel2
+            // 
+            this.splitContainerControl1.Panel2.Controls.Add(this.panelControl3);
+            this.splitContainerControl1.Panel2.Controls.Add(this.panelControl1);
+            this.splitContainerControl1.Panel2.Controls.Add(this.panelControl2);
+            this.splitContainerControl1.Panel2.Text = "Panel2";
+            this.splitContainerControl1.Size = new System.Drawing.Size(1274, 370);
+            this.splitContainerControl1.SplitterPosition = 737;
+            this.splitContainerControl1.TabIndex = 4;
             // 
             // gcUsers
             // 
             this.gcUsers.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcUsers.Location = new System.Drawing.Point(0, 200);
+            this.gcUsers.Location = new System.Drawing.Point(0, 0);
             this.gcUsers.MainView = this.gvUsers;
             this.gcUsers.Name = "gcUsers";
             this.gcUsers.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemComboBox1,
             this.repoBtnActions});
-            this.gcUsers.Size = new System.Drawing.Size(1231, 317);
-            this.gcUsers.TabIndex = 3;
+            this.gcUsers.Size = new System.Drawing.Size(737, 370);
+            this.gcUsers.TabIndex = 4;
             this.gcUsers.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvUsers});
             // 
@@ -380,19 +442,269 @@
             this.repoBtnActions.Name = "repoBtnActions";
             this.repoBtnActions.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
+            // panelControl3
+            // 
+            this.panelControl3.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(242)))), ((int)(((byte)(235)))));
+            this.panelControl3.Appearance.Options.UseBackColor = true;
+            this.panelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl3.Controls.Add(this.lblDetailTitle);
+            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl3.Location = new System.Drawing.Point(0, 0);
+            this.panelControl3.Name = "panelControl3";
+            this.panelControl3.Size = new System.Drawing.Size(527, 44);
+            this.panelControl3.TabIndex = 22;
+            // 
+            // lblDetailTitle
+            // 
+            this.lblDetailTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDetailTitle.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDetailTitle.Appearance.Options.UseFont = true;
+            this.lblDetailTitle.Location = new System.Drawing.Point(203, 15);
+            this.lblDetailTitle.Name = "lblDetailTitle";
+            this.lblDetailTitle.Size = new System.Drawing.Size(43, 23);
+            this.lblDetailTitle.TabIndex = 7;
+            this.lblDetailTitle.Text = "Title";
+            // 
+            // panelControl1
+            // 
+            this.panelControl1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(242)))), ((int)(((byte)(235)))));
+            this.panelControl1.Appearance.Options.UseBackColor = true;
+            this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl1.Controls.Add(this.panelControl4);
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl1.Location = new System.Drawing.Point(0, 0);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(527, 326);
+            this.panelControl1.TabIndex = 21;
+            // 
+            // panelControl4
+            // 
+            this.panelControl4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelControl4.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl4.Controls.Add(this.chkShow);
+            this.panelControl4.Controls.Add(this.labelControl3);
+            this.panelControl4.Controls.Add(this.labelControl5);
+            this.panelControl4.Controls.Add(this.labelControl4);
+            this.panelControl4.Controls.Add(this.labelControl2);
+            this.panelControl4.Controls.Add(this.labelControl1);
+            this.panelControl4.Controls.Add(this.cboAddEditRole);
+            this.panelControl4.Controls.Add(this.txtPassword);
+            this.panelControl4.Controls.Add(this.txtUsername);
+            this.panelControl4.Controls.Add(this.txtEmail);
+            this.panelControl4.Controls.Add(this.txtName);
+            this.panelControl4.Location = new System.Drawing.Point(31, 59);
+            this.panelControl4.Name = "panelControl4";
+            this.panelControl4.Size = new System.Drawing.Size(456, 261);
+            this.panelControl4.TabIndex = 15;
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl3.Appearance.Options.UseFont = true;
+            this.labelControl3.Location = new System.Drawing.Point(15, 114);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(37, 19);
+            this.labelControl3.TabIndex = 18;
+            this.labelControl3.Text = "Role:";
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl2.Appearance.Options.UseFont = true;
+            this.labelControl2.Location = new System.Drawing.Point(15, 67);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(45, 19);
+            this.labelControl2.TabIndex = 19;
+            this.labelControl2.Text = "Email:";
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Appearance.Options.UseFont = true;
+            this.labelControl1.Location = new System.Drawing.Point(13, 17);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(47, 19);
+            this.labelControl1.TabIndex = 17;
+            this.labelControl1.Text = "Name:";
+            // 
+            // cboAddEditRole
+            // 
+            this.cboAddEditRole.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboAddEditRole.Location = new System.Drawing.Point(98, 107);
+            this.cboAddEditRole.Name = "cboAddEditRole";
+            this.cboAddEditRole.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboAddEditRole.Properties.Appearance.Options.UseFont = true;
+            this.cboAddEditRole.Properties.AutoHeight = false;
+            this.cboAddEditRole.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboAddEditRole.Properties.NullText = "";
+            this.cboAddEditRole.Size = new System.Drawing.Size(336, 26);
+            this.cboAddEditRole.TabIndex = 16;
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtEmail.Location = new System.Drawing.Point(98, 64);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.Properties.Appearance.Options.UseFont = true;
+            this.txtEmail.Properties.AutoHeight = false;
+            this.txtEmail.Size = new System.Drawing.Size(336, 26);
+            this.txtEmail.TabIndex = 15;
+            // 
+            // txtName
+            // 
+            this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtName.Location = new System.Drawing.Point(98, 14);
+            this.txtName.Name = "txtName";
+            this.txtName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtName.Properties.Appearance.Options.UseFont = true;
+            this.txtName.Properties.AutoHeight = false;
+            this.txtName.Size = new System.Drawing.Size(336, 26);
+            this.txtName.TabIndex = 15;
+            // 
+            // panelControl2
+            // 
+            this.panelControl2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(242)))), ((int)(((byte)(235)))));
+            this.panelControl2.Appearance.Options.UseBackColor = true;
+            this.panelControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl2.Controls.Add(this.btnClose);
+            this.panelControl2.Controls.Add(this.btnSave);
+            this.panelControl2.Controls.Add(this.btnCancel);
+            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelControl2.Location = new System.Drawing.Point(0, 326);
+            this.panelControl2.Name = "panelControl2";
+            this.panelControl2.Size = new System.Drawing.Size(527, 44);
+            this.panelControl2.TabIndex = 20;
+            // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Appearance.Options.UseFont = true;
+            this.btnClose.Location = new System.Drawing.Point(385, 13);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(102, 26);
+            this.btnClose.TabIndex = 6;
+            this.btnClose.Text = "Close";
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnSave.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Appearance.Options.UseFont = true;
+            this.btnSave.Location = new System.Drawing.Point(55, 13);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(102, 26);
+            this.btnSave.TabIndex = 5;
+            this.btnSave.Text = "Save";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Appearance.Options.UseFont = true;
+            this.btnCancel.Location = new System.Drawing.Point(179, 13);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(181, 26);
+            this.btnCancel.TabIndex = 6;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtUsername.Location = new System.Drawing.Point(98, 148);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsername.Properties.Appearance.Options.UseFont = true;
+            this.txtUsername.Properties.AutoHeight = false;
+            this.txtUsername.Size = new System.Drawing.Size(336, 26);
+            this.txtUsername.TabIndex = 15;
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl4.Appearance.Options.UseFont = true;
+            this.labelControl4.Location = new System.Drawing.Point(15, 151);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(77, 19);
+            this.labelControl4.TabIndex = 19;
+            this.labelControl4.Text = "Username:";
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPassword.Location = new System.Drawing.Point(98, 190);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Properties.Appearance.Options.UseFont = true;
+            this.txtPassword.Properties.AutoHeight = false;
+            this.txtPassword.Properties.UseSystemPasswordChar = true;
+            this.txtPassword.Size = new System.Drawing.Size(336, 26);
+            this.txtPassword.TabIndex = 15;
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl5.Appearance.Options.UseFont = true;
+            this.labelControl5.Location = new System.Drawing.Point(15, 193);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(73, 19);
+            this.labelControl5.TabIndex = 19;
+            this.labelControl5.Text = "Password:";
+            // 
+            // chkShow
+            // 
+            this.chkShow.Location = new System.Drawing.Point(98, 222);
+            this.chkShow.Name = "chkShow";
+            this.chkShow.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkShow.Properties.Appearance.Options.UseFont = true;
+            this.chkShow.Properties.Caption = "Show password";
+            this.chkShow.Size = new System.Drawing.Size(136, 23);
+            this.chkShow.TabIndex = 20;
+            this.chkShow.CheckedChanged += new System.EventHandler(this.chkShow_CheckedChanged);
+            // 
             // UC_UserManagement
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(244)))));
-            this.Controls.Add(this.gcUsers);
+            this.Controls.Add(this.splitContainerControl1);
             this.Controls.Add(this.pnlCardStats);
             this.Controls.Add(this.pnlFilter);
             this.Controls.Add(this.pnlHeader);
             this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "UC_UserManagement";
-            this.Size = new System.Drawing.Size(1231, 628);
+            this.Size = new System.Drawing.Size(1274, 681);
             this.Load += new System.EventHandler(this.UC_UserManagement_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pnlHeader)).EndInit();
             this.pnlHeader.ResumeLayout(false);
@@ -403,37 +715,79 @@
             ((System.ComponentModel.ISupportInitialize)(this.cboRole.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSearch.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlCardStats)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel1)).EndInit();
+            this.splitContainerControl1.Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel2)).EndInit();
+            this.splitContainerControl1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
+            this.splitContainerControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcUsers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvUsers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repoBtnActions)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
+            this.panelControl3.ResumeLayout(false);
+            this.panelControl3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
+            this.panelControl4.ResumeLayout(false);
+            this.panelControl4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cboAddEditRole.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEmail.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
+            this.panelControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtUsername.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkShow.Properties)).EndInit();
             this.ResumeLayout(false);
 
-        }
+            }
 
-        #endregion
+            #endregion
 
-        private DevExpress.XtraEditors.PanelControl pnlHeader;
-        private DevExpress.XtraEditors.SimpleButton btnInvite;
-        private DevExpress.XtraEditors.SimpleButton btnExport;
-        private DevExpress.XtraEditors.PanelControl pnlFilter;
-        private DevExpress.XtraEditors.PanelControl pnlCardStats;
-        private DevExpress.XtraGrid.GridControl gcUsers;
-        private DevExpress.XtraGrid.Views.Grid.GridView gvUsers;
-        private DevExpress.XtraEditors.LabelControl lblTitle;
-        private DevExpress.XtraEditors.LabelControl lblSubtitle;
-        private DevExpress.XtraEditors.TextEdit txtSearch;
-        private DevExpress.XtraEditors.ComboBoxEdit cboRole;
-        private DevExpress.XtraGrid.Columns.GridColumn UserID;
-        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox1;
-        private DevExpress.XtraGrid.Columns.GridColumn FullName;
-        private DevExpress.XtraGrid.Columns.GridColumn Email;
-        private DevExpress.XtraGrid.Columns.GridColumn Role;
-        private DevExpress.XtraGrid.Columns.GridColumn Status;
-        private DevExpress.XtraGrid.Columns.GridColumn LastActive;
-        private DevExpress.XtraGrid.Columns.GridColumn Actions;
-        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repoBtnActions;
-        private DevExpress.XtraEditors.ComboBoxEdit cboStatus;
-        private DevExpress.XtraEditors.SimpleButton btnReset;
+            private DevExpress.XtraEditors.PanelControl pnlHeader;
+            private DevExpress.XtraEditors.SimpleButton btnInvite;
+            private DevExpress.XtraEditors.SimpleButton btnExport;
+            private DevExpress.XtraEditors.PanelControl pnlFilter;
+            private DevExpress.XtraEditors.PanelControl pnlCardStats;
+            private DevExpress.XtraEditors.LabelControl lblTitle;
+            private DevExpress.XtraEditors.LabelControl lblSubtitle;
+            private DevExpress.XtraEditors.TextEdit txtSearch;
+            private DevExpress.XtraEditors.ComboBoxEdit cboRole;
+            private DevExpress.XtraEditors.ComboBoxEdit cboStatus;
+            private DevExpress.XtraEditors.SimpleButton btnReset;
+            private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
+            private DevExpress.XtraGrid.GridControl gcUsers;
+            private DevExpress.XtraGrid.Views.Grid.GridView gvUsers;
+            private DevExpress.XtraGrid.Columns.GridColumn UserID;
+            private DevExpress.XtraGrid.Columns.GridColumn FullName;
+            private DevExpress.XtraGrid.Columns.GridColumn Email;
+            private DevExpress.XtraGrid.Columns.GridColumn Role;
+            private DevExpress.XtraGrid.Columns.GridColumn Status;
+            private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox1;
+            private DevExpress.XtraGrid.Columns.GridColumn LastActive;
+            private DevExpress.XtraGrid.Columns.GridColumn Actions;
+            private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repoBtnActions;
+            private DevExpress.XtraEditors.PanelControl panelControl3;
+            private DevExpress.XtraEditors.LabelControl lblDetailTitle;
+            private DevExpress.XtraEditors.PanelControl panelControl1;
+            private DevExpress.XtraEditors.PanelControl panelControl2;
+            private DevExpress.XtraEditors.SimpleButton btnClose;
+            private DevExpress.XtraEditors.SimpleButton btnSave;
+            private DevExpress.XtraEditors.SimpleButton btnCancel;
+            private DevExpress.XtraEditors.PanelControl panelControl4;
+            private DevExpress.XtraEditors.LabelControl labelControl3;
+            private DevExpress.XtraEditors.LabelControl labelControl2;
+            private DevExpress.XtraEditors.LabelControl labelControl1;
+            private DevExpress.XtraEditors.LookUpEdit cboAddEditRole;
+            private DevExpress.XtraEditors.TextEdit txtName;
+            private DevExpress.XtraEditors.TextEdit txtEmail;
+        private DevExpress.XtraEditors.LabelControl labelControl4;
+        private DevExpress.XtraEditors.TextEdit txtUsername;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
+        private DevExpress.XtraEditors.TextEdit txtPassword;
+        private DevExpress.XtraEditors.CheckEdit chkShow;
     }
-}
+    }

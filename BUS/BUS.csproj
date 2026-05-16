@@ -55,6 +55,7 @@
     <Compile Include="BUS_Services.cs" />
     <Compile Include="BUS_ServiceType.cs" />
     <Compile Include="BUS_Transaction.cs" />
+    <Compile Include="BUS_TransactionType.cs" />
     <Compile Include="BUS_User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

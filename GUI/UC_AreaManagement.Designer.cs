@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
             this.repoBtnActions = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.StayCount = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -59,6 +59,9 @@
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.xtraTabAreaInsights = new DevExpress.XtraTab.XtraTabControl();
             this.xtpOverview = new DevExpress.XtraTab.XtraTabPage();
+            this.lblTotalItems = new DevExpress.XtraEditors.LabelControl();
+            this.lblTotalAmenities = new DevExpress.XtraEditors.LabelControl();
+            this.lblStayCount = new DevExpress.XtraEditors.LabelControl();
             this.xtpItems = new DevExpress.XtraTab.XtraTabPage();
             this.gcAreaItems = new DevExpress.XtraGrid.GridControl();
             this.gvAreaItems = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -67,9 +70,6 @@
             this.gvAreaAttractions = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.lblDetailTitle = new DevExpress.XtraEditors.LabelControl();
-            this.lblTotalItems = new DevExpress.XtraEditors.LabelControl();
-            this.lblTotalAmenities = new DevExpress.XtraEditors.LabelControl();
-            this.lblStayCount = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.repoBtnActions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboSort.Properties)).BeginInit();
@@ -105,19 +105,19 @@
             // repoBtnActions
             // 
             this.repoBtnActions.AutoHeight = false;
-            editorButtonImageOptions1.Image = global::DangNhap_Form.Properties.Resources._006_pencil;
-            serializableAppearanceObject1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            serializableAppearanceObject1.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Information;
-            serializableAppearanceObject1.Options.UseFont = true;
-            serializableAppearanceObject1.Options.UseForeColor = true;
-            editorButtonImageOptions2.Image = global::DangNhap_Form.Properties.Resources.bin;
-            serializableAppearanceObject5.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            serializableAppearanceObject5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
-            serializableAppearanceObject5.Options.UseFont = true;
-            serializableAppearanceObject5.Options.UseForeColor = true;
+            editorButtonImageOptions3.Image = global::DangNhap_Form.Properties.Resources._006_pencil;
+            serializableAppearanceObject9.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            serializableAppearanceObject9.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Information;
+            serializableAppearanceObject9.Options.UseFont = true;
+            serializableAppearanceObject9.Options.UseForeColor = true;
+            editorButtonImageOptions4.Image = global::DangNhap_Form.Properties.Resources.bin;
+            serializableAppearanceObject13.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            serializableAppearanceObject13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            serializableAppearanceObject13.Options.UseFont = true;
+            serializableAppearanceObject13.Options.UseForeColor = true;
             this.repoBtnActions.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Edit", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", "edit", null, DevExpress.Utils.ToolTipAnchor.Default),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Delete", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", "delete", null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Edit", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", "edit", null, DevExpress.Utils.ToolTipAnchor.Default),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Delete", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", "delete", null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repoBtnActions.Name = "repoBtnActions";
             this.repoBtnActions.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
@@ -429,91 +429,6 @@
             this.xtpOverview.Size = new System.Drawing.Size(413, 300);
             this.xtpOverview.Text = "Overview";
             // 
-            // xtpItems
-            // 
-            this.xtpItems.Appearance.Header.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xtpItems.Appearance.Header.Options.UseFont = true;
-            this.xtpItems.Controls.Add(this.gcAreaItems);
-            this.xtpItems.Name = "xtpItems";
-            this.xtpItems.Size = new System.Drawing.Size(413, 300);
-            this.xtpItems.Text = "Items";
-            // 
-            // gcAreaItems
-            // 
-            this.gcAreaItems.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcAreaItems.Location = new System.Drawing.Point(0, 0);
-            this.gcAreaItems.MainView = this.gvAreaItems;
-            this.gcAreaItems.Name = "gcAreaItems";
-            this.gcAreaItems.Size = new System.Drawing.Size(413, 300);
-            this.gcAreaItems.TabIndex = 0;
-            this.gcAreaItems.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gvAreaItems});
-            // 
-            // gvAreaItems
-            // 
-            this.gvAreaItems.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gvAreaItems.Appearance.HeaderPanel.Options.UseFont = true;
-            this.gvAreaItems.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gvAreaItems.Appearance.Row.Options.UseFont = true;
-            this.gvAreaItems.GridControl = this.gcAreaItems;
-            this.gvAreaItems.Name = "gvAreaItems";
-            this.gvAreaItems.OptionsView.EnableAppearanceEvenRow = true;
-            // 
-            // xtpAttractions
-            // 
-            this.xtpAttractions.Appearance.Header.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xtpAttractions.Appearance.Header.Options.UseFont = true;
-            this.xtpAttractions.Appearance.PageClient.BackColor = System.Drawing.Color.Gray;
-            this.xtpAttractions.Appearance.PageClient.Options.UseBackColor = true;
-            this.xtpAttractions.Controls.Add(this.gcAreaAttractions);
-            this.xtpAttractions.Name = "xtpAttractions";
-            this.xtpAttractions.Size = new System.Drawing.Size(413, 300);
-            this.xtpAttractions.Text = "Attractions";
-            // 
-            // gcAreaAttractions
-            // 
-            this.gcAreaAttractions.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcAreaAttractions.Location = new System.Drawing.Point(0, 0);
-            this.gcAreaAttractions.MainView = this.gvAreaAttractions;
-            this.gcAreaAttractions.Name = "gcAreaAttractions";
-            this.gcAreaAttractions.Size = new System.Drawing.Size(413, 300);
-            this.gcAreaAttractions.TabIndex = 0;
-            this.gcAreaAttractions.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gvAreaAttractions});
-            // 
-            // gvAreaAttractions
-            // 
-            this.gvAreaAttractions.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gvAreaAttractions.Appearance.HeaderPanel.Options.UseFont = true;
-            this.gvAreaAttractions.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gvAreaAttractions.Appearance.Row.Options.UseFont = true;
-            this.gvAreaAttractions.GridControl = this.gcAreaAttractions;
-            this.gvAreaAttractions.Name = "gvAreaAttractions";
-            this.gvAreaAttractions.OptionsView.EnableAppearanceEvenRow = true;
-            // 
-            // panelControl2
-            // 
-            this.panelControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl2.Controls.Add(this.lblDetailTitle);
-            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl2.Location = new System.Drawing.Point(0, 0);
-            this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(415, 37);
-            this.panelControl2.TabIndex = 1;
-            // 
-            // lblDetailTitle
-            // 
-            this.lblDetailTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblDetailTitle.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDetailTitle.Appearance.Options.UseFont = true;
-            this.lblDetailTitle.Location = new System.Drawing.Point(184, 6);
-            this.lblDetailTitle.Name = "lblDetailTitle";
-            this.lblDetailTitle.Size = new System.Drawing.Size(129, 23);
-            this.lblDetailTitle.TabIndex = 0;
-            this.lblDetailTitle.Text = "labelControl1";
-            // 
             // lblTotalItems
             // 
             this.lblTotalItems.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -550,6 +465,97 @@
             this.lblStayCount.Size = new System.Drawing.Size(94, 19);
             this.lblStayCount.TabIndex = 2;
             this.lblStayCount.Text = "labelControl1";
+            // 
+            // xtpItems
+            // 
+            this.xtpItems.Appearance.Header.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xtpItems.Appearance.Header.Options.UseFont = true;
+            this.xtpItems.Controls.Add(this.gcAreaItems);
+            this.xtpItems.Name = "xtpItems";
+            this.xtpItems.Size = new System.Drawing.Size(413, 300);
+            this.xtpItems.Text = "Items";
+            // 
+            // gcAreaItems
+            // 
+            this.gcAreaItems.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcAreaItems.Location = new System.Drawing.Point(0, 0);
+            this.gcAreaItems.MainView = this.gvAreaItems;
+            this.gcAreaItems.Name = "gcAreaItems";
+            this.gcAreaItems.Size = new System.Drawing.Size(413, 300);
+            this.gcAreaItems.TabIndex = 0;
+            this.gcAreaItems.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvAreaItems});
+            // 
+            // gvAreaItems
+            // 
+            this.gvAreaItems.Appearance.EvenRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(242)))), ((int)(((byte)(235)))));
+            this.gvAreaItems.Appearance.EvenRow.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gvAreaItems.Appearance.EvenRow.Options.UseBackColor = true;
+            this.gvAreaItems.Appearance.EvenRow.Options.UseFont = true;
+            this.gvAreaItems.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gvAreaItems.Appearance.HeaderPanel.Options.UseFont = true;
+            this.gvAreaItems.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gvAreaItems.Appearance.Row.Options.UseFont = true;
+            this.gvAreaItems.GridControl = this.gcAreaItems;
+            this.gvAreaItems.Name = "gvAreaItems";
+            this.gvAreaItems.OptionsView.EnableAppearanceEvenRow = true;
+            // 
+            // xtpAttractions
+            // 
+            this.xtpAttractions.Appearance.Header.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xtpAttractions.Appearance.Header.Options.UseFont = true;
+            this.xtpAttractions.Appearance.PageClient.BackColor = System.Drawing.Color.Gray;
+            this.xtpAttractions.Appearance.PageClient.Options.UseBackColor = true;
+            this.xtpAttractions.Controls.Add(this.gcAreaAttractions);
+            this.xtpAttractions.Name = "xtpAttractions";
+            this.xtpAttractions.Size = new System.Drawing.Size(413, 300);
+            this.xtpAttractions.Text = "Attractions";
+            // 
+            // gcAreaAttractions
+            // 
+            this.gcAreaAttractions.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcAreaAttractions.Location = new System.Drawing.Point(0, 0);
+            this.gcAreaAttractions.MainView = this.gvAreaAttractions;
+            this.gcAreaAttractions.Name = "gcAreaAttractions";
+            this.gcAreaAttractions.Size = new System.Drawing.Size(413, 300);
+            this.gcAreaAttractions.TabIndex = 0;
+            this.gcAreaAttractions.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvAreaAttractions});
+            // 
+            // gvAreaAttractions
+            // 
+            this.gvAreaAttractions.Appearance.EvenRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(242)))), ((int)(((byte)(235)))));
+            this.gvAreaAttractions.Appearance.EvenRow.Options.UseBackColor = true;
+            this.gvAreaAttractions.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gvAreaAttractions.Appearance.HeaderPanel.Options.UseFont = true;
+            this.gvAreaAttractions.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gvAreaAttractions.Appearance.Row.Options.UseFont = true;
+            this.gvAreaAttractions.GridControl = this.gcAreaAttractions;
+            this.gvAreaAttractions.Name = "gvAreaAttractions";
+            this.gvAreaAttractions.OptionsView.EnableAppearanceEvenRow = true;
+            // 
+            // panelControl2
+            // 
+            this.panelControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl2.Controls.Add(this.lblDetailTitle);
+            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl2.Location = new System.Drawing.Point(0, 0);
+            this.panelControl2.Name = "panelControl2";
+            this.panelControl2.Size = new System.Drawing.Size(415, 37);
+            this.panelControl2.TabIndex = 1;
+            // 
+            // lblDetailTitle
+            // 
+            this.lblDetailTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDetailTitle.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDetailTitle.Appearance.Options.UseFont = true;
+            this.lblDetailTitle.Location = new System.Drawing.Point(184, 6);
+            this.lblDetailTitle.Name = "lblDetailTitle";
+            this.lblDetailTitle.Size = new System.Drawing.Size(129, 23);
+            this.lblDetailTitle.TabIndex = 0;
+            this.lblDetailTitle.Text = "labelControl1";
             // 
             // UC_AreaManagement
             // 

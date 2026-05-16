@@ -86,7 +86,7 @@ namespace DangNhap_Form
             var imgElement = new TileViewItemElement();
             imgElement.Column = tvManager.Columns["ImageDisplay"];
             imgElement.ImageAlignment = TileItemContentAlignment.TopCenter;
-            imgElement.ImageSize = new Size(280, 200);
+            imgElement.ImageSize = new Size(120, 90);
             imgElement.ImageScaleMode = TileItemImageScaleMode.ZoomInside;
             tvManager.TileTemplate.Add(imgElement);
 
@@ -118,7 +118,7 @@ namespace DangNhap_Form
 
 
             // Cấu hình chung
-            tvManager.OptionsTiles.ItemSize = new Size(320, 500);
+            tvManager.OptionsTiles.ItemSize = new Size(200, 300);
             tvManager.OptionsTiles.Padding = new Padding(20);
             tvManager.OptionsTiles.Orientation = Orientation.Vertical;
             tvManager.OptionsTiles.LayoutMode = TileViewLayoutMode.Default;

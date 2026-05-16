@@ -51,6 +51,7 @@
     <Compile Include="DTO_ItemsView.cs" />
     <Compile Include="DTO_RecentStay.cs" />
     <Compile Include="DTO_UserDisplay.cs" />
+    <Compile Include="DTO_Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -52,6 +52,7 @@
             this.accordionControlElement14 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement15 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
+            this.acc_TransactionTypes = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.fluentDesignFormContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.main)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
@@ -62,19 +63,17 @@
             // 
             this.fluentDesignFormContainer1.Controls.Add(this.main);
             this.fluentDesignFormContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fluentDesignFormContainer1.Location = new System.Drawing.Point(420, 46);
-            this.fluentDesignFormContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fluentDesignFormContainer1.Location = new System.Drawing.Point(280, 31);
             this.fluentDesignFormContainer1.Name = "fluentDesignFormContainer1";
-            this.fluentDesignFormContainer1.Size = new System.Drawing.Size(972, 644);
+            this.fluentDesignFormContainer1.Size = new System.Drawing.Size(648, 441);
             this.fluentDesignFormContainer1.TabIndex = 0;
             // 
             // main
             // 
             this.main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.main.Location = new System.Drawing.Point(0, 0);
-            this.main.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.main.Name = "main";
-            this.main.Size = new System.Drawing.Size(972, 644);
+            this.main.Size = new System.Drawing.Size(648, 441);
             this.main.TabIndex = 0;
             // 
             // accordionControl1
@@ -116,13 +115,12 @@
             this.accordionControlElement1,
             this.accordionControlElement2,
             this.accordionControlElement12});
-            this.accordionControl1.Location = new System.Drawing.Point(0, 46);
+            this.accordionControl1.Location = new System.Drawing.Point(0, 31);
             this.accordionControl1.LookAndFeel.SkinMaskColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.accordionControl1.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.accordionControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.accordionControl1.Name = "accordionControl1";
             this.accordionControl1.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
-            this.accordionControl1.Size = new System.Drawing.Size(420, 644);
+            this.accordionControl1.Size = new System.Drawing.Size(280, 441);
             this.accordionControl1.TabIndex = 1;
             this.accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
@@ -205,6 +203,7 @@
             this.accItemTypes,
             this.acc_Services,
             this.acc_ServiceTypes,
+            this.acc_TransactionTypes,
             this.accordionControlSeparator2});
             this.accordionControlElement2.Expanded = true;
             this.accordionControlElement2.Name = "accordionControlElement2";
@@ -377,23 +376,34 @@
             // 
             this.fluentDesignFormControl1.FluentDesignForm = this;
             this.fluentDesignFormControl1.Location = new System.Drawing.Point(0, 0);
-            this.fluentDesignFormControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.fluentDesignFormControl1.Name = "fluentDesignFormControl1";
-            this.fluentDesignFormControl1.Size = new System.Drawing.Size(1392, 46);
+            this.fluentDesignFormControl1.Size = new System.Drawing.Size(928, 31);
             this.fluentDesignFormControl1.TabIndex = 2;
             this.fluentDesignFormControl1.TabStop = false;
             // 
+            // acc_TransactionTypes
+            // 
+            this.acc_TransactionTypes.Appearance.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.acc_TransactionTypes.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.acc_TransactionTypes.Appearance.Normal.ForeColor = System.Drawing.Color.Black;
+            this.acc_TransactionTypes.Appearance.Normal.Options.UseBackColor = true;
+            this.acc_TransactionTypes.Appearance.Normal.Options.UseFont = true;
+            this.acc_TransactionTypes.Appearance.Normal.Options.UseForeColor = true;
+            this.acc_TransactionTypes.Name = "acc_TransactionTypes";
+            this.acc_TransactionTypes.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.acc_TransactionTypes.Text = "Transaction Types";
+            this.acc_TransactionTypes.Click += new System.EventHandler(this.acc_TransactionTypes_Click);
+            // 
             // GUI_HomePage_Admin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1392, 690);
+            this.ClientSize = new System.Drawing.Size(928, 472);
             this.ControlContainer = this.fluentDesignFormContainer1;
             this.Controls.Add(this.fluentDesignFormContainer1);
             this.Controls.Add(this.accordionControl1);
             this.Controls.Add(this.fluentDesignFormControl1);
             this.FluentDesignFormControl = this.fluentDesignFormControl1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "GUI_HomePage_Admin";
             this.NavigationControl = this.accordionControl1;
             this.Text = "HomePage";
@@ -431,5 +441,6 @@
         private DevExpress.XtraEditors.PanelControl main;
         private DevExpress.XtraBars.Navigation.AccordionControlElement acc_Services;
         private DevExpress.XtraBars.Navigation.AccordionControlElement acc_ServiceTypes;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement acc_TransactionTypes;
     }
 }

@@ -70,5 +70,10 @@ namespace DangNhap_Form
         {
             ShowUC(new UC_ServiceTypeManagement());
         }
+
+        private void acc_TransactionTypes_Click(object sender, EventArgs e)
+        {
+            ShowUC(new UC_TransactionTypesManagement());
+        }
     }
 }
