@@ -54,6 +54,7 @@
     <Compile Include="DAL_Items.cs" />
     <Compile Include="DAL_ItemPrices.cs" />
     <Compile Include="DAL_ItemType.cs" />
+    <Compile Include="DAL_LiveSearch.cs" />
     <Compile Include="DAL_Services.cs" />
     <Compile Include="DAL_ServiceType.cs" />
     <Compile Include="DAL_Transaction.cs" />

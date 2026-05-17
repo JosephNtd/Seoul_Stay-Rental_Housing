@@ -406,6 +406,43 @@ namespace DAL
                     LastError = ex.Message;
                     return false;
                 }
+
+            }
+        }
+    //    public bool ItemHasAmenities(
+    //long itemId,
+    //List<long> amenityIds)
+    //    {
+    //        using (var db = new Seoul_StayDataContext())
+    //        {
+    //            return amenityIds.All(id =>
+    //                db.ItemAmenities.Any(x =>
+    //                    x.ItemID == itemId
+    //                    && x.AmenityID == id));
+    //        }
+    //    }
+        public List<long> GetItemIdsByAmenities(
+    List<long> amenityIds)
+        {
+            using (var db = new Seoul_StayDataContext())
+            {
+                return db.ItemAmenities
+                    .Where(x =>
+                        amenityIds.Contains(x.AmenityID))
+                    .GroupBy(x => x.ItemID)
+                    .Where(g =>
+                        amenityIds.All(id =>
+                            g.Any(x =>
+                                x.AmenityID == id)))
+                    .Select(g => g.Key)
+                    .ToList();
+            }
+        }
+        public List<long> GetCurrentlyAvailableItemIds()
+        {
+            using (var db = new Seoul_StayDataContext())
+            {
+                return db.ItemAvailabilities.Where(x => x.IsAvailable).Select(x => x.ItemID).Distinct().ToList();
             }
         }
     }

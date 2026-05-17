@@ -114,43 +114,28 @@ namespace DangNhap_Form
 
             gcBankAccounts.DataSource = data;
 
-            tvBankAccounts.PopulateColumns();
-
             tvBankAccounts.RefreshData();
         }
         private void SetupBankTileView()
         {
-            gcBankAccounts.Dock = DockStyle.Fill;
-
             tvBankAccounts.OptionsTiles.RowCount = 0;
 
-            tvBankAccounts.Columns.Clear();
-
-            tvBankAccounts.Columns.AddVisible("BankName");
-            tvBankAccounts.Columns.AddVisible("MaskedAccountNumber");
-            tvBankAccounts.Columns.AddVisible("AccountHolder");
-            tvBankAccounts.Columns.AddVisible("IsPrimary");
-            tvBankAccounts.Columns.AddVisible("IsVerified");
-
-            tvBankAccounts.OptionsTiles.ItemSize =
-                new Size(380, 400);
-
-            tvBankAccounts.OptionsTiles.Padding =
-                new Padding(20);
-
-            tvBankAccounts.OptionsTiles.IndentBetweenItems = 30;
-
-            tvBankAccounts.OptionsTiles.RowCount = 0;
+            tvBankAccounts.OptionsTiles.Orientation = Orientation.Vertical;
 
             tvBankAccounts.OptionsTiles.LayoutMode =
                 DevExpress.XtraGrid.Views.Tile.TileViewLayoutMode.Default;
 
-            tvBankAccounts.OptionsTiles.ScrollMode = TileControlScrollMode.TouchScrollBar;
+            tvBankAccounts.OptionsTiles.ItemSize = new Size(185, 210);
 
-            tvBankAccounts.OptionsTiles.RowCount = 0;
+            tvBankAccounts.OptionsTiles.Padding = new Padding(12);
 
-            tvBankAccounts.OptionsTiles.Orientation =
-                Orientation.Vertical;
+            tvBankAccounts.OptionsTiles.IndentBetweenItems = 18;
+
+            tvBankAccounts.OptionsTiles.ItemPadding = new Padding(0);
+
+            tvBankAccounts.OptionsTiles.ScrollMode = TileControlScrollMode.ScrollBar;
+
+            tvBankAccounts.BorderStyle = BorderStyles.NoBorder;
         }
 
 
@@ -247,6 +232,9 @@ namespace DangNhap_Form
             }
         }
 
-        
+        private void gcBankAccounts_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -117,290 +117,240 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="tvBankAccounts.TileHtmlTemplate.Styles" xml:space="preserve">
-    <value>.bank-card{
-    width:100%;
+  <data name="tvListings.TileHtmlTemplate.Styles" xml:space="preserve">
+    <value>.listing-card{
     height:100%;
+    background-color:#ffffff;
 
-	border:1px dashed #f1e5df;
-    border-radius:14px;
+    border-radius:24px;
 
-    background-color:#fdf3ee;
-    
+    overflow:hidden;
 
-    font-family:'Segoe UI';
+    border:1px solid #f0e6df;
+
+    transition:all .25s ease;
 
     display:flex;
     flex-direction:column;
-    justify-content: center;
-    align-items: center;
+
+    font-family:'Be Vietnam Pro';
+
+    cursor:pointer;
 }
 
-/* TOP */
+.listing-card:hover{
+    transform:translateY(-6px);
 
-.top-section{
-    height:40px;
-    margin-bottom:12px;
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.08);
+
+    border-color:#ead8cb;
 }
 
-/* ICON */
+/* IMAGE */
 
-.bank-icon{
-    width:22px;
-    height:22px;
+.card-image{
+    position:relative;
 
-    line-height:22px;
-    text-align:center;
+    height:230px;
 
-    border-radius:11px;
+    overflow:hidden;
 
-    background-color:#ffffff;
-    border:1px solid #eeeeee;
-
-    font-size:10px;
-
-    display:inline-block;
-    vertical-align:middle;
+    background-color:#f8f3ef;
 }
 
-/* STATUS */
-
-.status-section{
-    display:inline-block;
-    vertical-align:middle;
-
-    margin-left:8px;
-}
-
-/* PRIMARY */
-
-.primary-badge,
-.verified-badge{
-    display:inline-block;
-
-    padding:2px 6px;
-
-    border-radius:7px;
-
-    font-size:6px;
-    font-weight:700;
-
-    color:#fff;
-}
-
-.primary-badge{
-    background-color:#7d4d4f;
-}
-
-.verified-badge{
-    background-color:#5d7f73;
-}
-
-/* FIELD */
-
-.field-block{
-    margin-top:4px;
-}
-
-/* LABEL */
-
-.field-label{
-    font-size:6px;
-    color:#b2a8a5;
-
-    margin-bottom:4px;
-}
-
-/* VALUE */
-
-.field-value{
-    font-size:8px;
-    color:#383230;
-}
-
-/* BANK NAME */
-
-.bank-name{
-    color:#b04363;
-    font-size:10px;
-    font-weight:600;
-}
-
-/* ACTIONS */
-
-.actions{
-    margin-top:8px;
-}
-
-/* EDIT BUTTON */
-
-.edit-btn{
-    width:75px;
-    height:24px;
-
-    border-radius:15px;
-
-    background-color:#f1c8cc;
-    border:1px solid #e5b8bd;
-
-    color:#5d4548;
-
-    font-size:8px;
-    font-weight:600;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-
-/* DELETE */
-
-.delete-btn{
-    width:14px;
-    height:14px;
-
-    line-height:12px;
-    text-align:center;
-
-    border-radius:7px;
-
-    background-color:#fff;
-    border:1px solid #e8dddd;
-
-    font-size:7px;
-
-    position:absolute;
-
-    top:10px;
-    right:10px;
-}
-
-/* ADD CARD */
-
-.add-card{
+.card-image img{
     width:100%;
     height:100%;
 
-    border:1px dashed #f3d6d9;
-    border-radius:14px;
+    object-fit:cover;
 
-    background-color:#fffafa;
+    display:block;
 
-    text-align:center;
-
-    font-family:'Segoe UI';
+    transition:transform .35s ease;
 }
 
-/* PLUS */
-
-.plus-icon{
-    margin-top:30px;
-    font-size:20px;
-
-    color:#b7bcc8;
+.listing-card:hover .card-image img{
+    transform:scale(1.04);
 }
 
-/* TEXT */
+/* BADGE */
 
-.add-text{
-    margin-top:4px;
-    font-size:8px;
+.badge{
+    position:absolute;
 
-    color:#9ca3af;
+    top:14px;
+    left:14px;
+
+    padding:6px 14px;
+
+    border-radius:30px;
+
+    background-color:rgba(255,255,255,0.92);
+
+    color:#6f5a59;
+
+    font-size:11px;
+    font-weight:700;
+
+}
+
+/* HEART */
+
+.favorite{
+    position:absolute;
+
+    top:14px;
+    right:14px;
+
+    width:34px;
+    height:34px;
+
+    border-radius:50%;
+
+    background-color:rgba(255,255,255,0.92);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:15px;
+
+    color:#7b5455;
+
+}
+
+/* CONTENT */
+
+.card-content{
+    padding:18px;
+
+    display:flex;
+    flex-direction:column;
+
+    flex-basis:1px;
+}
+
+/* TITLE */
+
+.title{
+    font-size:17px;
+
+    font-weight:700;
+
+    color:#1f1b17;
+
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+/* ADDRESS */
+
+.address{
+    margin-top:8px;
+
+    font-size:12px;
+
+    color:#8a8178;
+
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+/* FEATURES */
+
+.features{
+    margin-top:14px;
+
+    display:flex;
+    margin: 14px;
+
+    flex-wrap:wrap;
+}
+
+.feature{
+    font-size:11px;
+    font-weight:600;
+
+    color:#5f5955;
+
+    background-color:#f8f3ef;
+
+    border-radius:18px;
+
+    padding:6px 10px;
+}
+
+/* PRICE */
+
+.price{
+    margin-top:auto;
+
+    padding-top:18px;
+
+    font-size:18px;
+    font-weight:800;
+
+    color:#7b5455;
+}
+
+.price span{
+    font-size:12px;
+    font-weight:500;
+
+    color:#8f8780;
 }</value>
   </data>
-  <data name="tvBankAccounts.TileHtmlTemplate.Template" xml:space="preserve">
-    <value>&lt;div class="bank-card"
-     style="display:${NormalCardDisplay}"&gt;
+  <data name="tvListings.TileHtmlTemplate.Template" xml:space="preserve">
+    <value>&lt;div class="listing-card"&gt;
 
-    &lt;!-- TOP --&gt;
+    &lt;div class="card-image"&gt;
 
-    &lt;div class="top-section" &gt;
-	
-        &lt;div class="bank-icon"&gt;
-            💳
+        &lt;img src="${ImageDisplay}" /&gt;
+
+        &lt;div class="badge"&gt;
+            ${Status}
         &lt;/div&gt;
-		&lt;div class="delete-btn" id="deleteBtn"&gt;
-		    ✕
-		&lt;/div&gt;
-        &lt;div class="status-section"&gt;
 
-            &lt;div class="primary-badge"
-			     style="display:${PrimaryVisible}"&gt;
-			    PRIMARY
-			&lt;/div&gt;
-
-			&lt;div class="verified-badge"
-			     style="display:${VerifiedVisible}"&gt;
-			    VERIFIED
-			&lt;/div&gt;
-
+        &lt;div class="favorite"&gt;
+            ♡
         &lt;/div&gt;
 
     &lt;/div&gt;
 
-    &lt;!-- BANK NAME --&gt;
+    &lt;div class="card-content"&gt;
 
-    &lt;div class="field-block"&gt;
-
-        &lt;div class="field-label"&gt;
-            BANK NAME
+        &lt;div class="title"&gt;
+            ${Title}
         &lt;/div&gt;
 
-        &lt;div class="field-value bank-name"&gt;
-            ${BankName}
+        &lt;div class="address"&gt;
+            ${ApproximateAddress}
         &lt;/div&gt;
 
-    &lt;/div&gt;
+        &lt;div class="features"&gt;
 
-    &lt;!-- ACCOUNT NUMBER --&gt;
+            &lt;div class="feature"&gt;
+                ${NumberOfBeds} Beds
+            &lt;/div&gt;
 
-    &lt;div class="field-block"&gt;
+            &lt;div class="feature"&gt;
+                ${NumberOfBathrooms} Baths
+            &lt;/div&gt;
 
-        &lt;div class="field-label"&gt;
-            ACCOUNT NUMBER
+            &lt;div class="feature"&gt;
+                ${Capacity} Guests
+            &lt;/div&gt;
+
         &lt;/div&gt;
 
-        &lt;div class="field-value"&gt;
-            ${MaskedAccountNumber}
+        &lt;div class="price"&gt;
+            $${MinPrice}
+            &lt;span&gt;/ night&lt;/span&gt;
         &lt;/div&gt;
 
-    &lt;/div&gt;
-
-    &lt;!-- ACCOUNT HOLDER --&gt;
-
-    &lt;div class="field-block"&gt;
-
-        &lt;div class="field-label"&gt;
-            ACCOUNT HOLDER
-        &lt;/div&gt;
-
-        &lt;div class="field-value"&gt;
-            ${AccountHolder}
-        &lt;/div&gt;
-
-    &lt;/div&gt;
-	&lt;div class="actions"&gt;
-
-        &lt;div class="edit-btn" id="editBtn"&gt;
-            Edit Details
-        &lt;/div&gt;
-
-       &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;!-- ADD CARD --&gt;
-
-&lt;div class="add-card"
-     id="addBtn"
-     style="display:${AddCardDisplay}"&gt;
-
-    &lt;div class="plus-icon"&gt;
-        +
-    &lt;/div&gt;
-
-    &lt;div class="add-text"&gt;
-        Link International Account
     &lt;/div&gt;
 
 &lt;/div&gt;</value>

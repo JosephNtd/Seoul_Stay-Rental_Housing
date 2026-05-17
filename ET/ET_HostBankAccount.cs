@@ -28,7 +28,7 @@ namespace ET
             IsAddCard ? "none" : "block";
 
         public string AddCardDisplay =>
-            IsAddCard ? "block" : "none";
+            IsAddCard ? "flex" : "none";
         public string MaskedAccountNumber
         {
             get

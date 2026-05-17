@@ -38,24 +38,21 @@
             this.accordionControlSeparator2 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
             this.contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.accordionControlElement2 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.main.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             this.SuspendLayout();
             // 
             // main
             // 
-            this.main.Controls.Add(this.labelControl1);
             this.main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.main.Location = new System.Drawing.Point(260, 31);
             this.main.Name = "main";
-            this.main.Size = new System.Drawing.Size(540, 419);
+            this.main.Size = new System.Drawing.Size(733, 506);
             this.main.TabIndex = 0;
             // 
             // accordionControl1
             // 
-            this.accordionControl1.Appearance.AccordionControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(114)))), ((int)(((byte)(161)))));
+            this.accordionControl1.Appearance.AccordionControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.accordionControl1.Appearance.AccordionControl.BorderColor = System.Drawing.Color.White;
             this.accordionControl1.Appearance.AccordionControl.Options.UseBackColor = true;
             this.accordionControl1.Appearance.AccordionControl.Options.UseBorderColor = true;
@@ -64,11 +61,13 @@
             this.acc_MyProfile,
             this.accordionControlSeparator1});
             this.accordionControl1.Location = new System.Drawing.Point(0, 31);
+            this.accordionControl1.LookAndFeel.SkinMaskColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.accordionControl1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.accordionControl1.Name = "accordionControl1";
             this.accordionControl1.RootDisplayMode = DevExpress.XtraBars.Navigation.AccordionControlRootDisplayMode.Footer;
             this.accordionControl1.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
             this.accordionControl1.ShowFilterControl = DevExpress.XtraBars.Navigation.ShowFilterControl.Always;
-            this.accordionControl1.Size = new System.Drawing.Size(260, 419);
+            this.accordionControl1.Size = new System.Drawing.Size(260, 506);
             this.accordionControl1.TabIndex = 1;
             this.accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
@@ -103,7 +102,7 @@
             this.fluentDesignFormControl1.FluentDesignForm = this;
             this.fluentDesignFormControl1.Location = new System.Drawing.Point(0, 0);
             this.fluentDesignFormControl1.Name = "fluentDesignFormControl1";
-            this.fluentDesignFormControl1.Size = new System.Drawing.Size(800, 31);
+            this.fluentDesignFormControl1.Size = new System.Drawing.Size(993, 31);
             this.fluentDesignFormControl1.TabIndex = 2;
             this.fluentDesignFormControl1.TabStop = false;
             // 
@@ -122,19 +121,11 @@
             this.accordionControlElement2.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement2.Text = "Element2";
             // 
-            // labelControl1
-            // 
-            this.labelControl1.Location = new System.Drawing.Point(220, 167);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(86, 13);
-            this.labelControl1.TabIndex = 0;
-            this.labelControl1.Text = "Đây là Dashboard";
-            // 
             // GUI_HomePage_User
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(993, 537);
             this.ControlContainer = this.main;
             this.Controls.Add(this.main);
             this.Controls.Add(this.accordionControl1);
@@ -144,8 +135,6 @@
             this.NavigationControl = this.accordionControl1;
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.main.ResumeLayout(false);
-            this.main.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).EndInit();
             this.ResumeLayout(false);
@@ -163,6 +152,5 @@
         private DevExpress.XtraBars.Navigation.AccordionControlSeparator accordionControlSeparator2;
         private System.Windows.Forms.ContextMenuStrip contextMenu;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement2;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
     }
 }

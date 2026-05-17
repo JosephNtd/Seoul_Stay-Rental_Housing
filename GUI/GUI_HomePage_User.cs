@@ -22,6 +22,7 @@ namespace DangNhap_Form
             InitializeComponent();
             _currentUser = currentUser;
             SetupAccountMenu();
+            ShowUC(new UC_LiveSearch());
         }
         private void SetupAccountMenu()
         {

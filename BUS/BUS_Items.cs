@@ -75,5 +75,19 @@ namespace BUS
         {
             return _dal_items.Delete(id);
         }
+        //public bool ItemHasAmenities(long itemId, List<long> amenityIds)
+        //{
+        //    return _dal_items.ItemHasAmenities(
+        //        itemId,
+        //        amenityIds);
+        //}
+        public List<long> GetItemIdsByAmenities(
+    List<long> amenityIds)
+        {
+            return _dal_items
+                .GetItemIdsByAmenities(
+                    amenityIds);
+        }
+        public List<long> GetCurrentlyAvailableItemIds() => _dal_items.GetCurrentlyAvailableItemIds();
     }
 }

@@ -106,6 +106,9 @@
             // 
             // pnlHeader
             // 
+            this.pnlHeader.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(242)))), ((int)(((byte)(235)))));
+            this.pnlHeader.Appearance.Options.UseBackColor = true;
+            this.pnlHeader.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.pnlHeader.Controls.Add(this.btnViewListing);
             this.pnlHeader.Controls.Add(this.btnSave);
             this.pnlHeader.Controls.Add(this.separatorControl1);
@@ -225,6 +228,9 @@
             // 
             // pnlPersonal
             // 
+            this.pnlPersonal.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(242)))), ((int)(((byte)(235)))));
+            this.pnlPersonal.Appearance.Options.UseBackColor = true;
+            this.pnlPersonal.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.pnlPersonal.Controls.Add(this.deBirthday);
             this.pnlPersonal.Controls.Add(this.cbGender);
             this.pnlPersonal.Controls.Add(this.lblPersonalTitle);
@@ -280,7 +286,7 @@
             // 
             this.lblPersonalTitle.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPersonalTitle.Appearance.Options.UseFont = true;
-            this.lblPersonalTitle.Location = new System.Drawing.Point(42, 28);
+            this.lblPersonalTitle.Location = new System.Drawing.Point(40, 26);
             this.lblPersonalTitle.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lblPersonalTitle.Name = "lblPersonalTitle";
             this.lblPersonalTitle.Size = new System.Drawing.Size(123, 18);
@@ -321,7 +327,7 @@
             // 
             this.labelControl6.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl6.Appearance.Options.UseFont = true;
-            this.labelControl6.Location = new System.Drawing.Point(508, 72);
+            this.labelControl6.Location = new System.Drawing.Point(506, 70);
             this.labelControl6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(47, 18);
@@ -342,7 +348,7 @@
             // 
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl4.Appearance.Options.UseFont = true;
-            this.labelControl4.Location = new System.Drawing.Point(48, 152);
+            this.labelControl4.Location = new System.Drawing.Point(46, 150);
             this.labelControl4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(97, 18);
@@ -353,7 +359,7 @@
             // 
             this.labelControl7.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl7.Appearance.Options.UseFont = true;
-            this.labelControl7.Location = new System.Drawing.Point(48, 227);
+            this.labelControl7.Location = new System.Drawing.Point(46, 225);
             this.labelControl7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(51, 18);
@@ -364,7 +370,7 @@
             // 
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl5.Appearance.Options.UseFont = true;
-            this.labelControl5.Location = new System.Drawing.Point(508, 152);
+            this.labelControl5.Location = new System.Drawing.Point(506, 150);
             this.labelControl5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(53, 18);
@@ -385,7 +391,7 @@
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl3.Appearance.Options.UseFont = true;
-            this.labelControl3.Location = new System.Drawing.Point(280, 152);
+            this.labelControl3.Location = new System.Drawing.Point(278, 150);
             this.labelControl3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(70, 18);
@@ -396,7 +402,7 @@
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(48, 72);
+            this.labelControl1.Location = new System.Drawing.Point(46, 70);
             this.labelControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(64, 18);
@@ -407,7 +413,7 @@
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(280, 72);
+            this.labelControl2.Location = new System.Drawing.Point(278, 70);
             this.labelControl2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(90, 18);
@@ -416,6 +422,9 @@
             // 
             // pnlIdentity
             // 
+            this.pnlIdentity.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(242)))), ((int)(((byte)(235)))));
+            this.pnlIdentity.Appearance.Options.UseBackColor = true;
+            this.pnlIdentity.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.pnlIdentity.Controls.Add(this.separatorControl2);
             this.pnlIdentity.Controls.Add(this.txtTaxCode);
             this.pnlIdentity.Controls.Add(this.txtBusinessLicense);
@@ -548,6 +557,7 @@
             this.gcBankAccounts.TabIndex = 0;
             this.gcBankAccounts.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.tvBankAccounts});
+            this.gcBankAccounts.Click += new System.EventHandler(this.gcBankAccounts_Click);
             // 
             // tvBankAccounts
             // 
@@ -559,6 +569,9 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(242)))), ((int)(((byte)(235)))));
+            this.panelControl1.Appearance.Options.UseBackColor = true;
+            this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl1.Controls.Add(this.lblBankTitle);
             this.panelControl1.Controls.Add(this.btnAddAccount);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;

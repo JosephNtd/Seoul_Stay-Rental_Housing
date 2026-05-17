@@ -49,7 +49,10 @@
     <Compile Include="DTO_Attraction_Distance.cs" />
     <Compile Include="DTO_ItemCard.cs" />
     <Compile Include="DTO_ItemsView.cs" />
+    <Compile Include="DTO_ItemSearch.cs" />
     <Compile Include="DTO_RecentStay.cs" />
+    <Compile Include="DTO_SearchFilter.cs" />
+    <Compile Include="DTO_SuggestionItem.cs" />
     <Compile Include="DTO_UserDisplay.cs" />
     <Compile Include="DTO_Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
